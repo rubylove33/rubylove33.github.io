@@ -29,7 +29,7 @@
     <main>
         <section class="hero">
             <div class="hero-content">
-                <h1>Consistency, <span class="gradient-text">made visible.</span></h1>
+                <h1><span class="gradient-text">Consistency</span>, made visible.</h1>
                 <p>Walk Habit is not about pushing harder. It’s about showing up — and keeping a record, whether you
                     move or rest. Because real progress begins one small record at a time.</p>
                 <div class="cta-buttons">
@@ -65,26 +65,44 @@
 
         <section id="features" class="features">
             <h2>Everything you need for <span class="gradient-text">your journey.</span></h2>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <div class="icon">📝</div>
-                    <h3>Record-first Tracking</h3>
-                    <p>Track with a timer, add records manually, or log rest days without guilt.</p>
+
+            <div class="features-layout">
+                <div class="feature-list">
+                    <div class="feature-item active" data-feature="track">
+                        <div class="icon">📝</div>
+                        <h3>Record-first Tracking</h3>
+                        <p>Track with a timer, add records manually, or log rest days without guilt. Because consistency
+                            is built one record at a time.</p>
+                    </div>
+                    <div class="feature-item" data-feature="goal">
+                        <div class="icon">📅</div>
+                        <h3>Flexible Weekly Goals</h3>
+                        <p>Set different goals by day and adjust them freely based on how you feel. Your habits should
+                            adapt to your life.</p>
+                    </div>
+                    <div class="feature-item" data-feature="stats">
+                        <div class="icon">📊</div>
+                        <h3>Meaningful Stats</h3>
+                        <p>Focus on streaks based on recording, not exercise intensity. See progress by week or month
+                            and celebrate consistency.</p>
+                    </div>
+                    <div class="feature-item" data-feature="archive">
+                        <div class="icon">🖼</div>
+                        <h3>Personal Record Archive</h3>
+                        <p>Save photos of your journey and look back at your progress anytime. Watch yourself grow over
+                            time.</p>
+                    </div>
                 </div>
-                <div class="feature-item">
-                    <div class="icon">📅</div>
-                    <h3>Flexible Weekly Goals</h3>
-                    <p>Set goals by day and adjust them freely based on how you feel.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">📊</div>
-                    <h3>Meaningful Stats</h3>
-                    <p>Focus on streaks based on recording, not exercise intensity. See progress by week or month.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">🖼</div>
-                    <h3>Personal Record Archive</h3>
-                    <p>Save photos of your journey and look back at your progress anytime.</p>
+
+                <div class="feature-mockup-wrapper">
+                    <div class="feature-mockup-container" id="feature-mockup">
+                        <img src="assets/feature-track.png" alt="Tracking Feature" class="mockup-screen active"
+                            id="screen-track">
+                        <img src="assets/feature-goal.png" alt="Goals Feature" class="mockup-screen" id="screen-goal">
+                        <img src="assets/feature-stats.png" alt="Stats Feature" class="mockup-screen" id="screen-stats">
+                        <img src="assets/feature-archive.png" alt="Archive Feature" class="mockup-screen"
+                            id="screen-archive">
+                    </div>
                 </div>
             </div>
         </section>
@@ -128,6 +146,39 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const featureItems = document.querySelectorAll('.feature-item');
+            const mockupScreens = document.querySelectorAll('.mockup-screen');
+            const mockupContainer = document.getElementById('feature-mockup');
+
+            featureItems.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    // Remove active class from all items and screens
+                    featureItems.forEach(fi => fi.classList.remove('active'));
+                    mockupScreens.forEach(ms => ms.classList.remove('active'));
+
+                    // Add active class to current item
+                    item.classList.add('active');
+
+                    // Add active class to corresponding screen
+                    const targetFeatureId = item.getAttribute('data-feature');
+                    const targetScreen = document.getElementById('screen-' + targetFeatureId);
+
+                    if (targetScreen) {
+                        targetScreen.classList.add('active');
+
+                        // Trigger shine animation
+                        mockupContainer.classList.remove('animating-shine');
+                        // Force reflow to restart animation
+                        void mockupContainer.offsetWidth;
+                        mockupContainer.classList.add('animating-shine');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

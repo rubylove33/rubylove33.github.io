@@ -29,7 +29,7 @@
     <main>
         <section class="hero">
             <div class="hero-content">
-                <h1>꾸준함을 <span class="gradient-text">눈으로 확인하세요.</span></h1>
+                <h1><span class="gradient-text">꾸준함을</span> 눈으로 확인하세요.</h1>
                 <p>Walk Habit은 무조건 열심히 하는 앱이 아닙니다. 매일의 움직임과 휴식을 '기록'하는 것에 집중하여, 작은 습관이 쌓여가는 즐거움을 선사합니다.</p>
                 <div class="cta-buttons">
                     <a href="https://apps.apple.com" class="btn-primary">시작하기</a>
@@ -62,26 +62,38 @@
 
         <section id="features" class="features">
             <h2>당신의 습관을 위한 <span class="gradient-text">모든 것.</span></h2>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <div class="icon">📝</div>
-                    <h3>기록 중심의 트래킹</h3>
-                    <p>타이머 기능을 사용하거나 직접 기록을 추가하세요. 죄책감 없이 휴식일도 기록할 수 있습니다.</p>
+
+            <div class="features-layout">
+                <div class="feature-list">
+                    <div class="feature-item active" data-feature="track">
+                        <div class="icon">📝</div>
+                        <h3>기록 중심의 트래킹</h3>
+                        <p>타이머 기능을 사용하거나 직접 기록을 추가하세요. 죄책감 없이 휴식일도 기록할 수 있습니다. 작은 기록 하나하나가 모여 꾸준함이 됩니다.</p>
+                    </div>
+                    <div class="feature-item" data-feature="goal">
+                        <div class="icon">📅</div>
+                        <h3>유연한 주간 목표</h3>
+                        <p>요일별로 목표를 설정하고, 컨디션에 따라 자유롭게 조정하세요. 당신의 삶에 맞춰 유연하게 변화하는 습관을 만들어보세요.</p>
+                    </div>
+                    <div class="feature-item" data-feature="stats">
+                        <div class="icon">📊</div>
+                        <h3>의미 있는 통계</h3>
+                        <p>운동 강도보다는 '기록 횟수'에 집중한 스트릭을 통해 성취감을 느껴보세요. 주간 및 월간 진행 상황을 한눈에 확인할 수 있습니다.</p>
+                    </div>
+                    <div class="feature-item" data-feature="archive">
+                        <div class="icon">🖼</div>
+                        <h3>나만의 기록 아카이브</h3>
+                        <p>운동 인증 사진을 저장하고 언제든 지난 성장의 기록을 돌아보세요. 시간이 지날수록 쌓여가는 당신의 노력을 확인하세요.</p>
+                    </div>
                 </div>
-                <div class="feature-item">
-                    <div class="icon">📅</div>
-                    <h3>유연한 주간 목표</h3>
-                    <p>요일별로 목표를 설정하고, 컨디션에 따라 자유롭게 조정하세요.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">📊</div>
-                    <h3>의미 있는 통계</h3>
-                    <p>운동 강도보다는 '기록 횟수'에 집중한 스트릭을 통해 성취감을 느껴보세요.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">🖼</div>
-                    <h3>나만의 기록 아카이브</h3>
-                    <p>운동 인증 사진을 저장하고 언제든 지난 성장의 기록을 돌아보세요.</p>
+
+                <div class="feature-mockup-wrapper">
+                    <div class="feature-mockup-container" id="feature-mockup">
+                        <img src="assets/feature-track.png" alt="트래킹 기능" class="mockup-screen active" id="screen-track">
+                        <img src="assets/feature-goal.png" alt="목표 기능" class="mockup-screen" id="screen-goal">
+                        <img src="assets/feature-stats.png" alt="통계 기능" class="mockup-screen" id="screen-stats">
+                        <img src="assets/feature-archive.png" alt="아카이브 기능" class="mockup-screen" id="screen-archive">
+                    </div>
                 </div>
             </div>
         </section>
@@ -125,6 +137,39 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const featureItems = document.querySelectorAll('.feature-item');
+            const mockupScreens = document.querySelectorAll('.mockup-screen');
+            const mockupContainer = document.getElementById('feature-mockup');
+
+            featureItems.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    // Remove active class from all items and screens
+                    featureItems.forEach(fi => fi.classList.remove('active'));
+                    mockupScreens.forEach(ms => ms.classList.remove('active'));
+
+                    // Add active class to current item
+                    item.classList.add('active');
+
+                    // Add active class to corresponding screen
+                    const targetFeatureId = item.getAttribute('data-feature');
+                    const targetScreen = document.getElementById('screen-' + targetFeatureId);
+
+                    if (targetScreen) {
+                        targetScreen.classList.add('active');
+
+                        // Trigger shine animation
+                        mockupContainer.classList.remove('animating-shine');
+                        // Force reflow to restart animation
+                        void mockupContainer.offsetWidth;
+                        mockupContainer.classList.add('animating-shine');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

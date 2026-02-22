@@ -275,20 +275,31 @@ nav {
     margin-bottom: 1rem;
 }
 
-/* Features */
+/* Features Container for Interactive Mockup */
 .features {
     padding: 10rem 10%;
-    text-align: center;
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .features h2 {
     font-size: 3rem;
     margin-bottom: 5rem;
+    text-align: center;
 }
 
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+.features-layout {
+    display: flex;
+    gap: 6rem;
+    align-items: flex-start;
+}
+
+/* Scrollable Cards Container */
+.feature-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     gap: 2.5rem;
 }
 
@@ -297,27 +308,165 @@ nav {
     padding: 3rem;
     border-radius: 24px;
     border: 1px solid var(--glass-border);
-    transition: 0.3s;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     text-align: left;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
+/* Default state (inactive cards) */
+.feature-item {
+    opacity: 0.6;
+    transform: scale(0.98);
+}
+
+/* Active/Hover state */
+.feature-item.active,
 .feature-item:hover {
+    opacity: 1;
+    transform: scale(1) translateX(10px);
     border-color: var(--primary);
-    transform: translateY(-10px);
+    background: rgba(99, 102, 241, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Glow effect for active card */
+.feature-item.active::before,
+.feature-item:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary);
+    border-radius: 4px 0 0 4px;
 }
 
 .feature-item .icon {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
+    transition: transform 0.3s;
+}
+
+.feature-item.active .icon,
+.feature-item:hover .icon {
+    transform: scale(1.1);
 }
 
 .feature-item h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    transition: color 0.3s;
+}
+
+.feature-item.active h3,
+.feature-item:hover h3 {
+    color: #fff;
 }
 
 .feature-item p {
     color: var(--text-dim);
+    line-height: 1.7;
+}
+
+/* Sticky Mockup Display */
+.feature-mockup-wrapper {
+    flex: 1;
+    position: sticky;
+    top: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.feature-mockup-container {
+    position: relative;
+    width: 320px;
+    height: 650px;
+    background: #000;
+    border-radius: 40px;
+    padding: 10px;
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6);
+    border: 3px solid rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+    transition: transform 0.5s ease;
+}
+
+/* The images inside the mockup */
+.mockup-screen {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    object-fit: cover;
+    border-radius: 30px;
+    opacity: 0;
+    transform: scale(1.05); /* Slight zoom for transition */
+    transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+}
+
+.mockup-screen.active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 2;
+}
+
+/* Shine overlay effect */
+.feature-mockup-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-20deg);
+    z-index: 10;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.feature-mockup-container.animating-shine::after {
+    animation: shine-sweep 1s ease forwards;
+}
+
+@keyframes shine-sweep {
+    100% {
+        left: 200%;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    .features-layout {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .feature-mockup-wrapper {
+        position: relative;
+        top: 0;
+        height: auto;
+        margin-bottom: 2rem;
+    }
+
+    .feature-item {
+        opacity: 1; /* Always fully visible on mobile */
+        transform: scale(1);
+    }
+    
+    .feature-item.active,
+    .feature-item:hover {
+        transform: scale(1.02) translateY(-5px);
+    }
 }
 
 /* Premium Section */
