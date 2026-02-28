@@ -100,13 +100,14 @@
                         information.</li>
                 </ul>
             </li>
-            <li><strong>3. App Tracking Transparency (iOS)</strong>
+            <li><strong>3. Advertising Identifier and Consent (iOS and Android)</strong>
                 <ul>
-                    <li><strong>Purpose:</strong> Providing personalized advertisements via the Advertising Identifier
-                        (IDFA) and measuring ad effectiveness.</li>
-                    <li><strong>Processing:</strong> For iOS users, the App requests tracking permission upon the first
-                        launch. The identifier is used only if permission is granted. If denied, the App remains
-                        functional, but non-personalized (generic) ads may be displayed.</li>
+                    <li><strong>Purpose:</strong> Providing personalized advertisements and measuring ad effectiveness.</li>
+                    <li><strong>Processing:</strong></li>
+                    <li>On iOS, the App may request App Tracking Transparency (ATT) permission to access IDFA.</li>
+                    <li>On Android, advertising may use the Google Advertising ID (AAID) and related ad signals.</li>
+                    <li>If users do not grant permission (or opt out), the App remains fully functional and may show
+                        non-personalized ads.</li>
                 </ul>
             </li>
         </ul>
@@ -145,26 +146,12 @@
         <ul>
             <li><strong>GDPR (EU Users)</strong>: You have the right to access, rectify, erase, and restrict the
                 processing of your data. Since this App stores data locally, uninstalling the App will immediately erase
-                all data. We use Google AdMob and its partners to deliver personalized ads. Consent is obtained through
-                a Consent Management Platform (CMP) compliant with the IAB Transparency and Consent Framework (TCF). You
-                may withdraw or manage your ad consent at any time via:
-                <ul>
-                    <li>In-app: Settings → "Ad Personalization Consent"</li>
-                    <li>Device settings: Limit Ad Tracking (iOS) or Ads settings (Android)</li>
-                </ul>
-            </li>
-            <li><strong>CCPA/CPRA (Residents of certain US states)</strong>: Residents of certain US states where
-                applicable privacy laws apply (including California) may have the right to opt out of the "sale" or
-                "sharing" of their personal information ("Do Not Sell or Share My Personal Information"). We do not sell
-                your personal information for monetary consideration. However, we may "share" certain identifiers with
-                third-party advertising partners for personalized advertising, where permitted by law. You may opt out
-                of such sharing for targeted advertising at any time via:
-                <ul>
-                    <li>In-app: Settings → "Ad Personalization Consent"</li>
-                    <li>iOS: Settings → Privacy → Tracking</li>
-                    <li>Android: Settings → Google → Ads</li>
-                </ul>
-            </li>
+                all data. You may opt-out of ad tracking via your device settings ('Limit Ad Tracking' or 'App Tracking
+                Transparency').</li>
+            <li><strong>CCPA/CPRA (California Users)</strong>: California residents have the right to opt-out of the
+                sale or sharing of their personal information ("Do Not Sell or Share My Personal Information"). We do
+                not sell your personal information. However, tailored ads may be served by our advertising partners. You
+                may limit this via your device settings.</li>
         </ul>
 
         <h2>6. Third-Party Disclosure and Sharing</h2>
