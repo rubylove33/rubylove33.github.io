@@ -35,7 +35,8 @@
             margin-bottom: 1rem;
         }
 
-        .policy-content ul {
+        .policy-content ul,
+        .policy-content ol {
             padding-left: 1.5rem;
             margin-bottom: 1.5rem;
         }
@@ -70,104 +71,84 @@
 
     <main class="policy-content">
         <h1>Privacy Policy</h1>
-        <p><strong>Walk Habit</strong> (hereinafter referred to as "App") values your privacy and complies with
-            applicable laws and regulations. This Privacy Policy explains how the App collects, uses, and stores your
-            personal information.</p>
+        <p><strong>Walk Habit</strong> (hereinafter referred to as "App") values your privacy and complies with applicable laws and regulations. This Privacy Policy explains how the App collects, uses, and stores your personal information.</p>
 
         <h2>1. Privacy Principles</h2>
-        <p>The App can be used <strong>without a separate sign-up process</strong>, and it uses minimal device
-            permissions solely for providing services. As a rule, the developer does not transmit or collect personal
-            identifiable information (name, email, phone number, etc.) to any external server.</p>
+        <p>The App can be used <strong>without a separate sign-up process</strong>, and it uses minimal device permissions solely for providing services. As a rule, the developer does not transmit or collect personal identifiable information (name, email, phone number, etc.) to any external server.</p>
 
         <h2>2. Information We Collect and Purpose of Use</h2>
         <p>The permissions requested by the App and their purposes are as follows:</p>
-        <ul>
-            <li><strong>1. Camera & Photo Library Permissions</strong>
+        <ol>
+            <li>
+                <strong>Camera &amp; Photo Library Permissions</strong>
                 <ul>
-                    <li><strong>Purpose:</strong> Taking workout verification photos, <strong>checking for faces
-                            (privacy warning)</strong>, storing body check records, and applying templates.</li>
-                    <li><strong>Processing:</strong> Captured or selected images are stored locally on your device. Only
-                        if the user explicitly taps the 'Save' button, images may be copied to the system photo gallery
-                        (album). <strong>Face detection is performed entirely on-device, and no face data is collected
-                            or transmitted.</strong></li>
+                    <li><strong>Purpose:</strong> Taking workout verification photos, <strong>checking for faces (privacy warning)</strong>, storing body check records, applying templates, and generating GIFs.</li>
+                    <li><strong>Processing:</strong> Captured/selected images and generated GIFs are processed locally on your device by default. Only if the user explicitly chooses to save, files may be copied to the system photo gallery (album). <strong>Face detection is performed entirely on-device, and no face data is collected or transmitted.</strong></li>
                 </ul>
             </li>
-            <li><strong>2. Payment Information (In-App Purchase)</strong>
+            <li>
+                <strong>Payment Information (In-App Purchase)</strong>
                 <ul>
                     <li><strong>Purpose:</strong> Purchasing and restoring Premium Membership.</li>
-                    <li><strong>Processing:</strong> All payments are processed through the Apple App Store or Google
-                        Play Store. The App does not directly collect or hold your credit card number or account
-                        information.</li>
+                    <li><strong>Processing:</strong> All payments are processed through the Apple App Store or Google Play Store. The App does not directly collect or hold your credit card number or account information.</li>
                 </ul>
             </li>
-            <li><strong>3. Advertising Identifier and Consent (iOS and Android)</strong>
+            <li>
+                <strong>Advertising Identifier and Consent (iOS and Android)</strong>
                 <ul>
                     <li><strong>Purpose:</strong> Providing personalized advertisements and measuring ad effectiveness.</li>
                     <li><strong>Processing:</strong></li>
                     <li>On iOS, the App may request App Tracking Transparency (ATT) permission to access IDFA.</li>
                     <li>On Android, advertising may use the Google Advertising ID (AAID) and related ad signals.</li>
-                    <li>If users do not grant permission (or opt out), the App remains fully functional and may show
-                        non-personalized ads.</li>
+                    <li>If users do not grant permission (or opt out), the App remains fully functional and may show non-personalized ads.</li>
                 </ul>
             </li>
-        </ul>
+        </ol>
 
         <h2>3. Retention and Destruction of Data</h2>
-        <ul>
-            <li>1. All data in the App (workout records, photos, settings, etc.) is <strong>stored only on your
-                    device</strong>.</li>
-            <li>2. If a user uses Biometric authentication (Face ID/Fingerprint) to lock the 'Body Check Gallery', the
-                App only receives a success/fail signal from the OS and never accesses or stores the biometric data
-                itself.</li>
-            <li>3. If a user uses the "Clear Data" feature or deletes the App, the data stored on the device is
-                immediately deleted and cannot be recovered.</li>
-            <li>4. The developer does not store user data on servers and is not responsible for recovering lost data.
-            </li>
-        </ul>
+        <ol>
+            <li>All data in the App (workout records, photos, settings, etc.) is <strong>stored only on your device</strong>.</li>
+            <li>If a user uses Biometric authentication (Face ID/Fingerprint) to lock the 'Body Check Gallery', the App only receives a success/fail signal from the OS and never accesses or stores the biometric data itself.</li>
+            <li>If a user uses the "Clear Data" feature or deletes the App, the data stored on the device is immediately deleted and cannot be recovered.</li>
+            <li>The developer does not store user data on servers and is not responsible for recovering lost data.</li>
+        </ol>
 
         <h2>4. Third-Party Service Providers</h2>
-        <p>We use the following third-party services (SDKs) to display advertisements and analyze app stability. During
-            this process, the following information may be collected and transmitted in accordance with each service
-            provider's policies.</p>
+        <p>We use the following third-party services (SDKs) to display ads and manage ad-privacy consent. During this process, the following information may be collected and transmitted in accordance with each provider's policy.</p>
         <ul>
-            <li><strong>Collected Data:</strong> Device Identifiers (Device ID, Advertising ID), Product Interaction,
-                Advertising Data, Crash & Performance Data.</li>
-            <li><strong>Purpose of Use:</strong> Third-Party Advertising, Analytics, App Functionality.</li>
+            <li><strong>Collected Data:</strong> Advertising ID, device information, and ad interaction data.</li>
+            <li><strong>Purpose of Use:</strong> Personalized/non-personalized ad delivery, ad performance measurement, and ad-privacy consent management.</li>
         </ul>
+        <p>The App currently does not operate a separate crash-reporting or user-behavior analytics SDK.</p>
         <p>The collected data is processed according to the privacy policy of each service provider.</p>
         <ul>
-            <li><strong>Google AdMob (Advertising):</strong> <a href="https://policies.google.com/privacy">Google
-                    Privacy Policy</a></li>
-            <li><strong>Firebase Crashlytics (Crash Reporting):</strong> <a
-                    href="https://firebase.google.com/support/privacy">Firebase Privacy Policy</a></li>
+            <li><strong>Google AdMob (Advertising):</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
         </ul>
 
-        <h2>5. Privacy Rights (GDPR & CCPA/CPRA)</h2>
+        <h2>5. Privacy Rights (GDPR &amp; CCPA/CPRA)</h2>
+        <p><strong>GDPR (EU Users):</strong> You have the right to access, rectify, erase, and restrict the processing of your data. Since this App stores data locally, uninstalling the App will immediately erase all data. We use Google AdMob and its partners to deliver personalized ads. Consent is obtained through a Consent Management Platform (CMP) compliant with the IAB Transparency and Consent Framework (TCF). You may withdraw or manage your ad consent at any time via:</p>
         <ul>
-            <li><strong>GDPR (EU Users)</strong>: You have the right to access, rectify, erase, and restrict the
-                processing of your data. Since this App stores data locally, uninstalling the App will immediately erase
-                all data. You may opt-out of ad tracking via your device settings ('Limit Ad Tracking' or 'App Tracking
-                Transparency').</li>
-            <li><strong>CCPA/CPRA (California Users)</strong>: California residents have the right to opt-out of the
-                sale or sharing of their personal information ("Do Not Sell or Share My Personal Information"). We do
-                not sell your personal information. However, tailored ads may be served by our advertising partners. You
-                may limit this via your device settings.</li>
+            <li>In-app: Settings -> "Ad Personalization Consent"</li>
+            <li>Device settings: Limit Ad Tracking (iOS) or Ads settings (Android)</li>
+        </ul>
+        <p><strong>CCPA/CPRA (Residents of certain US states):</strong> Residents of certain US states where applicable privacy laws apply (including California) may have the right to opt out of the "sale" or "sharing" of their personal information ("Do Not Sell or Share My Personal Information"). We do not sell your personal information for monetary consideration. However, we may "share" certain identifiers with third-party advertising partners for personalized advertising, where permitted by law. You may opt out of such sharing for targeted advertising at any time via:</p>
+        <ul>
+            <li>In-app: Settings -> "Ad Personalization Consent"</li>
+            <li>iOS: Settings -> Privacy -> Tracking</li>
+            <li>Android: Settings -> Google -> Ads</li>
         </ul>
 
         <h2>6. Third-Party Disclosure and Sharing</h2>
-        <p>Except for the third-party services (SDKs) listed above, the App does not provide or entrust personal
-            information to third parties without your consent. However, if you use the 'Share' feature to send images to
-            SNS or external messengers, information may be processed according to the terms of those services.</p>
+        <p>Except for the third-party services (SDKs) listed above, the App does not provide or entrust personal information to third parties without your consent. However, if you use the 'Share' feature to send images to SNS or external messengers, information may be processed according to the terms of those services.</p>
 
         <h2>7. Privacy Officer and Contact</h2>
-        <p>If you have any questions regarding the processing of personal information in this App, please contact us at:
-        </p>
+        <p>If you have any questions regarding the processing of personal information in this App, please contact us at:</p>
         <ul>
             <li><strong>Email:</strong> ahyoung.app@gmail.com</li>
             <li><strong>Jurisdiction:</strong> Texas, United States</li>
         </ul>
         <hr>
-        <p><strong>Effective Date:</strong> February 15, 2026 (Revised)</p>
+        <p><strong>Effective Date:</strong> March 6, 2026 (Revised)</p>
     </main>
 
     <footer>
@@ -176,7 +157,7 @@
             <div class="footer-links">
                 <a href="index.html">Home</a>
                 <a href="terms.html">Terms of Service</a>
-                <span style="opacity: 0.3; margin-left: 10px;">v1.0.8</span>
+                <span style="opacity: 0.3; margin-left: 10px;">v1.0.14</span>
             </div>
         </div>
     </footer>
