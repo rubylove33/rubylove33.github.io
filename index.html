@@ -17,7 +17,13 @@
     <header>
         <nav>
             <div class="logo">Walk Habit</div>
-            <div class="nav-links">
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation"
+                aria-label="Open navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="primary-navigation">
                 <a href="#philosophy">Philosophy</a>
                 <a href="#features">Features</a>
                 <a href="#premium">Premium</a>
@@ -149,9 +155,42 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
             const featureItems = document.querySelectorAll('.feature-item');
             const mockupScreens = document.querySelectorAll('.mockup-screen');
             const mockupContainer = document.getElementById('feature-mockup');
+
+            if (navToggle && navLinks) {
+                const closeNav = () => {
+                    navLinks.classList.remove('open');
+                    navToggle.classList.remove('active');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                };
+
+                navToggle.addEventListener('click', () => {
+                    const isOpen = navLinks.classList.toggle('open');
+                    navToggle.classList.toggle('active', isOpen);
+                    navToggle.setAttribute('aria-expanded', String(isOpen));
+                });
+
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', closeNav);
+                });
+
+                document.addEventListener('click', (event) => {
+                    if (window.innerWidth > 860) return;
+                    if (!navLinks.contains(event.target) && !navToggle.contains(event.target)) {
+                        closeNav();
+                    }
+                });
+
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth > 860) {
+                        closeNav();
+                    }
+                });
+            }
 
             featureItems.forEach(item => {
                 item.addEventListener('mouseenter', () => {
