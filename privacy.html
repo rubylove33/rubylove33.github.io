@@ -107,10 +107,12 @@
 
         <h2>3. Retention and Destruction of Data</h2>
         <ol>
-            <li>All data in the App (workout records, photos, settings, etc.) is <strong>stored only on your device</strong>.</li>
+            <li>All app data (workout records, photos, settings, etc.) is stored by default in your device's <strong>local app storage</strong>.</li>
             <li>If a user uses Biometric authentication (Face ID/Fingerprint) to lock the 'Body Check Gallery', the App only receives a success/fail signal from the OS and never accesses or stores the biometric data itself.</li>
-            <li>If a user uses the "Clear Data" feature or deletes the App, the data stored on the device is immediately deleted and cannot be recovered.</li>
-            <li>The developer does not store user data on servers and is not responsible for recovering lost data.</li>
+            <li>During normal updates provided under the same app identifier (<code>bundle id</code>/<code>applicationId</code>), existing local data may be retained.</li>
+            <li>If device backup is enabled (such as iCloud or Google backup), copies of app data may be included in that platform account backup.</li>
+            <li>If a user uses the "Clear Data" feature or deletes the App, local on-device data is deleted. However, backup copies may remain according to the user's platform backup settings.</li>
+            <li>The developer does not store user data on servers and cannot access Apple/Google-managed backup areas, so we cannot directly restore user data on your behalf.</li>
         </ol>
 
         <h2>4. Third-Party Service Providers</h2>
@@ -126,7 +128,7 @@
         </ul>
 
         <h2>5. Privacy Rights (GDPR &amp; CCPA/CPRA)</h2>
-        <p><strong>GDPR (EU Users):</strong> You have the right to access, rectify, erase, and restrict the processing of your data. Since this App stores data locally, uninstalling the App will immediately erase all data. We use Google AdMob and its partners to deliver personalized ads. Consent is obtained through a Consent Management Platform (CMP) compliant with the IAB Transparency and Consent Framework (TCF). You may withdraw or manage your ad consent at any time via:</p>
+        <p><strong>GDPR (EU Users):</strong> You have the right to access, rectify, erase, and restrict the processing of your data. This App does not store personal data on the developer's servers, and local on-device data is deleted when you clear data or uninstall the App. If device backup is enabled, backup copies may remain under your platform account settings. We use Google AdMob and its partners to deliver personalized ads. Consent is obtained through a Consent Management Platform (CMP) compliant with the IAB Transparency and Consent Framework (TCF). You may withdraw or manage your ad consent at any time via:</p>
         <ul>
             <li>In-app: Settings -> "Ad Personalization Consent"</li>
             <li>Device settings: Limit Ad Tracking (iOS) or Ads settings (Android)</li>
@@ -148,7 +150,7 @@
             <li><strong>Jurisdiction:</strong> Texas, United States</li>
         </ul>
         <hr>
-        <p><strong>Effective Date:</strong> March 6, 2026 (Revised)</p>
+        <p><strong>Effective Date:</strong> March 12, 2026 (Revised)</p>
     </main>
 
     <footer>
@@ -157,7 +159,7 @@
             <div class="footer-links">
                 <a href="index.html">Home</a>
                 <a href="terms.html">Terms of Service</a>
-                <span style="opacity: 0.3; margin-left: 10px;">v1.0.14</span>
+                <span style="opacity: 0.3; margin-left: 10px;">v1.0.16</span>
             </div>
         </div>
     </footer>
