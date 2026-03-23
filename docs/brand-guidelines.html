@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Guidelines — Futureseed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-blue: #1F3FBF;
+            --bg: #F3F5F6;
+            --text: #3B4446;
+            --accent: #BDE8F5;
+            --guidance: #EAF4FF;
+            --guidance-border: #BFD8F5;
+            --error: #E57373;
+            --white: #FFFFFF;
+            --border: rgba(59, 68, 70, 0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* Top nav */
+        header {
+            background: rgba(243, 245, 246, 0.9);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 10%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-logo {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--brand-blue);
+            text-decoration: none;
+        }
+
+        .header-back {
+            font-size: 0.85rem;
+            color: var(--text);
+            opacity: 0.5;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .header-back:hover { opacity: 1; }
+
+        /* Layout */
+        .page {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 4rem 5% 8rem;
+        }
+
+        .page-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--brand-blue);
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+
+        .page-version {
+            font-size: 0.85rem;
+            color: var(--text);
+            opacity: 0.45;
+            margin-bottom: 4rem;
+        }
+
+        /* Section */
+        section {
+            margin-bottom: 5rem;
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--brand-blue);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        h2 .section-num {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--white);
+            background: var(--brand-blue);
+            border-radius: 4px;
+            padding: 2px 7px;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        h3 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text);
+            opacity: 0.45;
+            margin: 2rem 0 0.75rem;
+        }
+
+        p {
+            color: var(--text);
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Mission / Vision */
+        .mission-headline {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--brand-blue);
+            margin-bottom: 0.25rem;
+        }
+
+        .mission-sub {
+            font-size: 1rem;
+            color: var(--text);
+            opacity: 0.5;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .blockquote {
+            background: var(--guidance);
+            border-left: 3px solid var(--brand-blue);
+            border-radius: 0 12px 12px 0;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: var(--text);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .value-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .value-card .value-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--brand-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .value-card p {
+            font-size: 0.88rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Color Swatches */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .color-card {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--white);
+        }
+
+        .color-swatch {
+            height: 80px;
+        }
+
+        .color-info {
+            padding: 1rem;
+        }
+
+        .color-name {
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .color-values {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .color-value {
+            font-size: 0.78rem;
+            color: var(--text);
+            opacity: 0.55;
+            font-family: 'Outfit', monospace;
+        }
+
+        .color-value span {
+            font-weight: 600;
+            opacity: 0.7;
+            margin-right: 4px;
+        }
+
+        /* Accessibility table */
+        .contrast-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .contrast-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 0.75rem 1rem;
+        }
+
+        .contrast-preview {
+            width: 80px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .contrast-ratio {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text);
+            width: 70px;
+            flex-shrink: 0;
+        }
+
+        .contrast-badges {
+            display: flex;
+            gap: 0.4rem;
+            flex-shrink: 0;
+        }
+
+        .badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .badge.pass { background: #d1fae5; color: #065f46; }
+        .badge.fail { background: #fee2e2; color: #991b1b; }
+
+        .contrast-use {
+            font-size: 0.82rem;
+            color: var(--text);
+            opacity: 0.55;
+        }
+
+        /* Typography scale */
+        .type-scale {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .type-row {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .type-row:last-child { border-bottom: none; }
+
+        .type-preview {
+            flex: 1;
+            color: var(--text);
+        }
+
+        .type-meta {
+            text-align: right;
+            flex-shrink: 0;
+            width: 160px;
+        }
+
+        .type-meta .size { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--brand-blue); }
+        .type-meta .weight { font-size: 0.75rem; color: var(--text); opacity: 0.45; }
+        .type-meta .usage { font-size: 0.75rem; color: var(--text); opacity: 0.55; margin-top: 2px; }
+
+        /* Icon section */
+        .icon-states {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .icon-state-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .icon-demo {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .icon-circle {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .icon-label-text {
+            font-size: 11px;
+            font-weight: 400;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .icon-state-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Motion table */
+        .motion-list {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .motion-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 1rem;
+            padding: 0.9rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            align-items: center;
+        }
+
+        .motion-row:last-child { border-bottom: none; }
+        .motion-row.header { background: var(--bg); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.5; }
+
+        .motion-name { font-size: 0.88rem; color: var(--text); }
+        .motion-dur { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 0.88rem; color: var(--brand-blue); }
+        .motion-curve { font-size: 0.8rem; color: var(--text); opacity: 0.55; font-family: 'Outfit', monospace; }
+
+        /* Spacing tokens */
+        .token-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .token-row {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 0.8rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .token-row:last-child { border-bottom: none; }
+
+        .token-name {
+            font-family: 'Outfit', monospace;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--brand-blue);
+            width: 220px;
+            flex-shrink: 0;
+        }
+
+        .token-value {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text);
+            width: 60px;
+            flex-shrink: 0;
+        }
+
+        .token-bar-wrap {
+            flex: 1;
+            height: 8px;
+            background: var(--bg);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .token-bar {
+            height: 100%;
+            background: var(--brand-blue);
+            border-radius: 4px;
+            opacity: 0.25;
+        }
+
+        .token-use { font-size: 0.82rem; color: var(--text); opacity: 0.5; width: 160px; }
+
+        /* Do Don't */
+        .do-dont {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .do-card, .dont-card {
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid;
+        }
+
+        .do-card {
+            background: #f0fdf4;
+            border-color: #bbf7d0;
+        }
+
+        .dont-card {
+            background: #fff1f2;
+            border-color: #fecdd3;
+        }
+
+        .do-card h3, .dont-card h3 {
+            text-transform: none;
+            letter-spacing: 0;
+            font-size: 0.85rem;
+            margin: 0 0 1rem;
+            opacity: 1;
+        }
+
+        .do-card h3 { color: #166534; }
+        .dont-card h3 { color: #9f1239; }
+
+        .do-card ul, .dont-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .do-card li, .dont-card li {
+            font-size: 0.88rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .do-card li { color: #166534; }
+        .dont-card li { color: #9f1239; }
+
+        .do-card li::before { content: "✓"; font-weight: 700; flex-shrink: 0; }
+        .dont-card li::before { content: "✗"; font-weight: 700; flex-shrink: 0; }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .page { padding: 2rem 5% 6rem; }
+            .page-title { font-size: 2rem; }
+            .color-grid { grid-template-columns: 1fr 1fr; }
+            .values-grid { grid-template-columns: 1fr; }
+            .icon-states { grid-template-columns: 1fr; }
+            .do-dont { grid-template-columns: 1fr; }
+            .type-meta { display: none; }
+            .token-name { width: 160px; font-size: 0.75rem; }
+            .token-use { display: none; }
+            .motion-row { grid-template-columns: 2fr 1fr; }
+            .motion-curve { display: none; }
+            header { padding: 1rem 5%; }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="/futureseed/" class="header-logo">Futureseed</a>
+        <a href="/futureseed/" class="header-back">← Back to site</a>
+    </header>
+
+    <div class="page">
+        <h1 class="page-title">Brand Guidelines</h1>
+        <p class="page-version">Version 1.0 · 2026-03-23</p>
+
+        <!-- 1. Mission -->
+        <section>
+            <h2><span class="section-num">1</span> Our Mission</h2>
+            <p class="mission-headline">목표를 미래로 키우는 기록.</p>
+            <p class="mission-sub">Turn Goals Into Growth.</p>
+            <p>Futureseed는 "아직 뭘 원하는지 모르는 사람들"을 위해 만들어졌습니다. 대부분의 앱은 이미 목표가 분명한 사람을 돕지만, Futureseed는 그 이전 단계 — 막연한 바람을 언어로, 언어를 행동으로, 행동을 습관으로 키워가는 과정 — 을 지원합니다.</p>
+        </section>
+
+        <!-- 2. Vision -->
+        <section>
+            <h2><span class="section-num">2</span> Our Vision</h2>
+            <p>작은 씨앗 같은 생각이 의도적인 기록을 통해 원하는 미래로 자라난다고 믿습니다.</p>
+            <div class="blockquote">"No goal? No problem. Start small, find your direction, and grow at your own pace."</div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-title">방향 Direction</div>
+                    <p>자신이 바라는 것을 인지하고, 스스로 목표를 찾아가는 과정</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-title">기록 Record</div>
+                    <p>목표를 지속하기 위해 매일 짧게 써 내려가는 습관</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-title">성장 Growth</div>
+                    <p>완성이 아닌 과정</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Colors -->
+        <section>
+            <h2><span class="section-num">3</span> Primary Colors</h2>
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-swatch" style="background:#1F3FBF;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Brand Blue — Primary</div>
+                        <div class="color-values">
+                            <div class="color-value"><span>HEX</span>#1F3FBF</div>
+                            <div class="color-value"><span>RGB</span>31, 63, 191</div>
+                            <div class="color-value"><span>CMYK</span>84, 67, 0, 25</div>
+                            <div class="color-value"><span>HSL</span>228°, 72%, 44%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background:#F3F5F6; border-bottom:1px solid #e8eaeb;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Background — Surface</div>
+                        <div class="color-values">
+                            <div class="color-value"><span>HEX</span>#F3F5F6</div>
+                            <div class="color-value"><span>RGB</span>243, 245, 246</div>
+                            <div class="color-value"><span>CMYK</span>1, 0, 0, 4</div>
+                            <div class="color-value"><span>HSL</span>200°, 10%, 96%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background:#3B4446;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Text — Charcoal</div>
+                        <div class="color-values">
+                            <div class="color-value"><span>HEX</span>#3B4446</div>
+                            <div class="color-value"><span>RGB</span>59, 68, 70</div>
+                            <div class="color-value"><span>CMYK</span>16, 3, 0, 73</div>
+                            <div class="color-value"><span>HSL</span>189°, 9%, 25%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background:#BDE8F5;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Accent — Light Cyan</div>
+                        <div class="color-values">
+                            <div class="color-value"><span>HEX</span>#BDE8F5</div>
+                            <div class="color-value"><span>RGB</span>189, 232, 245</div>
+                            <div class="color-value"><span>CMYK</span>23, 5, 0, 4</div>
+                            <div class="color-value"><span>HSL</span>196°, 76%, 85%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background:#EAF4FF; border-bottom:1px solid #e8eaeb;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Guidance Background</div>
+                        <div class="color-values">
+                            <div class="color-value"><span>HEX</span>#EAF4FF</div>
+                            <div class="color-value"><span>RGB</span>234, 244, 255</div>
+                            <div class="color-value"><span>CMYK</span>8, 4, 0, 0</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background:#E57373;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Error — Soft Red</div>
+                        <div class="color-values">
+                            <div class="color-value"><span>HEX</span>#E57373</div>
+                            <div class="color-value"><span>RGB</span>229, 115, 115</div>
+                            <div class="color-value"><span>CMYK</span>0, 50, 50, 10</div>
+                            <div class="color-value"><span>HSL</span>0°, 69%, 67%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Accessibility -->
+        <section>
+            <h2><span class="section-num">4</span> Color Combinations & Accessibility</h2>
+            <p style="margin-bottom:1.5rem;">WCAG 2.1 기준 명도 대비 비율. 텍스트는 반드시 AA 이상(4.5:1) 조합만 사용합니다.</p>
+            <div class="contrast-grid">
+                <div class="contrast-row">
+                    <div class="contrast-preview" style="background:#FFFFFF; color:#1F3FBF; border:1px solid #e0e0e0;">#1F3FBF</div>
+                    <div class="contrast-ratio">7.58 : 1</div>
+                    <div class="contrast-badges"><span class="badge pass">AA</span><span class="badge pass">AAA</span></div>
+                    <div class="contrast-use">카드 위 버튼</div>
+                </div>
+                <div class="contrast-row">
+                    <div class="contrast-preview" style="background:#F3F5F6; color:#1F3FBF;">#1F3FBF</div>
+                    <div class="contrast-ratio">6.93 : 1</div>
+                    <div class="contrast-badges"><span class="badge pass">AA</span><span class="badge pass">AAA</span></div>
+                    <div class="contrast-use">배경 위 버튼, 링크</div>
+                </div>
+                <div class="contrast-row">
+                    <div class="contrast-preview" style="background:#FFFFFF; color:#3B4446; border:1px solid #e0e0e0;">#3B4446</div>
+                    <div class="contrast-ratio">8.85 : 1</div>
+                    <div class="contrast-badges"><span class="badge pass">AA</span><span class="badge pass">AAA</span></div>
+                    <div class="contrast-use">카드 위 본문</div>
+                </div>
+                <div class="contrast-row">
+                    <div class="contrast-preview" style="background:#F3F5F6; color:#3B4446;">#3B4446</div>
+                    <div class="contrast-ratio">8.09 : 1</div>
+                    <div class="contrast-badges"><span class="badge pass">AA</span><span class="badge pass">AAA</span></div>
+                    <div class="contrast-use">기본 본문 텍스트</div>
+                </div>
+                <div class="contrast-row">
+                    <div class="contrast-preview" style="background:#BDE8F5; color:#3B4446;">#3B4446</div>
+                    <div class="contrast-ratio">5.61 : 1</div>
+                    <div class="contrast-badges"><span class="badge pass">AA</span><span class="badge fail">AAA</span></div>
+                    <div class="contrast-use">칩·태그 레이블</div>
+                </div>
+                <div class="contrast-row">
+                    <div class="contrast-preview" style="background:#1F3FBF; color:#FFFFFF;">#FFFFFF</div>
+                    <div class="contrast-ratio">7.58 : 1</div>
+                    <div class="contrast-badges"><span class="badge pass">AA</span><span class="badge pass">AAA</span></div>
+                    <div class="contrast-use">주요 버튼 레이블</div>
+                </div>
+                <div class="contrast-row">
+                    <div class="contrast-preview" style="background:#F3F5F6; color:#BDE8F5; border:1px solid #e0e0e0;">#BDE8F5</div>
+                    <div class="contrast-ratio">1.14 : 1</div>
+                    <div class="contrast-badges"><span class="badge fail">AA</span><span class="badge fail">AAA</span></div>
+                    <div class="contrast-use">장식용만 허용 — 텍스트 사용 금지</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Typography -->
+        <section>
+            <h2><span class="section-num">5</span> Typography</h2>
+            <p>폰트: <strong>Noto Sans</strong> (Google Fonts) — 한국어·영어 모두 자연스럽게 렌더링되는 다국어 폰트</p>
+            <h3>Type Scale</h3>
+            <div class="type-scale">
+                <div class="type-row">
+                    <div class="type-preview" style="font-size:32px; font-weight:600; line-height:1.4;">Display Large</div>
+                    <div class="type-meta"><div class="size">32px / w600</div><div class="weight">line-height 1.4</div><div class="usage">화면 제목</div></div>
+                </div>
+                <div class="type-row">
+                    <div class="type-preview" style="font-size:28px; font-weight:700; line-height:1.35;">Display Medium</div>
+                    <div class="type-meta"><div class="size">28px / w700</div><div class="weight">line-height 1.35</div><div class="usage">섹션·카드 제목</div></div>
+                </div>
+                <div class="type-row">
+                    <div class="type-preview" style="font-size:18px; font-weight:400; line-height:1.7;">Body Large — 주요 본문 텍스트입니다.</div>
+                    <div class="type-meta"><div class="size">18px / w400</div><div class="weight">line-height 1.7</div><div class="usage">주요 본문</div></div>
+                </div>
+                <div class="type-row">
+                    <div class="type-preview" style="font-size:16px; font-weight:400; line-height:1.5;">Body Medium — 일반 본문 텍스트입니다.</div>
+                    <div class="type-meta"><div class="size">16px / w400</div><div class="weight">line-height 1.5</div><div class="usage">일반 본문</div></div>
+                </div>
+                <div class="type-row">
+                    <div class="type-preview" style="font-size:13px; font-weight:400; line-height:1.5;">Body Small — 보조 설명, 메타 정보</div>
+                    <div class="type-meta"><div class="size">13px / w400</div><div class="weight">line-height 1.5</div><div class="usage">보조·메타</div></div>
+                </div>
+                <div class="type-row">
+                    <div class="type-preview" style="font-size:18px; font-weight:600; letter-spacing:0.5px;">Label Large — Button</div>
+                    <div class="type-meta"><div class="size">18px / w600</div><div class="weight">+0.5 spacing</div><div class="usage">버튼 레이블</div></div>
+                </div>
+                <div class="type-row">
+                    <div class="type-preview" style="font-size:11px; font-weight:400; line-height:1.0; text-transform:uppercase; letter-spacing:1px;">Nav Label</div>
+                    <div class="type-meta"><div class="size">11px / w400–600</div><div class="weight">line-height 1.0</div><div class="usage">탭 바 아이템</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Icons -->
+        <section>
+            <h2><span class="section-num">6</span> Icons</h2>
+            <p>Flutter <strong>Material Icons</strong> 사용. 비활성 상태는 Outlined, 활성 상태는 Filled로 전환합니다.</p>
+            <div class="icon-states" style="margin-top:1.5rem;">
+                <div class="icon-state-card">
+                    <div class="icon-demo">
+                        <div class="icon-item">
+                            <div class="icon-circle" style="background:transparent;">☀</div>
+                            <span class="icon-label-text" style="color:rgba(59,68,70,0.4);">Today</span>
+                        </div>
+                        <div class="icon-item">
+                            <div class="icon-circle" style="background:transparent;">📖</div>
+                            <span class="icon-label-text" style="color:rgba(59,68,70,0.4);">Library</span>
+                        </div>
+                        <div class="icon-item">
+                            <div class="icon-circle" style="background:transparent;">⚙</div>
+                            <span class="icon-label-text" style="color:rgba(59,68,70,0.4);">Settings</span>
+                        </div>
+                    </div>
+                    <div class="icon-state-label" style="color:rgba(59,68,70,0.45);">Default — Outlined</div>
+                    <p style="font-size:0.8rem; margin-top:0.4rem; opacity:0.6;">색상: #3B4446 @ 40%</p>
+                </div>
+                <div class="icon-state-card">
+                    <div class="icon-demo">
+                        <div class="icon-item">
+                            <div class="icon-circle" style="background:rgba(31,63,191,0.12);">☀</div>
+                            <span class="icon-label-text" style="color:#1F3FBF; font-weight:600;">Today</span>
+                        </div>
+                        <div class="icon-item">
+                            <div class="icon-circle" style="background:transparent;">📖</div>
+                            <span class="icon-label-text" style="color:rgba(59,68,70,0.4);">Library</span>
+                        </div>
+                        <div class="icon-item">
+                            <div class="icon-circle" style="background:transparent;">⚙</div>
+                            <span class="icon-label-text" style="color:rgba(59,68,70,0.4);">Settings</span>
+                        </div>
+                    </div>
+                    <div class="icon-state-label" style="color:#1F3FBF;">Active — Filled</div>
+                    <p style="font-size:0.8rem; margin-top:0.4rem; opacity:0.6;">색상: #1F3FBF + 원형 배경 12%</p>
+                </div>
+            </div>
+            <h3>Sizes & Padding</h3>
+            <div class="token-grid">
+                <div class="token-row">
+                    <div class="token-name">nav icon</div>
+                    <div class="token-value">20px</div>
+                    <div class="token-use">컨테이너 38×38px 원형</div>
+                </div>
+                <div class="token-row">
+                    <div class="token-name">header action (+)</div>
+                    <div class="token-value">28px</div>
+                    <div class="token-use">컨테이너 40×40px</div>
+                </div>
+                <div class="token-row">
+                    <div class="token-name">inline icon</div>
+                    <div class="token-value">16–20px</div>
+                    <div class="token-use">텍스트와 4–8px 간격</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6.6 Motion -->
+        <section>
+            <h2><span class="section-num">7</span> Motion Principles</h2>
+            <p style="margin-bottom:1.5rem;">모든 인터랙션 애니메이션은 200–300ms 범위를 유지합니다.</p>
+            <div class="motion-list">
+                <div class="motion-row header">
+                    <span>항목</span><span>시간</span><span>곡선</span>
+                </div>
+                <div class="motion-row">
+                    <span class="motion-name">아이콘 색상 전환 (탭)</span>
+                    <span class="motion-dur">200ms</span>
+                    <span class="motion-curve">easeOut</span>
+                </div>
+                <div class="motion-row">
+                    <span class="motion-name">활성 배경 원형</span>
+                    <span class="motion-dur">200ms</span>
+                    <span class="motion-curve">easeOut</span>
+                </div>
+                <div class="motion-row">
+                    <span class="motion-name">내비게이션 바 슬라이드</span>
+                    <span class="motion-dur">300ms</span>
+                    <span class="motion-curve">easeInOut</span>
+                </div>
+                <div class="motion-row">
+                    <span class="motion-name">화면 전환 (라우트)</span>
+                    <span class="motion-dur">기본</span>
+                    <span class="motion-curve">easeOutCubic</span>
+                </div>
+                <div class="motion-row">
+                    <span class="motion-name">다이얼로그 / 바텀시트</span>
+                    <span class="motion-dur">시스템</span>
+                    <span class="motion-curve">Material 기본값</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Layout tokens -->
+        <section>
+            <h2><span class="section-num">8</span> Layout & Spacing</h2>
+            <div class="token-grid">
+                <div class="token-row">
+                    <div class="token-name">pageHorizontalPadding</div>
+                    <div class="token-value">24px</div>
+                    <div class="token-bar-wrap"><div class="token-bar" style="width:37%;"></div></div>
+                    <div class="token-use">화면 좌우 여백</div>
+                </div>
+                <div class="token-row">
+                    <div class="token-name">pageTopSpacing</div>
+                    <div class="token-value">20px</div>
+                    <div class="token-bar-wrap"><div class="token-bar" style="width:31%;"></div></div>
+                    <div class="token-use">콘텐츠 상단 여백</div>
+                </div>
+                <div class="token-row">
+                    <div class="token-name">pageTextSpacing</div>
+                    <div class="token-value">14px</div>
+                    <div class="token-bar-wrap"><div class="token-bar" style="width:22%;"></div></div>
+                    <div class="token-use">텍스트 요소 간 간격</div>
+                </div>
+                <div class="token-row">
+                    <div class="token-name">pageSectionSpacing</div>
+                    <div class="token-value">32px</div>
+                    <div class="token-bar-wrap"><div class="token-bar" style="width:50%;"></div></div>
+                    <div class="token-use">섹션 간 간격</div>
+                </div>
+                <div class="token-row">
+                    <div class="token-name">cardRadius</div>
+                    <div class="token-value">16px</div>
+                    <div class="token-bar-wrap"><div class="token-bar" style="width:25%;"></div></div>
+                    <div class="token-use">일반 카드 모서리</div>
+                </div>
+                <div class="token-row">
+                    <div class="token-name">buttonHeight</div>
+                    <div class="token-value">64px</div>
+                    <div class="token-bar-wrap"><div class="token-bar" style="width:100%;"></div></div>
+                    <div class="token-use">모든 주요 버튼 높이</div>
+                </div>
+                <div class="token-row">
+                    <div class="token-name">buttonRadius</div>
+                    <div class="token-value">32px</div>
+                    <div class="token-bar-wrap"><div class="token-bar" style="width:50%;"></div></div>
+                    <div class="token-use">버튼 모서리 (pill)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Do Don't -->
+        <section>
+            <h2><span class="section-num">9</span> Do / Don't</h2>
+            <div class="do-dont">
+                <div class="do-card">
+                    <h3>✅ Do</h3>
+                    <ul>
+                        <li>Brand Blue를 주요 CTA 버튼에 사용</li>
+                        <li>Outlined 아이콘으로 기본 상태 표현</li>
+                        <li>텍스트는 항상 4.5:1 이상 대비</li>
+                        <li>애니메이션 200–300ms 유지</li>
+                        <li>Noto Sans 단일 폰트 사용</li>
+                        <li>버튼은 항상 pill shape (radius 32px)</li>
+                    </ul>
+                </div>
+                <div class="dont-card">
+                    <h3>❌ Don't</h3>
+                    <ul>
+                        <li>여러 강조 색상을 한 화면에 혼합</li>
+                        <li>커스텀 아이콘에 임의 stroke 굵기 사용</li>
+                        <li>#BDE8F5를 텍스트 색상으로 사용</li>
+                        <li>500ms 이상 장식용 애니메이션</li>
+                        <li>화면 내 폰트 혼용</li>
+                        <li>각진 사각형 버튼</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
