@@ -155,6 +155,7 @@
             const featureItems = document.querySelectorAll('.feature-item');
             const mockupScreens = document.querySelectorAll('.mockup-screen');
             const mockupContainer = document.getElementById('feature-mockup');
+            const featureList = document.querySelector('.feature-list');
 
             if (navToggle && navLinks) {
                 const closeNav = () => {
@@ -187,30 +188,74 @@
                 });
             }
 
-            featureItems.forEach(item => {
-                item.addEventListener('mouseenter', () => {
-                    // Remove active class from all items and screens
-                    featureItems.forEach(fi => fi.classList.remove('active'));
-                    mockupScreens.forEach(ms => ms.classList.remove('active'));
+            const switchToItem = (item) => {
+                featureItems.forEach(fi => fi.classList.remove('active'));
+                mockupScreens.forEach(ms => ms.classList.remove('active'));
+                item.classList.add('active');
 
-                    // Add active class to current item
-                    item.classList.add('active');
+                const targetFeatureId = item.getAttribute('data-feature');
+                const targetScreen = document.getElementById('screen-' + targetFeatureId);
 
-                    // Add active class to corresponding screen
-                    const targetFeatureId = item.getAttribute('data-feature');
-                    const targetScreen = document.getElementById('screen-' + targetFeatureId);
+                if (targetScreen) {
+                    targetScreen.classList.add('active');
+                    mockupContainer.classList.remove('animating-shine');
+                    void mockupContainer.offsetWidth;
+                    mockupContainer.classList.add('animating-shine');
+                }
+            };
 
-                    if (targetScreen) {
-                        targetScreen.classList.add('active');
+            if (window.innerWidth <= 1024 && featureList) {
+                const dotsContainer = document.createElement('div');
+                dotsContainer.className = 'feature-dots';
+                featureList.after(dotsContainer);
 
-                        // Trigger shine animation
-                        mockupContainer.classList.remove('animating-shine');
-                        // Force reflow to restart animation
-                        void mockupContainer.offsetWidth;
-                        mockupContainer.classList.add('animating-shine');
-                    }
+                featureItems.forEach((_, i) => {
+                    const dot = document.createElement('span');
+                    dot.className = 'feature-dot' + (i === 0 ? ' active' : '');
+                    dotsContainer.appendChild(dot);
                 });
-            });
+
+                const dots = dotsContainer.querySelectorAll('.feature-dot');
+
+                const updateActive = () => {
+                    const center = featureList.scrollLeft + featureList.offsetWidth / 2;
+                    let closest = null;
+                    let closestDist = Infinity;
+
+                    featureItems.forEach(item => {
+                        const dist = Math.abs((item.offsetLeft + item.offsetWidth / 2) - center);
+                        if (dist < closestDist) {
+                            closestDist = dist;
+                            closest = item;
+                        }
+                    });
+
+                    if (closest) {
+                        const idx = Array.from(featureItems).indexOf(closest);
+                        dots.forEach(dot => dot.classList.remove('active'));
+                        dots[idx]?.classList.add('active');
+                        switchToItem(closest);
+                    }
+                };
+
+                featureList.addEventListener('scroll', updateActive, { passive: true });
+
+                dots.forEach((dot, i) => {
+                    dot.addEventListener('click', () => {
+                        featureItems[i]?.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'nearest',
+                            inline: 'center'
+                        });
+                    });
+                });
+            } else {
+                featureItems.forEach(item => {
+                    item.addEventListener('mouseenter', () => {
+                        switchToItem(item);
+                    });
+                });
+            }
         });
     </script>
 </body>

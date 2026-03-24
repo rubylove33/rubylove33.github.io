@@ -522,27 +522,95 @@ nav {
 
 /* Mobile Responsive */
 @media (max-width: 1024px) {
+    .features {
+        padding: 6rem 0;
+    }
+
+    .features h2 {
+        padding: 0 6%;
+        font-size: 2.2rem;
+    }
+
     .features-layout {
         flex-direction: column-reverse;
         align-items: center;
-        gap: 3rem;
+        gap: 1.5rem;
     }
 
     .feature-mockup-wrapper {
         position: relative;
         top: 0;
         height: auto;
-        margin-bottom: 2rem;
+        margin-bottom: 0;
+        padding: 0 6%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .feature-mockup-container {
+        width: 100%;
+        max-width: 300px;
+        height: 540px;
+        margin: 0 auto;
+    }
+
+    .feature-list {
+        flex-direction: row;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 0.5rem 10vw 1.5rem;
+        gap: 1rem;
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .feature-list::-webkit-scrollbar {
+        display: none;
     }
 
     .feature-item {
-        opacity: 1; /* Always fully visible on mobile */
-        transform: scale(1);
+        min-width: 80vw;
+        max-width: 80vw;
+        scroll-snap-align: center;
+        flex-shrink: 0;
+        opacity: 0.5;
+        transform: scale(0.94);
+        transition: opacity 0.3s, transform 0.3s;
     }
     
-    .feature-item.active,
+    .feature-item.active {
+        opacity: 1;
+        transform: scale(1);
+        border-color: var(--primary);
+        background: rgba(99, 102, 241, 0.05);
+    }
+
     .feature-item:hover {
-        transform: scale(1.02) translateY(-5px);
+        transform: scale(1);
+    }
+
+    .feature-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.75rem 0 0;
+    }
+
+    .feature-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--glass-border);
+        transition: all 0.3s;
+        cursor: pointer;
+    }
+
+    .feature-dot.active {
+        background: var(--primary);
+        width: 22px;
+        border-radius: 3.5px;
     }
 }
 
