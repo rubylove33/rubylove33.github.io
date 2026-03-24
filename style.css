@@ -521,7 +521,7 @@ nav {
 }
 
 /* Mobile Responsive */
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
     .features {
         padding: 6rem 0;
     }
@@ -768,7 +768,7 @@ footer {
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
     .hero {
         flex-direction: column;
         padding-top: 150px;
