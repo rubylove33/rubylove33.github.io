@@ -83,7 +83,7 @@
         <ol>
             <li><strong>User-entered data:</strong> goals, reflections/thought notes, keywords, action plans, and settings such as reminders and language.</li>
             <li><strong>Device-stored data:</strong> local data required to provide app features.</li>
-            <li><strong>Cloud backup data (when backup feature is used):</strong> if the user initiates a backup, goal and record data is stored in the user's own cloud account (iCloud). This data is stored solely in the user's own account and is never accessed or retained by the developer.</li>
+            <li><strong>Cloud backup data (when backup feature is used):</strong> if the user initiates a backup, goal and record data is stored in the user's own cloud account (iOS: iCloud, Android: Google Drive App Data folder). This data is stored solely in the user's own account and is never accessed or retained by the developer.</li>
             <li><strong>Payment-related data (for premium purchase):</strong> minimum status data required to confirm purchase entitlement.</li>
             <li><strong>Advertising and stability analytics data (when enabled):</strong> non-identifying data such as Device ID, Advertising ID, product interaction, advertising data, and crash/performance data.</li>
         </ol>
@@ -102,8 +102,8 @@
         <h2>Article 3 — Retention and Deletion</h2>
         <ol>
             <li>App data (goals, records, settings) is stored locally on the user's device in principle.</li>
-            <li>If the user uses the cloud backup feature, backup data is stored in the user's own iCloud account. That data is governed by Apple's policies, and the developer cannot access or delete it. To remove backup data, please do so directly through iCloud settings.</li>
-            <li>If the user deletes/resets data in-app or uninstalls the App, locally stored data may be deleted immediately and may be difficult to recover.</li>
+            <li>If the user uses the cloud backup feature, backup data is stored in the user's own cloud account (iCloud or Google Drive). That data is governed by the respective platform's policies, and the developer cannot access or delete it. To remove backup data, please do so directly through the platform's settings.</li>
+            <li>If the user deletes/resets data in-app or uninstalls the App, locally stored data may be deleted immediately and may be difficult to recover. Cloud backup data, if any, may remain separately.</li>
             <li>The developer does not retain user-entered data on its own servers.</li>
         </ol>
 
@@ -116,8 +116,9 @@
         <p>Example services:</p>
         <ul>
             <li>Google AdMob (ads)</li>
-            <li>Apple billing platform (in-app purchase)</li>
-            <li>Apple iCloud Key-Value Storage (cloud backup — stored in user's own account)</li>
+            <li>Apple/Google billing platforms (in-app purchase)</li>
+            <li>Apple iCloud Key-Value Storage (iOS cloud backup — stored in user's own account)</li>
+            <li>Google Drive App Data folder (Android cloud backup — stored in user's own account, requires Google Sign-In)</li>
         </ul>
         <p>Data handled by third-party services is governed by each provider's privacy policy.</p>
         <ul>
@@ -125,12 +126,24 @@
             <li><strong>Google:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></li>
         </ul>
 
-        <h2>Article 5 — User Rights (GDPR and CCPA/CPRA)</h2>
-        <p><strong>GDPR (EU users):</strong> users may request access, correction, deletion, and restriction of processing. Since the App does not store personal data on its own servers, deleting the App removes local data on the device. Cloud backup data can be deleted through iCloud settings. Opt-out can be performed through device-level ad tracking limitation/app tracking settings.</p>
-        <p><strong>CCPA/CPRA (California users):</strong> users may have rights to opt out of sale/share of personal information. The App does not sell personal information. However, personalized ads may be served via ad partners; users can limit this through iOS Settings → Privacy → Tracking.</p>
+        <h2>Article 5 — User Rights and Privacy Choices (GDPR and Applicable U.S. State Privacy Laws)</h2>
+        <ol>
+            <li>Users in the European Economic Area (EEA), the UK, and Switzerland, where applicable, may have rights to access, correct, delete, restrict processing of, and withdraw consent for their personal data. The App does not store user-entered personal data on the developer's own servers. If the App is deleted or in-app data is erased, local device data may be deleted. Cloud backup data, if the user chose to create backups, may remain separately in the user's own iCloud or Google Drive account.</li>
+            <li>The free version of the App may serve ads through Google AdMob. In connection with ad serving and measurement, information such as Advertising ID, Device ID, product interaction data, and similar identifiers may be processed by Google and parties involved in Google's ad-serving services, subject to applicable law and platform policy.</li>
+            <li>Depending on the user's region, consent choices, platform permissions, and ad availability, the App may serve personalized ads, non-personalized ads, limited ads, or no ads for a period of time. Where required by law, the App may present an in-app privacy or consent message before requesting ads.</li>
+            <li>On iOS, the App may request App Tracking Transparency (ATT) permission. ATT is a platform-level permission and is separate from privacy choices that may be required under GDPR or applicable U.S. state privacy laws. Users can change ATT choices in iOS settings. On Android, users can manage ad-related preferences through device or Google settings. Example paths include:
+                <ul>
+                    <li>iOS: Settings → Privacy &amp; Security → Tracking</li>
+                    <li>Android: Settings → Google → Ads</li>
+                </ul>
+            </li>
+            <li>Where available, users can revisit advertising-related privacy choices through the App's in-app "Ad Privacy Choices" entry point. This in-app choice flow is distinct from the operating system's ATT setting.</li>
+            <li>Users covered by CCPA/CPRA and certain other applicable U.S. state privacy laws may have rights to opt out of the "sale," "sharing," or use of personal information for targeted advertising, as defined by applicable law. The App does not sell personal information for monetary consideration. However, identifiers such as advertising identifiers may be processed, disclosed, or shared as part of Google AdMob ad serving, personalized advertising, non-personalized advertising, limited ads, or ad measurement, to the extent permitted by applicable law.</li>
+            <li>If required consent choices are not yet completed, or if a legally permitted ad serving mode is not available for the request, some ad requests may be delayed or unavailable until the required privacy flow has been completed.</li>
+        </ol>
 
         <h2>Article 6 — Third-Party Disclosure and Sharing</h2>
-        <p>Except for the third-party services (SDKs/platforms) stated in this Policy, the App does not provide or outsource personal information to third parties without user consent. Cloud backup data is stored in the user's own Apple account, not on the developer's servers.</p>
+        <p>Except for the third-party services (SDKs/platforms) stated in this Policy, the App does not provide or outsource personal information to third parties without user consent. Cloud backup data is stored in the user's own Apple or Google account, not on the developer's servers.</p>
 
         <h2>Article 7 — Policy Updates</h2>
         <p>This Policy may be amended due to legal, service, or SDK changes. Material changes will be notified through in-app notice or app updates.</p>
@@ -141,7 +154,7 @@
             <li><strong>Jurisdiction:</strong> Texas, United States</li>
         </ul>
         <hr>
-        <p><strong>Effective Date:</strong> March 17, 2026</p>
+        <p><strong>Effective Date:</strong> April 6, 2026</p>
     </main>
 
     <footer>
