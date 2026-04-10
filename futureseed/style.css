@@ -227,6 +227,17 @@ main {
     margin: 0.8rem 0 1.2rem;
 }
 
+body.kr .hero-copy h1 {
+    font-size: clamp(2.55rem, 5.6vw, 4.2rem);
+    max-width: 12ch;
+}
+
+body.kr .section-intro h2,
+body.kr .journey-section h2,
+body.kr .closing-card h2 {
+    font-size: clamp(2rem, 3.2vw, 3rem);
+}
+
 .hero-body,
 .section-body,
 .section-points,
