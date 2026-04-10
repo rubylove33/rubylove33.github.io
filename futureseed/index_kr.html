@@ -4,22 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futureseed - 목표를 미래로 키우는 기록</title>
+    <title>Futureseed | 장기 목표를 오늘의 실천으로 잇는 앱</title>
     <meta name="description"
-        content="Futureseed는 작은 씨앗 같은 목표가, 의도적인 기록을 통해 원하는 미래로 자라난다고 믿는 사람들을 위한 목표 저널 앱입니다.">
+        content="Futureseed는 장기 목표를 오늘의 실천으로 이어 가고, 시간이 지나며 목표가 어떻게 변화했는지 다시 돌아보게 해주는 앱입니다.">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <header>
+    <header class="site-header">
         <div class="brand-switcher">
             <a href="/" class="brand-tab">Walk Habit</a>
             <a href="/futureseed/" class="brand-tab active">Futureseed</a>
         </div>
-        <nav>
+        <nav class="top-nav">
             <div class="logo">Futureseed</div>
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation"
                 aria-label="네비게이션 메뉴 열기">
@@ -28,9 +30,10 @@
                 <span></span>
             </button>
             <div class="nav-links" id="primary-navigation">
-                <a href="#philosophy">철학</a>
-                <a href="#features">주요 기능</a>
-                <a href="#premium">프리미엄</a>
+                <a href="#goals">Goals</a>
+                <a href="#today">Today</a>
+                <a href="#library">Library &amp; Archive</a>
+                <a href="#review">Review</a>
                 <a href="index.html" class="btn-sm">English</a>
             </div>
         </nav>
@@ -38,113 +41,171 @@
 
     <main>
         <section class="hero">
-            <div class="hero-content">
-                <h1>목표를 미래로 <span class="gradient-text">키우는 기록.</span></h1>
-                <p>Futureseed는 작은 씨앗 같은 목표가, 의도적인 기록을 통해 원하는 미래로 자라난다고 믿는 사람들을 위한 앱입니다. 써 내려가세요. 그리고 성장을 지켜보세요.</p>
-                <div class="cta-buttons">
+            <div class="hero-copy">
+                <p class="eyebrow">장기 목표를 조용히 이어 가는 방식</p>
+                <h1>장기 목표를 오늘의 실천으로 연결합니다.</h1>
+                <p class="hero-body">Futureseed는 의미 있는 목표를 곁에 두고, 작은 실천으로 이어 가며, 시간이 지난 뒤 그 목표가 어떻게 변화했는지 다시 돌아보고 싶은 사람을 위한 앱입니다.</p>
+                <div class="hero-actions">
                     <a href="https://apps.apple.com/app/id6760977627" class="btn-primary">App Store에서 다운로드</a>
-                    <a href="#philosophy" class="btn-secondary">우리의 접근 방식</a>
+                    <a href="#journey" class="btn-secondary">여정 보기</a>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="hero-mockup-container">
-                    <img src="assets/app_mockup.png" alt="Futureseed 앱 목업" class="hero-mockup">
-                </div>
-            </div>
-        </section>
-
-        <section id="philosophy" class="content-section">
-            <div class="section-container">
-                <h2><span class="gradient-text">의도</span> > 충동.</h2>
-                <p class="section-subtitle">목표는 저절로 자라지 않습니다. 선명한 비전, 나만의 언어, 그리고 작은 행동의 반복이 필요합니다.</p>
-                <div class="philosophy-grid">
-                    <div class="philosophy-item">
-                        <h3>먼저 그려보세요</h3>
-                        <p>목표에 닿으려면, 먼저 그것을 눈앞에 그릴 수 있어야 합니다. Futureseed는 할 일 목록이 아니라 당신의 비전에서 시작합니다.</p>
+            <div class="hero-panel">
+                <div class="journey-card">
+                    <p class="journey-label">차분하게 이어 가는 목표 여정</p>
+                    <div class="journey-step">
+                        <span class="journey-dot goals"></span>
+                        <div>
+                            <h3>Goals</h3>
+                            <p>미래 글쓰기, 키워드 선택, 액션 플래닝으로 방향을 세웁니다.</p>
+                        </div>
                     </div>
-                    <div class="philosophy-item">
-                        <h3>작은 씨앗, 큰 미래</h3>
-                        <p>거창한 계획이 필요하지 않아요. 지금 당장 할 수 있는 다음 한 걸음이면 충분합니다. 기록하는 모든 행동이 미래를 향한 씨앗입니다.</p>
+                    <div class="journey-step">
+                        <span class="journey-dot today"></span>
+                        <div>
+                            <h3>Today</h3>
+                            <p>짧은 기록과 리마인더로 오늘의 흐름을 이어 갑니다.</p>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="features" class="features">
-            <h2>목표를 <span class="gradient-text">키우는</span> 모든 것.</h2>
-
-            <div class="features-layout">
-                <div class="feature-list">
-                    <div class="feature-item active" data-feature="write">
-                        <div class="icon">🌱</div>
-                        <h3>미래를 써 내려가세요</h3>
-                        <p>이상적인 미래의 모습을 생생하게 묘사하세요. 더 선명하게 그릴수록, 더 강하게 당신을 앞으로 이끕니다.</p>
+                    <div class="journey-step">
+                        <span class="journey-dot library"></span>
+                        <div>
+                            <h3>Library &amp; Archive</h3>
+                            <p>진행 중인 목표와 지난 목표를 나누어 보관하고 펼쳐 봅니다.</p>
+                        </div>
                     </div>
-                    <div class="feature-item" data-feature="keywords">
-                        <div class="icon">🔑</div>
-                        <h3>키워드를 찾으세요</h3>
-                        <p>비전을 가장 중요한 단어들로 압축하세요. 키워드는 매일 당신이 향하고 있는 곳을 기억하게 해줍니다.</p>
-                    </div>
-                    <div class="feature-item" data-feature="actions">
-                        <div class="icon">📋</div>
-                        <h3>실천 행동을 계획하세요</h3>
-                        <p>큰 목표를 지금 당장 할 수 있는 구체적인 행동으로 나눠보세요. 꾸준한 작은 행동이 씨앗을 숲으로 만듭니다.</p>
-                    </div>
-                    <div class="feature-item" data-feature="remind">
-                        <div class="icon">🔔</div>
-                        <h3>연결을 유지하세요</h3>
-                        <p>하루 중 목표를 떠올리게 해주는 알림을 설정하세요. 존재감이 의도를 습관으로 만듭니다.</p>
-                    </div>
-                </div>
-
-                <div class="feature-mockup-wrapper">
-                    <div class="feature-mockup-container" id="feature-mockup">
-                        <img src="assets/feature-write.png" alt="미래 쓰기 기능" class="mockup-screen active"
-                            id="screen-write">
-                        <img src="assets/feature-keywords.png" alt="키워드 기능" class="mockup-screen"
-                            id="screen-keywords">
-                        <img src="assets/feature-actions.png" alt="실천 행동 기능" class="mockup-screen"
-                            id="screen-actions">
-                        <img src="assets/feature-remind.png" alt="알림 기능" class="mockup-screen"
-                            id="screen-remind">
+                    <div class="journey-step">
+                        <span class="journey-dot review"></span>
+                        <div>
+                            <h3>Review</h3>
+                            <p>목표가 어떻게 변했는지 다시 읽고 돌아봅니다.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="premium" class="premium-section">
-            <div class="glass-container">
-                <h2>Go Pro. <span class="gradient-text">한계 없이 성장하세요.</span></h2>
-                <p>구독이 아닙니다. 한 번 결제하고, 평생 함께하세요.</p>
-                <div class="premium-features">
-                    <ul>
-                        <li>✨ 광고 없는 경험</li>
-                        <li>⭐ 1인 개발자 응원</li>
-                    </ul>
+        <section id="journey" class="section-intro">
+            <p class="section-kicker">한 번에 설명하지 않고 단계로 보여줍니다</p>
+            <h2>각 탭은 앱의 한 단계를 드러냅니다.</h2>
+            <p class="section-body">Futureseed는 기능을 한꺼번에 나열하지 않습니다. 방향을 세우고, 오늘을 이어 가고, 보관하고, 돌아보는 흐름으로 앱을 보여줍니다.</p>
+            <div class="feature-tabs" aria-label="Futureseed tabs">
+                <a href="#goals" class="feature-tab active">Goals</a>
+                <a href="#today" class="feature-tab">Today</a>
+                <a href="#library" class="feature-tab">Library &amp; Archive</a>
+                <a href="#review" class="feature-tab">Review</a>
+            </div>
+        </section>
+
+        <section id="goals" class="journey-section">
+            <div class="section-copy">
+                <p class="section-kicker">Goals</p>
+                <h2>붙잡고 싶은 목표를 먼저 선명하게 만듭니다.</h2>
+                <p class="section-body">의미 있는 개인 목표를 꾸준히 이어 가고 싶은 사람을 위한 시작점입니다. 해야 할 일보다, 왜 이 목표가 중요한지부터 정리합니다.</p>
+                <ul class="section-points">
+                    <li>미래 글쓰기로 원하는 방향을 그려 봅니다.</li>
+                    <li>키워드와 액션 플래닝으로 목표를 오늘의 흐름에 연결합니다.</li>
+                </ul>
+            </div>
+            <div class="section-panel">
+                <div class="mini-card">
+                    <p class="mini-label">Target users</p>
+                    <h3>체크리스트보다 성찰과 기록에 동기부여를 느끼는 사람.</h3>
                 </div>
-                <a href="https://apps.apple.com/app/id6760977627" class="btn-primary">전체 기능 잠금 해제</a>
+            </div>
+        </section>
+
+        <section id="today" class="journey-section alt">
+            <div class="section-copy">
+                <p class="section-kicker">Today</p>
+                <h2>오늘도 다시 돌아올 수 있는 흐름을 만듭니다.</h2>
+                <p class="section-body">Today 화면은 부담을 키우기보다 작은 반복을 돕습니다. 짧은 기록, 집중 상태, 리마인더로 목표와의 연결을 이어 갑니다.</p>
+                <ul class="section-points">
+                    <li>가볍게 진행을 기록할 수 있습니다.</li>
+                    <li>알림과 작은 실천이 꾸준함을 받쳐 줍니다.</li>
+                </ul>
+            </div>
+            <div class="section-panel">
+                <div class="mini-card">
+                    <p class="mini-label">Core features</p>
+                    <h3>목표 생성, 오늘의 실천 유지, 진행 기록, 리뷰와 보관 흐름.</h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="library" class="journey-section">
+            <div class="section-copy">
+                <p class="section-kicker">Library &amp; Archive</p>
+                <h2>진행 중인 목표와 지난 목표를 나누어 진열합니다.</h2>
+                <p class="section-body">라이브러리와 아카이브에 각각 정리되어, 지금 붙잡고 있는 목표와 지나온 목표를 한곳에서 다시 펼쳐 볼 수 있습니다.</p>
+                <ul class="section-points">
+                    <li>Library에는 진행 중인 목표가 남습니다.</li>
+                    <li>Archive에는 지나온 목표가 따로 보관됩니다.</li>
+                    <li>목표가 진화하는 방향을 관찰할 수 있습니다.</li>
+                </ul>
+            </div>
+            <div class="section-panel">
+                <div class="stack-card">
+                    <div class="stack-item">
+                        <p>Library</p>
+                        <span>진행 중인 목표</span>
+                    </div>
+                    <div class="stack-item muted">
+                        <p>Archive</p>
+                        <span>지난 목표</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="review" class="journey-section alt">
+            <div class="section-copy">
+                <p class="section-kicker">Review</p>
+                <h2>하나의 목표에서 끝나지 않습니다.</h2>
+                <p class="section-body">Futureseed는 돌아봄을 중요하게 다룹니다. 기록과 리뷰를 통해 목표를 완수했는지만이 아니라, 목표가 어떻게 변화했는지를 다시 읽을 수 있습니다.</p>
+                <ul class="section-points">
+                    <li>작은 기록이 쌓이면 나중에 변화가 보입니다.</li>
+                    <li>리뷰는 시간이 흐른 뒤 목표의 움직임을 읽게 해줍니다.</li>
+                </ul>
+            </div>
+            <div class="section-panel">
+                <div class="quote-card">
+                    <p>“가치는 끝내는 데만 있지 않습니다. 내 방향이 어떻게 달라졌는지 다시 읽을 수 있다는 데에도 있습니다.”</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="reflection-band">
+            <p class="section-kicker">Key value</p>
+            <h2>하나의 목표가 이야기의 끝일 필요는 없습니다.</h2>
+            <p class="section-body">Futureseed는 목표가 어떻게 달라졌는지, 무엇이 남았는지, 무엇이 다음 장면으로 이어졌는지 다시 돌아보게 합니다.</p>
+        </section>
+
+        <section class="closing-section">
+            <div class="closing-card">
+                <h2>밝고 차분하게 목표를 이어 가는 방법.</h2>
+                <p>의미 있는 방향을 세우고, 오늘의 실천을 이어 가고, 시간이 지난 뒤 다시 돌아보세요.</p>
+                <a href="https://apps.apple.com/app/id6760977627" class="btn-primary">Futureseed 시작하기</a>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-top">
-                <div class="footer-info">
-                    <div class="footer-logo">Futureseed</div>
-                    <p>목표를 미래로 키우는 기록.</p>
-                </div>
-                <div class="footer-contact">
-                    <h4>고객 지원</h4>
-                    <p><a href="mailto:ahyoung.app@gmail.com">ahyoung.app@gmail.com</a></p>
-                </div>
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div>
+                <div class="footer-logo">Futureseed</div>
+                <p>장기 목표를 오늘의 실천과 되돌아봄으로 잇는 앱.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Futureseed. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="privacy_kr.html">개인정보 처리방침</a>
-                    <a href="terms_kr.html">이용약관</a>
-                </div>
+            <div class="footer-contact">
+                <h4>고객 지원</h4>
+                <p><a href="mailto:ahyoung.app@gmail.com">ahyoung.app@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Futureseed. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy_kr.html">개인정보 처리방침</a>
+                <a href="terms_kr.html">이용약관</a>
             </div>
         </div>
     </footer>
@@ -153,10 +214,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             const navToggle = document.querySelector('.nav-toggle');
             const navLinks = document.querySelector('.nav-links');
-            const featureItems = document.querySelectorAll('.feature-item');
-            const mockupScreens = document.querySelectorAll('.mockup-screen');
-            const mockupContainer = document.getElementById('feature-mockup');
-            const featureList = document.querySelector('.feature-list');
 
             if (navToggle && navLinks) {
                 const closeNav = () => {
@@ -164,73 +221,22 @@
                     navToggle.classList.remove('active');
                     navToggle.setAttribute('aria-expanded', 'false');
                 };
+
                 navToggle.addEventListener('click', () => {
                     const isOpen = navLinks.classList.toggle('open');
                     navToggle.classList.toggle('active', isOpen);
                     navToggle.setAttribute('aria-expanded', String(isOpen));
                 });
-                navLinks.querySelectorAll('a').forEach(link => {
+
+                navLinks.querySelectorAll('a').forEach((link) => {
                     link.addEventListener('click', closeNav);
                 });
+
                 document.addEventListener('click', (event) => {
-                    if (window.innerWidth > 860) return;
-                    if (!navLinks.contains(event.target) && !navToggle.contains(event.target)) closeNav();
-                });
-                window.addEventListener('resize', () => {
-                    if (window.innerWidth > 860) closeNav();
-                });
-            }
-
-            const switchToItem = (item) => {
-                featureItems.forEach(fi => fi.classList.remove('active'));
-                mockupScreens.forEach(ms => ms.classList.remove('active'));
-                item.classList.add('active');
-                const targetScreen = document.getElementById('screen-' + item.getAttribute('data-feature'));
-                if (targetScreen) {
-                    targetScreen.classList.add('active');
-                    mockupContainer.classList.remove('animating-shine');
-                    void mockupContainer.offsetWidth;
-                    mockupContainer.classList.add('animating-shine');
-                }
-            };
-
-            if (window.innerWidth <= 1024) {
-                const dotsContainer = document.createElement('div');
-                dotsContainer.className = 'feature-dots';
-                featureList.after(dotsContainer);
-                featureItems.forEach((_, i) => {
-                    const dot = document.createElement('span');
-                    dot.className = 'feature-dot' + (i === 0 ? ' active' : '');
-                    dotsContainer.appendChild(dot);
-                });
-                const dots = dotsContainer.querySelectorAll('.feature-dot');
-
-                const updateActive = () => {
-                    const center = featureList.scrollLeft + featureList.offsetWidth / 2;
-                    let closest = null, closestDist = Infinity;
-                    featureItems.forEach(item => {
-                        const dist = Math.abs((item.offsetLeft + item.offsetWidth / 2) - center);
-                        if (dist < closestDist) { closestDist = dist; closest = item; }
-                    });
-                    if (closest) {
-                        const idx = Array.from(featureItems).indexOf(closest);
-                        dots.forEach(d => d.classList.remove('active'));
-                        dots[idx]?.classList.add('active');
-                        switchToItem(closest);
+                    if (window.innerWidth > 900) return;
+                    if (!navLinks.contains(event.target) && !navToggle.contains(event.target)) {
+                        closeNav();
                     }
-                };
-
-                featureList.addEventListener('scroll', updateActive, { passive: true });
-
-                dots.forEach((dot, i) => {
-                    dot.addEventListener('click', () => {
-                        featureItems[i]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                    });
-                });
-
-            } else {
-                featureItems.forEach(item => {
-                    item.addEventListener('mouseenter', () => switchToItem(item));
                 });
             }
         });

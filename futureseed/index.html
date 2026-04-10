@@ -4,22 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futureseed - Turn Goals Into Growth.</title>
+    <title>Futureseed | Long-term goals, daily practice, and reflection</title>
     <meta name="description"
-        content="Futureseed is a goal-setting journal for people who believe small seeds, when tended with intention, grow into the future they want.">
+        content="Futureseed helps you turn long-term goals into a daily practice and revisit how your goals evolve over time.">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <header>
+    <header class="site-header">
         <div class="brand-switcher">
             <a href="/" class="brand-tab">Walk Habit</a>
             <a href="/futureseed/" class="brand-tab active">Futureseed</a>
         </div>
-        <nav>
+        <nav class="top-nav">
             <div class="logo">Futureseed</div>
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation"
                 aria-label="Open navigation menu">
@@ -28,132 +30,189 @@
                 <span></span>
             </button>
             <div class="nav-links" id="primary-navigation">
-                <a href="#philosophy">Philosophy</a>
-                <a href="#features">Features</a>
-                <a href="#premium">Premium</a>
+                <a href="#goals">Goals</a>
+                <a href="#today">Today</a>
+                <a href="#library">Library &amp; Archive</a>
+                <a href="#review">Review</a>
                 <a href="index_kr.html" class="btn-sm">한국어</a>
-
             </div>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <div class="hero-content">
-                <h1>Turn Goals Into <span class="gradient-text">Growth.</span></h1>
-                <p>Futureseed is a goal-setting journal for people who believe small seeds, when tended with intention,
-                    grow into the future they want. Write it down. Watch it grow.</p>
-                <div class="cta-buttons">
+            <div class="hero-copy">
+                <p class="eyebrow">Long-term goals, kept gently in motion</p>
+                <h1>Turn long-term goals into a daily practice.</h1>
+                <p class="hero-body">Futureseed is for people who want to keep a meaningful goal close, continue it
+                    with small steps, and revisit how it changes over time.</p>
+                <div class="hero-actions">
                     <a href="https://apps.apple.com/app/id6760977627" class="btn-primary">Download on App Store</a>
-                    <a href="#philosophy" class="btn-secondary">Our Approach</a>
+                    <a href="#journey" class="btn-secondary">See the journey</a>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="hero-mockup-container">
-                    <img src="assets/app_mockup.png" alt="Futureseed App Mockup" class="hero-mockup">
-                </div>
-            </div>
-        </section>
-
-        <section id="philosophy" class="content-section">
-            <div class="section-container">
-                <h2><span class="gradient-text">Intention</span> > Impulse.</h2>
-                <p class="section-subtitle">Goals don't grow on their own. They need a clear vision, deliberate words,
-                    and small consistent actions.</p>
-                <div class="philosophy-grid">
-                    <div class="philosophy-item">
-                        <h3>See It First</h3>
-                        <p>Before you can reach a goal, you have to be able to picture it. Futureseed starts with your
-                            vision, not a to-do list.</p>
+            <div class="hero-panel">
+                <div class="journey-card">
+                    <p class="journey-label">A calmer way to keep going</p>
+                    <div class="journey-step">
+                        <span class="journey-dot goals"></span>
+                        <div>
+                            <h3>Goals</h3>
+                            <p>Set the direction with future writing, keywords, and action planning.</p>
+                        </div>
                     </div>
-                    <div class="philosophy-item">
-                        <h3>Small Seeds, Big Future</h3>
-                        <p>You don't need a grand plan — you need the next right step. Every action you log is a seed
-                            planted toward your future.</p>
+                    <div class="journey-step">
+                        <span class="journey-dot today"></span>
+                        <div>
+                            <h3>Today</h3>
+                            <p>Come back for a small record, a reminder, and one more step.</p>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="features" class="features">
-            <h2>Everything you need to <span class="gradient-text">grow your goals.</span></h2>
-
-            <div class="features-layout">
-                <div class="feature-list">
-                    <div class="feature-item active" data-feature="write">
-                        <div class="icon">🌱</div>
-                        <h3>Write Your Future</h3>
-                        <p>Describe your ideal future in vivid detail. The more clearly you can picture it, the more
-                            powerfully it pulls you forward.</p>
+                    <div class="journey-step">
+                        <span class="journey-dot library"></span>
+                        <div>
+                            <h3>Library &amp; Archive</h3>
+                            <p>Keep active goals and past goals separately shelved and visible.</p>
+                        </div>
                     </div>
-                    <div class="feature-item" data-feature="keywords">
-                        <div class="icon">🔑</div>
-                        <h3>Find Your Keywords</h3>
-                        <p>Distill your vision into the words that matter most. Keywords keep you anchored to what
-                            you're growing toward, every single day.</p>
-                    </div>
-                    <div class="feature-item" data-feature="actions">
-                        <div class="icon">📋</div>
-                        <h3>Plan Your Actions</h3>
-                        <p>Break big goals into concrete, doable steps. Small actions, taken consistently, are how
-                            seeds become forests.</p>
-                    </div>
-                    <div class="feature-item" data-feature="remind">
-                        <div class="icon">🔔</div>
-                        <h3>Stay Connected</h3>
-                        <p>Set gentle reminders that bring your goals back to mind throughout the day. Presence is
-                            how intention becomes habit.</p>
-                    </div>
-                </div>
-
-                <div class="feature-mockup-wrapper">
-                    <div class="feature-mockup-container" id="feature-mockup">
-                        <img src="assets/feature-write.png" alt="Write Feature" class="mockup-screen active"
-                            id="screen-write">
-                        <img src="assets/feature-keywords.png" alt="Keywords Feature" class="mockup-screen"
-                            id="screen-keywords">
-                        <img src="assets/feature-actions.png" alt="Actions Feature" class="mockup-screen"
-                            id="screen-actions">
-                        <img src="assets/feature-remind.png" alt="Remind Feature" class="mockup-screen"
-                            id="screen-remind">
+                    <div class="journey-step">
+                        <span class="journey-dot review"></span>
+                        <div>
+                            <h3>Review</h3>
+                            <p>Read the changes back and notice where the goal has evolved.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="premium" class="premium-section">
-            <div class="glass-container">
-                <h2>Go Pro. <span class="gradient-text">Grow without limits.</span></h2>
-                <p>Not a subscription. Pay once, grow for life.</p>
-                <div class="premium-features">
-                    <ul>
-                        <li>✨ No advertisements</li>
-                        <li>⭐ Support independent development</li>
-                    </ul>
+        <section id="journey" class="section-intro">
+            <p class="section-kicker">Built in steps, not in hype</p>
+            <h2>Each tab shows a stage of the experience.</h2>
+            <p class="section-body">Instead of presenting everything at once, Futureseed reveals the app as a sequence:
+                direction, daily rhythm, shelf, and reflection.</p>
+            <div class="feature-tabs" aria-label="Futureseed tabs">
+                <a href="#goals" class="feature-tab active">Goals</a>
+                <a href="#today" class="feature-tab">Today</a>
+                <a href="#library" class="feature-tab">Library &amp; Archive</a>
+                <a href="#review" class="feature-tab">Review</a>
+            </div>
+        </section>
+
+        <section id="goals" class="journey-section">
+            <div class="section-copy">
+                <p class="section-kicker">Goals</p>
+                <h2>Start with a goal that feels worth keeping.</h2>
+                <p class="section-body">For people who want to stay close to a meaningful personal goal, not just check
+                    off another task.</p>
+                <ul class="section-points">
+                    <li>Future writing helps you picture what matters.</li>
+                    <li>Keywords and action planning turn the idea into direction.</li>
+                </ul>
+            </div>
+            <div class="section-panel">
+                <div class="mini-card">
+                    <p class="mini-label">Target users</p>
+                    <h3>People who prefer reflection over rushing.</h3>
                 </div>
-                <a href="https://apps.apple.com/app/id6760977627" class="btn-primary">Unlock Full Experience</a>
+            </div>
+        </section>
+
+        <section id="today" class="journey-section alt">
+            <div class="section-copy">
+                <p class="section-kicker">Today</p>
+                <h2>Keep the rhythm with one more small return.</h2>
+                <p class="section-body">The daily screen is designed for small, repeatable actions: a short note, a
+                    focus check, a reminder to stay connected.</p>
+                <ul class="section-points">
+                    <li>Record progress without turning the app into pressure.</li>
+                    <li>Gentle reminders help the goal stay present in daily life.</li>
+                </ul>
+            </div>
+            <div class="section-panel">
+                <div class="mini-card">
+                    <p class="mini-label">Core features</p>
+                    <h3>Goal setup, daily continuity, progress records, and review flows.</h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="library" class="journey-section">
+            <div class="section-copy">
+                <p class="section-kicker">Library &amp; Archive</p>
+                <h2>Keep active goals and past goals separately on display.</h2>
+                <p class="section-body">Your current goals and previous goals are stored in different places, so the
+                    present path and the finished path can both stay visible.</p>
+                <ul class="section-points">
+                    <li>Library holds the goals you are still carrying.</li>
+                    <li>Archive keeps the goals you have already gone through.</li>
+                    <li>You can observe the direction in which a goal evolves.</li>
+                </ul>
+            </div>
+            <div class="section-panel">
+                <div class="stack-card">
+                    <div class="stack-item">
+                        <p>Library</p>
+                        <span>Active goals</span>
+                    </div>
+                    <div class="stack-item muted">
+                        <p>Archive</p>
+                        <span>Past goals</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="review" class="journey-section alt">
+            <div class="section-copy">
+                <p class="section-kicker">Review</p>
+                <h2>It does not end with a single goal.</h2>
+                <p class="section-body">Futureseed puts special weight on looking back. With records and reviews, you
+                    can revisit how your goal changed, not just whether it was completed.</p>
+                <ul class="section-points">
+                    <li>Small entries make change visible later.</li>
+                    <li>Review helps you read the movement of the goal over time.</li>
+                </ul>
+            </div>
+            <div class="section-panel">
+                <div class="quote-card">
+                    <p>“The value is not only in finishing. It is in being able to read how your direction changed.”</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="reflection-band">
+            <p class="section-kicker">Key value</p>
+            <h2>One goal does not have to be the end of the story.</h2>
+            <p class="section-body">Futureseed helps you revisit how a goal changed, what stayed, and what quietly
+                grew into the next chapter.</p>
+        </section>
+
+        <section class="closing-section">
+            <div class="closing-card">
+                <h2>A brighter, calmer way to keep a goal alive.</h2>
+                <p>Set a meaningful direction, continue it in small steps, and come back later to see what changed.</p>
+                <a href="https://apps.apple.com/app/id6760977627" class="btn-primary">Start with Futureseed</a>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-top">
-                <div class="footer-info">
-                    <div class="footer-logo">Futureseed</div>
-                    <p>Turn Goals Into Growth.</p>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contact Support</h4>
-                    <p><a href="mailto:ahyoung.app@gmail.com">ahyoung.app@gmail.com</a></p>
-                </div>
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div>
+                <div class="footer-logo">Futureseed</div>
+                <p>Long-term goals, daily practice, and reflection.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Futureseed. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
-                </div>
+            <div class="footer-contact">
+                <h4>Contact Support</h4>
+                <p><a href="mailto:ahyoung.app@gmail.com">ahyoung.app@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Futureseed. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
             </div>
         </div>
     </footer>
@@ -162,89 +221,29 @@
         document.addEventListener('DOMContentLoaded', () => {
             const navToggle = document.querySelector('.nav-toggle');
             const navLinks = document.querySelector('.nav-links');
-            const featureItems = document.querySelectorAll('.feature-item');
-            const mockupScreens = document.querySelectorAll('.mockup-screen');
-            const mockupContainer = document.getElementById('feature-mockup');
-            const featureList = document.querySelector('.feature-list');
 
-            // Nav toggle
             if (navToggle && navLinks) {
                 const closeNav = () => {
                     navLinks.classList.remove('open');
                     navToggle.classList.remove('active');
                     navToggle.setAttribute('aria-expanded', 'false');
                 };
+
                 navToggle.addEventListener('click', () => {
                     const isOpen = navLinks.classList.toggle('open');
                     navToggle.classList.toggle('active', isOpen);
                     navToggle.setAttribute('aria-expanded', String(isOpen));
                 });
-                navLinks.querySelectorAll('a').forEach(link => {
+
+                navLinks.querySelectorAll('a').forEach((link) => {
                     link.addEventListener('click', closeNav);
                 });
+
                 document.addEventListener('click', (event) => {
-                    if (window.innerWidth > 860) return;
-                    if (!navLinks.contains(event.target) && !navToggle.contains(event.target)) closeNav();
-                });
-                window.addEventListener('resize', () => {
-                    if (window.innerWidth > 860) closeNav();
-                });
-            }
-
-            // Switch active card + mockup image
-            const switchToItem = (item) => {
-                featureItems.forEach(fi => fi.classList.remove('active'));
-                mockupScreens.forEach(ms => ms.classList.remove('active'));
-                item.classList.add('active');
-                const targetScreen = document.getElementById('screen-' + item.getAttribute('data-feature'));
-                if (targetScreen) {
-                    targetScreen.classList.add('active');
-                    mockupContainer.classList.remove('animating-shine');
-                    void mockupContainer.offsetWidth;
-                    mockupContainer.classList.add('animating-shine');
-                }
-            };
-
-            if (window.innerWidth <= 1024) {
-                // Mobile: horizontal scroll + dot indicators
-                const dotsContainer = document.createElement('div');
-                dotsContainer.className = 'feature-dots';
-                featureList.after(dotsContainer);
-                featureItems.forEach((_, i) => {
-                    const dot = document.createElement('span');
-                    dot.className = 'feature-dot' + (i === 0 ? ' active' : '');
-                    dotsContainer.appendChild(dot);
-                });
-                const dots = dotsContainer.querySelectorAll('.feature-dot');
-
-                const updateActive = () => {
-                    const center = featureList.scrollLeft + featureList.offsetWidth / 2;
-                    let closest = null, closestDist = Infinity;
-                    featureItems.forEach(item => {
-                        const dist = Math.abs((item.offsetLeft + item.offsetWidth / 2) - center);
-                        if (dist < closestDist) { closestDist = dist; closest = item; }
-                    });
-                    if (closest) {
-                        const idx = Array.from(featureItems).indexOf(closest);
-                        dots.forEach(d => d.classList.remove('active'));
-                        dots[idx]?.classList.add('active');
-                        switchToItem(closest);
+                    if (window.innerWidth > 900) return;
+                    if (!navLinks.contains(event.target) && !navToggle.contains(event.target)) {
+                        closeNav();
                     }
-                };
-
-                featureList.addEventListener('scroll', updateActive, { passive: true });
-
-                // Tap dot to scroll to that card
-                dots.forEach((dot, i) => {
-                    dot.addEventListener('click', () => {
-                        featureItems[i]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                    });
-                });
-
-            } else {
-                // Desktop: hover to switch
-                featureItems.forEach(item => {
-                    item.addEventListener('mouseenter', () => switchToItem(item));
                 });
             }
         });
