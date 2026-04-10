@@ -416,6 +416,7 @@ main {
 .section-illustration svg {
     width: 100%;
     height: auto;
+    color: var(--accent);
 }
 
 .overview-step svg {
@@ -426,10 +427,20 @@ main {
     box-shadow: var(--shadow);
 }
 
-.overview-step svg *,
-.section-illustration svg * {
+.overview-step svg rect,
+.overview-step svg line,
+.overview-step svg path,
+.overview-step svg circle,
+.overview-step svg polyline,
+.overview-step svg polygon,
+.section-illustration svg rect,
+.section-illustration svg line,
+.section-illustration svg path,
+.section-illustration svg circle,
+.section-illustration svg polyline,
+.section-illustration svg polygon {
     fill: none;
-    stroke: var(--accent);
+    stroke: currentColor;
     stroke-width: 2.4;
     stroke-linecap: round;
     stroke-linejoin: round;
