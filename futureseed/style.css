@@ -232,9 +232,6 @@ main {
 .section-body,
 .section-points,
 .journey-step p,
-.mini-card h3,
-.stack-item span,
-.quote-card p,
 .closing-card p,
 .site-footer p,
 .footer-links a {
@@ -253,16 +250,12 @@ main {
     margin-top: 2rem;
 }
 
-.hero-panel,
-.section-panel {
+.hero-panel {
     display: flex;
     justify-content: center;
 }
 
 .journey-card,
-.mini-card,
-.stack-card,
-.quote-card,
 .closing-card {
     background: var(--surface);
     border: 1px solid rgba(221, 216, 203, 0.9);
@@ -316,7 +309,6 @@ main {
 }
 
 .section-intro,
-.reflection-band,
 .closing-section {
     padding: 2.5rem 0 4rem;
 }
@@ -371,10 +363,23 @@ main {
 
 .section-intro h2,
 .journey-section h2,
-.reflection-band h2,
 .closing-card h2 {
     font-size: clamp(2.2rem, 4vw, 3.8rem);
     margin: 0.8rem 0 1rem;
+}
+
+.journey-meta {
+    display: grid;
+    gap: 1.4rem;
+    margin-top: 1.8rem;
+}
+
+.journey-meta-item {
+    max-width: 46rem;
+}
+
+.journey-meta-item p:last-child {
+    color: var(--text-soft);
 }
 
 .feature-tabs {
@@ -399,19 +404,7 @@ main {
 }
 
 .journey-section {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 2.5rem;
-    align-items: center;
     padding: 2rem 0;
-}
-
-.journey-section.alt .section-copy {
-    order: 2;
-}
-
-.journey-section.alt .section-panel {
-    order: 1;
 }
 
 .section-points {
@@ -434,63 +427,6 @@ main {
     height: 7px;
     border-radius: 50%;
     background: var(--accent);
-}
-
-.mini-card,
-.quote-card {
-    padding: 2rem;
-    width: min(100%, 360px);
-}
-
-.mini-card h3 {
-    font-size: 1.3rem;
-    margin-top: 0.8rem;
-    line-height: 1.45;
-}
-
-.stack-card {
-    width: min(100%, 360px);
-    padding: 1.2rem;
-}
-
-.stack-item {
-    padding: 1.4rem;
-    background: var(--surface-strong);
-    border: 1px solid rgba(221, 216, 203, 0.9);
-    border-radius: 20px;
-}
-
-.stack-item + .stack-item {
-    margin-top: 1rem;
-}
-
-.stack-item p {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.4rem;
-    margin-bottom: 0.25rem;
-}
-
-.stack-item.muted {
-    transform: translateX(1rem);
-    background: rgba(246, 243, 236, 0.95);
-}
-
-.quote-card p {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.6rem;
-    line-height: 1.35;
-}
-
-.reflection-band {
-    margin-top: 1rem;
-    padding: 2.4rem;
-    background: rgba(233, 239, 230, 0.85);
-    border-radius: 32px;
-    border: 1px solid rgba(212, 222, 210, 0.95);
-}
-
-.reflection-band .section-body {
-    max-width: 48rem;
 }
 
 .closing-card {
@@ -564,34 +500,8 @@ main {
         display: flex;
     }
 
-    .hero,
-    .journey-section,
-    .journey-section.alt {
-        grid-template-columns: 1fr;
-    }
-
-    .journey-section.alt .section-copy,
-    .journey-section.alt .section-panel {
-        order: initial;
-    }
-
     .hero {
         padding-top: 3.4rem;
-    }
-
-    .hero-panel,
-    .section-panel {
-        justify-content: flex-start;
-    }
-
-    .mini-card,
-    .stack-card,
-    .quote-card {
-        width: 100%;
-    }
-
-    .stack-item.muted {
-        transform: none;
     }
 
     .footer-top,
@@ -619,16 +529,8 @@ main {
     }
 
     .journey-card,
-    .mini-card,
-    .stack-card,
-    .quote-card,
-    .closing-card,
-    .reflection-band {
+    .closing-card {
         border-radius: 24px;
-    }
-
-    .quote-card p {
-        font-size: 1.35rem;
     }
 
     .policy-main {
