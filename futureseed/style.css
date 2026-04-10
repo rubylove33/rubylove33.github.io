@@ -228,14 +228,23 @@ main {
 }
 
 body.kr .hero-copy h1 {
-    font-size: clamp(2.55rem, 5.6vw, 4.2rem);
+    font-size: 2.8rem;
     max-width: 12ch;
+    margin-bottom: 1.2rem;
 }
 
 body.kr .section-intro h2,
 body.kr .journey-section h2,
 body.kr .closing-card h2 {
     font-size: clamp(2rem, 3.2vw, 3rem);
+}
+
+body.kr h1,
+body.kr h2 {
+    letter-spacing: -0.04em;
+    line-height: 1.25;
+    word-break: keep-all;
+    font-weight: 700;
 }
 
 .hero-body,
