@@ -214,7 +214,6 @@ main {
 .hero-copy h1,
 .section-intro h2,
 .journey-section h2,
-.reflection-band h2,
 .closing-card h2 {
     font-family: 'DM Serif Display', serif;
     font-weight: 400;
@@ -401,6 +400,46 @@ main {
     background: var(--accent);
 }
 
+.journey-overview-illustration {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 2.6rem;
+}
+
+.overview-step {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.overview-step svg,
+.section-illustration svg {
+    width: 100%;
+    height: auto;
+}
+
+.overview-step svg {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(221, 216, 203, 0.9);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+}
+
+.overview-step svg *,
+.section-illustration svg * {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.overview-step span {
+    font-size: 0.92rem;
+    color: var(--text-soft);
+}
+
 .feature-tabs {
     display: flex;
     flex-wrap: wrap;
@@ -424,6 +463,40 @@ main {
 
 .journey-section {
     padding: 2rem 0;
+}
+
+.journey-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.7fr);
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.journey-section.alt .journey-layout {
+    grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1.1fr);
+}
+
+.journey-section.alt .section-copy {
+    order: 2;
+}
+
+.journey-section.alt .section-illustration {
+    order: 1;
+}
+
+.section-illustration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.64);
+    border: 1px solid rgba(221, 216, 203, 0.9);
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+}
+
+.section-illustration svg {
+    max-width: 320px;
 }
 
 .section-points {
@@ -521,6 +594,17 @@ main {
 
     .hero {
         padding-top: 3.4rem;
+    }
+
+    .journey-overview-illustration,
+    .journey-layout,
+    .journey-section.alt .journey-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .journey-section.alt .section-copy,
+    .journey-section.alt .section-illustration {
+        order: initial;
     }
 
     .footer-top,

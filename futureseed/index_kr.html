@@ -89,6 +89,58 @@
             <p class="section-kicker">한 번에 설명하지 않고 단계로 보여줍니다</p>
             <h2>각 탭은 앱의 한 단계를 드러냅니다.</h2>
             <p class="section-body">Futureseed는 기능을 한꺼번에 나열하지 않습니다. 방향을 세우고, 오늘을 이어 가고, 보관하고, 돌아보는 흐름으로 앱을 보여줍니다.</p>
+            <div class="journey-overview-illustration" aria-hidden="true">
+                <div class="overview-step">
+                    <svg viewBox="0 0 180 112" role="presentation">
+                        <rect x="16" y="14" width="148" height="84" rx="16"></rect>
+                        <line x1="16" y1="36" x2="164" y2="36"></line>
+                        <path d="M34 28c10-10 18 10 28 0s18 10 28 0"></path>
+                        <path d="M34 56c10-10 18 10 28 0s18 10 28 0"></path>
+                        <path d="M34 74c10-10 18 10 28 0s18 10 28 0"></path>
+                        <path d="M106 58h30"></path>
+                        <path d="M106 76h18"></path>
+                    </svg>
+                    <span>Goals</span>
+                </div>
+                <div class="overview-step">
+                    <svg viewBox="0 0 180 112" role="presentation">
+                        <rect x="16" y="16" width="148" height="80" rx="18"></rect>
+                        <circle cx="44" cy="56" r="8"></circle>
+                        <circle cx="90" cy="56" r="8"></circle>
+                        <circle cx="136" cy="56" r="8"></circle>
+                        <path d="M52 56h30"></path>
+                        <path d="M98 56h30"></path>
+                        <path d="M38 32c8-8 16 8 24 0"></path>
+                        <path d="M120 80c8-8 16 8 24 0"></path>
+                    </svg>
+                    <span>Today</span>
+                </div>
+                <div class="overview-step">
+                    <svg viewBox="0 0 180 112" role="presentation">
+                        <rect x="26" y="18" width="56" height="76" rx="14"></rect>
+                        <rect x="98" y="18" width="56" height="76" rx="14"></rect>
+                        <path d="M40 42h28"></path>
+                        <path d="M40 58h22"></path>
+                        <path d="M112 42h28"></path>
+                        <path d="M112 58h22"></path>
+                        <path d="M84 56h12"></path>
+                    </svg>
+                    <span>Library &amp; Archive</span>
+                </div>
+                <div class="overview-step">
+                    <svg viewBox="0 0 180 112" role="presentation">
+                        <path d="M26 84h128"></path>
+                        <circle cx="42" cy="66" r="8"></circle>
+                        <circle cx="86" cy="56" r="8"></circle>
+                        <circle cx="130" cy="42" r="8"></circle>
+                        <path d="M50 64c10 0 18-8 28-8"></path>
+                        <path d="M94 54c10 0 18-12 28-12"></path>
+                        <path d="M130 34v-14"></path>
+                        <path d="M122 26l8-8 8 8"></path>
+                    </svg>
+                    <span>Review</span>
+                </div>
+            </div>
             <div class="journey-meta">
                 <div class="journey-meta-item">
                     <p class="mini-label">Target users</p>
@@ -129,7 +181,8 @@
         </section>
 
         <section id="goals" class="journey-section">
-            <div class="section-copy">
+            <div class="journey-layout">
+                <div class="section-copy">
                 <p class="section-kicker">Goals</p>
                 <h2>붙잡고 싶은 목표를 먼저 선명하게 만듭니다.</h2>
                 <p class="section-body">의미 있는 개인 목표를 꾸준히 이어 가고 싶은 사람을 위한 시작점입니다. 해야 할 일보다, 왜 이 목표가 중요한지부터 정리합니다.</p>
@@ -137,11 +190,24 @@
                     <li>미래 글쓰기로 원하는 방향을 그려 봅니다.</li>
                     <li>키워드와 액션 플래닝으로 목표를 오늘의 흐름에 연결합니다.</li>
                 </ul>
+                </div>
+                <div class="section-illustration goals-illustration" aria-hidden="true">
+                    <svg viewBox="0 0 240 170" role="presentation">
+                        <rect x="22" y="20" width="196" height="128" rx="20"></rect>
+                        <line x1="22" y1="52" x2="218" y2="52"></line>
+                        <path d="M44 40c12-12 20 12 32 0s20 12 32 0"></path>
+                        <path d="M44 78c12-12 20 12 32 0s20 12 32 0"></path>
+                        <path d="M44 100c12-12 20 12 32 0s20 12 32 0"></path>
+                        <rect x="142" y="72" width="52" height="18" rx="9"></rect>
+                        <rect x="142" y="98" width="40" height="18" rx="9"></rect>
+                    </svg>
+                </div>
             </div>
         </section>
 
         <section id="today" class="journey-section alt">
-            <div class="section-copy">
+            <div class="journey-layout">
+                <div class="section-copy">
                 <p class="section-kicker">Today</p>
                 <h2>오늘도 다시 돌아올 수 있는 흐름을 만듭니다.</h2>
                 <p class="section-body">Today 화면은 부담을 키우기보다 작은 반복을 돕습니다. 짧은 기록, 집중 상태, 리마인더로 목표와의 연결을 이어 갑니다.</p>
@@ -149,11 +215,25 @@
                     <li>가볍게 진행을 기록할 수 있습니다.</li>
                     <li>알림과 작은 실천이 꾸준함을 받쳐 줍니다.</li>
                 </ul>
+                </div>
+                <div class="section-illustration today-illustration" aria-hidden="true">
+                    <svg viewBox="0 0 240 170" role="presentation">
+                        <rect x="24" y="44" width="192" height="56" rx="28"></rect>
+                        <circle cx="58" cy="72" r="10"></circle>
+                        <circle cx="110" cy="72" r="10"></circle>
+                        <circle cx="162" cy="72" r="10"></circle>
+                        <path d="M68 72h32"></path>
+                        <path d="M120 72h32"></path>
+                        <path d="M44 28c10-10 20 10 30 0"></path>
+                        <path d="M156 126c10-10 20 10 30 0"></path>
+                    </svg>
+                </div>
             </div>
         </section>
 
         <section id="library" class="journey-section">
-            <div class="section-copy">
+            <div class="journey-layout">
+                <div class="section-copy">
                 <p class="section-kicker">Library &amp; Archive</p>
                 <h2>진행 중인 목표와 지난 목표를 나누어 진열합니다.</h2>
                 <p class="section-body">라이브러리와 아카이브에 각각 정리되어, 지금 붙잡고 있는 목표와 지나온 목표를 한곳에서 다시 펼쳐 볼 수 있습니다.</p>
@@ -162,11 +242,25 @@
                     <li>Archive에는 지나온 목표가 따로 보관됩니다.</li>
                     <li>목표가 진화하는 방향을 관찰할 수 있습니다.</li>
                 </ul>
+                </div>
+                <div class="section-illustration library-illustration" aria-hidden="true">
+                    <svg viewBox="0 0 240 170" role="presentation">
+                        <rect x="28" y="26" width="72" height="116" rx="16"></rect>
+                        <rect x="140" y="26" width="72" height="116" rx="16"></rect>
+                        <path d="M46 56h36"></path>
+                        <path d="M46 78h28"></path>
+                        <path d="M46 100h32"></path>
+                        <path d="M158 56h36"></path>
+                        <path d="M158 78h28"></path>
+                        <path d="M100 84c12-10 28-10 40 0"></path>
+                    </svg>
+                </div>
             </div>
         </section>
 
         <section id="review" class="journey-section alt">
-            <div class="section-copy">
+            <div class="journey-layout">
+                <div class="section-copy">
                 <p class="section-kicker">Review</p>
                 <h2>하나의 목표에서 끝나지 않습니다.</h2>
                 <p class="section-body">Futureseed는 돌아봄을 중요하게 다룹니다. 기록과 리뷰를 통해 목표를 완수했는지만이 아니라, 목표가 어떻게 변화했는지를 다시 읽을 수 있습니다.</p>
@@ -174,6 +268,19 @@
                     <li>작은 기록이 쌓이면 나중에 변화가 보입니다.</li>
                     <li>리뷰는 시간이 흐른 뒤 목표의 움직임을 읽게 해줍니다.</li>
                 </ul>
+                </div>
+                <div class="section-illustration review-illustration" aria-hidden="true">
+                    <svg viewBox="0 0 240 170" role="presentation">
+                        <path d="M28 126h184"></path>
+                        <circle cx="56" cy="98" r="10"></circle>
+                        <circle cx="112" cy="82" r="10"></circle>
+                        <circle cx="168" cy="58" r="10"></circle>
+                        <path d="M66 96c12 0 24-12 36-12"></path>
+                        <path d="M122 80c12 0 24-20 36-20"></path>
+                        <path d="M168 48v-22"></path>
+                        <path d="M158 38l10-12 10 12"></path>
+                    </svg>
+                </div>
             </div>
         </section>
 
