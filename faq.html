@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Walk Habit</title>
+    <meta name="description"
+        content="Frequently asked questions about Walk Habit — daily goals, streaks, Walk Clip videos, sample data, photo album, templates, and more.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .faq-content {
+            padding: 120px 6% 80px;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .faq-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-intro {
+            font-size: 1.05rem;
+            color: var(--text-dim);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .faq-list {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item > summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 1.15rem 1.25rem;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-light);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            line-height: 1.5;
+            transition: background 0.15s ease;
+        }
+
+        .faq-item > summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item > summary:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .faq-item > summary::after {
+            content: '+';
+            margin-left: auto;
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--primary);
+            line-height: 1;
+            flex-shrink: 0;
+            transition: transform 0.2s ease;
+        }
+
+        .faq-item[open] > summary::after {
+            content: '−';
+        }
+
+        .faq-answer {
+            padding: 0 1.25rem 1.25rem;
+            color: var(--text-dim);
+            font-size: 1rem;
+            line-height: 1.65;
+            white-space: pre-line;
+        }
+
+        .faq-footnote {
+            margin-top: 2.5rem;
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .faq-footnote a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .faq-footnote a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .faq-content {
+                padding: 100px 4% 60px;
+            }
+
+            .faq-content h1 {
+                font-size: 2rem;
+            }
+
+            .faq-item > summary {
+                font-size: 1rem;
+                padding: 1rem 1rem;
+            }
+
+            .faq-answer {
+                padding: 0 1rem 1.1rem;
+                font-size: 0.98rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html">Walk Habit</a></div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="faq_kr.html" class="btn-sm">한국어</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="faq-content">
+        <h1>Frequently Asked Questions</h1>
+        <p class="faq-intro">The same questions and answers you'll find inside the app's Help screen — collected here so you can read them before installing, or share a link with a friend.</p>
+
+        <div class="faq-list">
+            <details class="faq-item">
+                <summary>How should I use the app?</summary>
+                <div class="faq-answer">1. Set Goal
+2. Walk with Timer or Record Manually
+3. Check Stats
+4. Manage Photos
+Try in this order!</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>How is the daily goal set?</summary>
+                <div class="faq-answer">It is automatically updated daily based on your Basic Routine and Custom Schedule in the Goals tab.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Can I see the first-time guide again?</summary>
+                <div class="faq-answer">Yes. Go to Settings &gt; Quick Start Guide &gt; Show Home Start Guide Card to show it again on Home. You can choose the language too (current app language / Korean / English).</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>I tapped Ad Personalization Consent but nothing appeared. Is it an error?</summary>
+                <div class="faq-answer">Not always. In some regions or statuses, the CMP privacy options dialog may not be required and may not appear. In that case, the app shows a message explaining it.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Will my records disappear when I turn on sample data?</summary>
+                <div class="faq-answer">No. Your records, goals, and reminder settings are safely preserved. Sample data is shown in a separate temporary workspace and your original data is restored when sample mode is turned off.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Do changes I make in sample mode affect my real records?</summary>
+                <div class="faq-answer">No. Records added or edited in sample mode are only for preview and are discarded when sample mode is turned off. They do not mix with your personal records.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Do goal or reminder changes in sample mode affect my real settings?</summary>
+                <div class="faq-answer">No. Goal changes (Basic Routine / Custom Schedule) and reminder changes in sample mode are temporary and revert when sample mode is turned off.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>How is the streak counted?</summary>
+                <div class="faq-answer">Rest days (0 min goal) count as achieved. You must complete your daily goal to keep the streak alive.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>When can I add photos to the album?</summary>
+                <div class="faq-answer">You can add photos only when there is at least 1 second of workout record for that date.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Are scenery and body-change photos managed separately?</summary>
+                <div class="faq-answer">All photos are now managed in one album. You can apply templates and create GIFs in the same flow regardless of photo type.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Are templates paid?</summary>
+                <div class="faq-answer">All templates are free.
+Pick any design — Simple, Polaroid, Poster, Magazine, Film, Minimal, Retro, SNS, Dino, or Quote — and use it however you like.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>How do I create a GIF?</summary>
+                <div class="faq-answer">Collect 3 or more photos in the Photos album to create a timelapse GIF.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>How are Walk Clip videos made?</summary>
+                <div class="faq-answer">Capture 2 seconds at the start and end of your walk — the two moments are stitched into a single short video saved to Photos.
+
+Skipping the start clip means that walk runs without a video. If you capture the start but skip the finish, no video is made (the start clip is auto-cleaned).
+
+There is no mid-walk capture option — Walk Clips are about recording the start and the end of your walk.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Can I switch cameras while recording?</summary>
+                <div class="faq-answer">Camera switching is available only before recording starts (during the countdown). Tap the camera icon at the top-right of the capture screen.
+
+During recording, the toggle is temporarily disabled so the clip stays consistent. You can pick a different camera for the start clip and the finish clip independently.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Why is there a face warning?</summary>
+                <div class="faq-answer">Walk Habit prioritizes your privacy. We warn you about sharing photos with faces to protect personal information. We recommend verifying with landscape or object photos, but you can save them if you wish.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>I want to reset my data.</summary>
+                <div class="faq-answer">You can reset your data in Settings &gt; Reset Data.</div>
+            </details>
+        </div>
+
+        <p class="faq-footnote">Still need help? Email <a href="mailto:ahyoung.app@gmail.com">ahyoung.app@gmail.com</a>.</p>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Walk Habit. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
