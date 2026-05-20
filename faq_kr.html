@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walk Habit — 자주 묻는 질문</title>
+    <meta name="description" content="Walk Habit 의 자주 묻는 질문 모음.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --tile-gray: #F5F5F7;
+    --tile-white: #FFFFFF;
+    --tile-dark: #1D1D1F;
+    --ink: #1D1D1F;
+    --ink-soft: #6E6E73;
+    --ink-line: #E8E8E8;
+    --accent: #7E30E0;
+    --accent-hover: #6320BA;
+    --brand-purple: #7E30E0;
+}
+.brand-purple { color: var(--brand-purple); }
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    margin: 0;
+    background: var(--tile-white);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+}
+header {
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    position: sticky; top: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    z-index: 50;
+}
+
+header nav {
+    max-width: 1024px; margin: 0 auto;
+    padding: 0 24px;
+    height: 44px;
+    display: flex; align-items: center; justify-content: space-between;
+}
+.logo { font-weight: 600; font-size: 17px; letter-spacing: -0.02em; text-decoration: none; color: var(--ink); }
+.nav-links a {
+    color: var(--ink); text-decoration: none;
+    font-size: 12px; font-weight: 400;
+    opacity: 0.9; margin-left: 28px;
+    transition: opacity 0.2s;
+}
+.nav-links a:hover { opacity: 1; }
+
+.page {
+    max-width: 820px; margin: 0 auto;
+    padding: 96px 24px 120px;
+}
+.page-hero { text-align: center; margin-bottom: 64px; }
+.page-hero h1 {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 600;
+    line-height: 1.05; letter-spacing: -0.035em;
+    margin: 0 0 12px;
+}
+.page-hero p {
+    font-size: 18px; color: var(--ink-soft);
+    margin: 0 auto; max-width: 560px;
+}
+
+/* FAQ */
+.faq-list { display: flex; flex-direction: column; }
+.faq-item {
+    border-top: 1px solid var(--ink-line);
+    padding: 0;
+}
+.faq-list .faq-item:last-child { border-bottom: 1px solid var(--ink-line); }
+.faq-item > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 20px 0;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px;
+    font-size: 17px; font-weight: 500;
+    color: var(--ink);
+    user-select: none;
+}
+.faq-item > summary::-webkit-details-marker { display: none; }
+.faq-item > summary::after {
+    content: '+';
+    font-size: 22px; font-weight: 300;
+    color: var(--accent);
+    flex-shrink: 0;
+    transition: transform 0.2s;
+}
+.faq-item[open] > summary::after { content: '−'; }
+.faq-item > .faq-a {
+    padding: 0 0 24px;
+    color: var(--ink-soft);
+    font-size: 16px; line-height: 1.6;
+    white-space: pre-wrap;
+}
+.faq-item > .faq-a strong { color: var(--ink); font-weight: 500; }
+
+/* What's New */
+.wn-list { display: flex; flex-direction: column; gap: 56px; }
+.wn-entry {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 32px;
+    align-items: start;
+    padding: 32px 0;
+    border-top: 1px solid var(--ink-line);
+}
+.wn-meta {
+    font-size: 13px;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+}
+.wn-version {
+    display: block;
+    font-size: 28px; font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+}
+.wn-version .latest {
+    display: inline-block;
+    background: var(--accent); color: white;
+    font-size: 10px; font-weight: 600;
+    padding: 2px 8px; border-radius: 100px;
+    margin-left: 8px; vertical-align: middle;
+    letter-spacing: 0.08em; text-transform: uppercase;
+}
+.wn-title { font-size: 22px; font-weight: 600; margin: 0 0 16px; letter-spacing: -0.02em; line-height: 1.2; }
+.wn-bullets { list-style: none; padding: 0; margin: 0; }
+.wn-bullets li {
+    position: relative; padding: 8px 0 8px 22px;
+    color: var(--ink-soft); font-size: 15px; line-height: 1.6;
+    border-top: 1px solid var(--ink-line);
+}
+.wn-bullets li:first-child { border-top: none; }
+.wn-bullets li::before {
+    content: ''; position: absolute;
+    left: 0; top: 18px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+/* CTA back to home */
+.page-cta { margin-top: 64px; text-align: center; }
+.pill {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: transparent; color: var(--accent);
+    padding: 8px 4px; text-decoration: none;
+    font-size: 15px; font-weight: 400;
+    border-radius: 100px;
+    transition: color 0.15s;
+}
+.pill:hover { color: var(--accent-hover); }
+.pill::after { content: '›'; margin-left: 4px; }
+
+footer {
+    background: var(--tile-gray);
+    border-top: 1px solid rgba(0,0,0,0.08);
+    padding: 32px 24px 16px;
+    font-size: 12px; color: var(--ink-soft);
+}
+.footer-inner {
+    max-width: 1024px; margin: 0 auto;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+footer a { color: inherit; text-decoration: none; margin-right: 18px; }
+footer a:hover { color: var(--ink); text-decoration: underline; }
+
+@media (max-width: 720px) {
+    .wn-entry { grid-template-columns: 1fr; gap: 16px; padding: 24px 0; }
+    .page { padding: 64px 20px 80px; }
+    .page-hero h1 { font-size: 36px; }
+}
+</style>
+</head>
+<body>
+    <header>
+        
+        <nav>
+            <a href="index_kr.html" class="logo">Walk Habit</a>
+            <div class="nav-links">
+                <a href="index_kr.html">홈</a>
+                <a href="faq_kr.html">자주 묻는 질문</a>
+                <a href="whats-new_kr.html">새 소식</a>
+                <a href="faq.html">English</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page">
+        <div class="page-hero">
+            <h1>자주 묻는 질문</h1>
+            <p>Walk Habit 사용 중 가장 많이 듣는 질문들을 모았습니다.</p>
+        </div>
+        <div class="faq-list"><details class="faq-item"><summary><span>앱을 어떤 순서대로 사용해야 하나요?</span></summary><div class="faq-a">1. 목표 설정<br>2. 타이머로 운동하거나 기록 추가<br>3. 통계 확인<br>4. 사진 관리<br>순서로 이용해보세요!</div></details><details class="faq-item"><summary><span>하루 목표는 어떻게 설정되나요?</span></summary><div class="faq-a">&#x27;목표 관리&#x27; 탭에서 요일별 기본 루틴을 설정할 수 있으며, 맞춤 일정을 통해 날짜별로 자유롭게 목표를 수정할 수 있습니다.</div></details><details class="faq-item"><summary><span>처음 사용자 가이드는 다시 볼 수 있나요?</span></summary><div class="faq-a">네. 설정 &gt; 빠른 시작 가이드 &gt; 처음 사용자용 시작 순서 카드 생성에서 다시 홈 화면에 띄울 수 있어요. 생성할 때 언어(현재 앱 언어/한국어/English)도 선택할 수 있습니다.</div></details><details class="faq-item"><summary><span>&#x27;광고 맞춤설정 동의 관리&#x27;를 눌렀는데 아무 것도 안 떠요. 오류인가요?</span></summary><div class="faq-a">반드시 오류는 아니에요. 현재 지역/상태에서는 광고 개인정보 설정창(CMP)이 필요하지 않아 표시되지 않을 수 있습니다. 이 경우 앱에서 안내 메시지가 표시됩니다.</div></details><details class="faq-item"><summary><span>샘플 데이터를 켜면 내 기록이 사라지나요?</span></summary><div class="faq-a">아니요. 내 기록/목표/알림 설정은 안전하게 보관되고, 샘플 데이터는 별도 체험 작업공간으로 임시 표시됩니다. 샘플 데이터를 끄면 기존 데이터가 그대로 복원됩니다.</div></details><details class="faq-item"><summary><span>샘플 모드에서 수정/추가한 내용이 내 기록에 반영되나요?</span></summary><div class="faq-a">반영되지 않습니다. 샘플 모드에서 만든 기록/수정/추가는 체험용이며, 종료하면 사라집니다. 사용자 기록과 섞이지 않도록 분리되어 있습니다.</div></details><details class="faq-item"><summary><span>샘플 모드에서 목표/알림 설정을 바꾸면 실제 설정도 바뀌나요?</span></summary><div class="faq-a">아니요. 목표 설정(Basic Routine / Custom Schedule)과 알림 설정 변경은 샘플 화면에만 임시 반영됩니다. 샘플 모드를 끄면 원래 설정으로 돌아갑니다.</div></details><details class="faq-item"><summary><span>연속 기록은 어떻게 카운팅되나요?</span></summary><div class="faq-a">쉬는 날(목표 0분)도 목표 달성으로 인정되어 연속 기록에 포함됩니다. 매일의 목표를 완수해야 기록이 끊기지 않고 이어집니다.</div></details><details class="faq-item"><summary><span>앨범에 사진은 언제 추가할 수 있나요?</span></summary><div class="faq-a">해당 날짜에 운동 기록이 1초라도 존재해야 사진을 추가하고 필터를 적용할 수 있습니다.</div></details><details class="faq-item"><summary><span>GIF는 어떻게 만드나요?</span></summary><div class="faq-a">&#x27;사진&#x27; 탭의 앨범에서 서로 다른 날에 찍은 사진을 3장 이상 모으면 타임랩스 GIF를 만들 수 있어요.<br><br>같은 날에 찍은 사진만 골랐을 때는 GIF가 만들어지지 않아요 — 변화의 흐름을 보여주려면 최소 2일 이상의 사진이 필요해요.</div></details><details class="faq-item"><summary><span>Walk Clip(운동 영상)은 어떻게 만들어지나요?</span></summary><div class="faq-a">운동을 시작할 때와 끝낼 때 2초씩 영상을 찍으면 두 순간이 한 편의 영상으로 합쳐져 사진첩에 저장됩니다.<br><br>시작 영상을 건너뛰면 그 운동은 영상 없이 진행되고, 시작은 찍었지만 마무리를 건너뛰면 영상이 만들어지지 않습니다 (시작 컷은 자동으로 정리돼요).<br><br>운동 도중에 찍는 옵션은 없습니다 — 운동의 시작과 끝을 기록하기 위함이에요.</div></details><details class="faq-item"><summary><span>녹화 중에 전/후면 카메라를 바꿀 수 있나요?</span></summary><div class="faq-a">카메라 전환은 녹화 시작 전 (카운트다운 단계) 에만 가능해요. 촬영 화면 우측 상단의 카메라 아이콘을 누르면 됩니다.<br><br>녹화 도중에는 영상이 하나의 시점으로 자연스럽게 이어지도록 토글이 일시 비활성화돼요. 시작 컷과 마무리 컷은 각각 따로 카메라를 선택할 수 있어요.</div></details><details class="faq-item"><summary><span>운동 중에 다른 앱을 써도 진행 상태를 볼 수 있나요?</span></summary><div class="faq-a">iPhone에서는 잠금 화면과 다이나믹 아일랜드(iOS 16.1+) 에서 진행 상태가 보여요.<br><br>Android에서는 알림 영역에 지속 알림으로 표시되며, Android 16+ 에서는 상태 표시줄에도 진행률 칩이 함께 노출돼요. 알림에서 일시정지 / 재개 / 종료 버튼으로 운동을 직접 컨트롤할 수 있어요.<br><br>알림이 보이지 않으면 OS 알림 권한과 앱 내 알림 설정을 함께 확인해주세요.</div></details><details class="faq-item"><summary><span>데이터를 초기화하고 싶어요.</span></summary><div class="faq-a">설정 &gt; 데이터 초기화 메뉴에서 앱 데이터를 초기화할 수 있습니다.<br>(※ 초기화 버튼을 누른 이후에는 데이터를 복구할 수 없으니 주의해주세요)</div></details></div>
+        <div class="page-cta">
+            <a href="index_kr.html" class="pill">홈으로</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <span>© 2026 Walk Habit. All rights reserved.</span>
+            <span>
+                <a href="privacy_kr.html">개인정보 처리방침</a><a href="terms_kr.html">이용약관</a><a href="app-ads.txt">app-ads.txt</a>
+            </span>
+        </div>
+    </footer>
+</body>
+</html>

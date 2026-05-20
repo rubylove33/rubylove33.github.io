@@ -1,18 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Walk Habit - Consistency, made visible.</title>
+    <title>Walk Habit — Two moments, one habit.</title>
     <meta name="description"
-        content="Walk Habit is not about pushing harder. It’s about showing up. Track your exercise, rest days, and build lasting habits at your own pace.">
-    <link rel="stylesheet" href="style.css">
+        content="Walk Habit captures two seconds at the start and end of every walk, stitched into one short clip you can save and share. A walking habit, made visible.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --tile-gray: #F5F5F7;
+            --tile-white: #FFFFFF;
+            --tile-dark: #1D1D1F;
+            --ink: #1D1D1F;
+            --ink-soft: #6E6E73;
+            /* Walk Habit brand purple — the single accent color used for
+               every interactive surface (CTAs, ghost links, the
+               "Consistency" word in the philosophy section). The hover
+               shade is a deeper purple so the affordance remains clear on
+               white tiles. */
+            --accent: #7E30E0;
+            --accent-hover: #6320BA;
+            --brand-purple: #7E30E0;
+        }
+        .brand-purple { color: var(--brand-purple); }
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background: var(--tile-gray);
+            color: var(--ink);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.5;
+            letter-spacing: -0.01em;
+        }
 
+        /* NAV — Apple style thin sticky */
+        header {
+            background: rgba(255,255,255,0.72);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            position: sticky; top: 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            z-index: 50;
+        }
+        header nav {
+            max-width: 1024px; margin: 0 auto;
+            padding: 0 24px;
+            height: 44px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-weight: 600; font-size: 17px; letter-spacing: -0.02em;
+        }
+        .nav-links a {
+            color: var(--ink); text-decoration: none;
+            font-size: 12px; font-weight: 400;
+            opacity: 0.9; margin-left: 28px;
+            transition: opacity 0.2s;
+        }
+        .nav-links a:hover { opacity: 1; }
+
+        /* TILE BASE — each tile fits within one viewport. */
+        .tile {
+            text-align: center;
+            padding: 56px 24px;
+            min-height: clamp(640px, 92vh, 1080px);
+            box-sizing: border-box;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+        /* Seamless tile-to-tile — color change is the only divider. */
+        .tile + .tile { margin-top: 0; }
+        .tile.bg-white { background: var(--tile-white); }
+        .tile.bg-gray { background: var(--tile-gray); }
+        .tile.bg-dark { background: var(--tile-dark); color: white; }
+
+        .tile h1, .tile h2 {
+            font-size: clamp(40px, 5.5vw, 72px);
+            font-weight: 600;
+            line-height: 1.05;
+            letter-spacing: -0.035em;
+            margin: 0 0 8px;
+        }
+        .tile .lead {
+            font-size: clamp(20px, 2vw, 28px);
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.015em;
+            margin: 0 0 24px;
+            color: var(--ink);
+        }
+        .tile .sub {
+            font-size: 17px;
+            color: var(--ink-soft);
+            max-width: 620px;
+            margin: 0 auto 28px;
+        }
+
+        .cta-row {
+            display: inline-flex; gap: 24px; flex-wrap: wrap; justify-content: center;
+        }
+        .pill {
+            display: inline-flex; align-items: center; gap: 4px;
+            background: var(--accent); color: white;
+            padding: 8px 18px; text-decoration: none;
+            font-size: 15px; font-weight: 400;
+            border-radius: 100px;
+            transition: background 0.15s;
+        }
+        .pill:hover { background: var(--accent-hover); }
+        .pill.ghost {
+            background: transparent; color: var(--accent);
+            padding: 8px 4px;
+        }
+        .pill.ghost:hover { color: var(--accent-hover); background: transparent; }
+        .pill.ghost::after { content: '›'; margin-left: 4px; }
+
+        /* Image area takes whatever room is left after text. */
+        .tile-image {
+            margin-top: 32px;
+            display: flex; justify-content: center; align-items: center;
+            flex: 1 1 auto;
+            min-height: 0;
+            width: 100%;
+        }
+        /* Phone bezel — width drives sizing; the inner image carries the
+           aspect-ratio (1242:2688 source) so the full screenshot is
+           visible edge-to-edge, and two adjacent devices in a duo row
+           end up pixel-identical. */
+        .device {
+            background: #1C1C1E;
+            padding: 7px;
+            border-radius: 42px;
+            width: clamp(180px, 22vw, 220px);
+            flex-shrink: 0;
+            line-height: 0;
+            box-sizing: border-box;
+            box-shadow:
+                0 40px 70px rgba(0,0,0,0.15),
+                0 14px 28px rgba(0,0,0,0.08),
+                inset 0 0 0 1px rgba(255,255,255,0.05);
+        }
+        .device img {
+            width: 100%;
+            aspect-ratio: 207 / 448;
+            object-fit: cover;
+            display: block;
+            border-radius: 35px;
+            background: #FFFFFF;
+        }
+        .tile.hero .device { width: clamp(200px, 24vw, 244px); }
+
+        /* PHILOSOPHY dino mascot — small, centered above the headline. */
+        .dino {
+            width: clamp(96px, 12vw, 144px);
+            height: auto;
+            display: block;
+            margin: 0 auto 20px;
+        }
+
+        /* HERO TILE — slightly tighter so phone gets a touch more room. */
+        .tile.hero {
+            padding-top: 72px;
+            padding-bottom: 48px;
+        }
+        .tile.hero h1 {
+            font-size: clamp(48px, 7vw, 88px);
+        }
+
+        /* DUO ROW — gap=0 so the four feature tiles form a 2x2 mosaic. */
+        .duo-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        .tile + .duo-row { margin-top: 0; }
+        .duo-row + .tile { margin-top: 0; }
+        .duo-row .tile h2 { font-size: clamp(32px, 3.5vw, 48px); }
+        .duo-row .tile .lead { font-size: 18px; }
+        .duo-row .device { width: clamp(220px, 24vw, 280px); }
+
+        /* FOOTER */
+        footer {
+            background: var(--tile-gray);
+            border-top: 1px solid rgba(0,0,0,0.08);
+            padding: 32px 24px 16px;
+            font-size: 12px; color: var(--ink-soft);
+        }
+        .footer-inner {
+            max-width: 1024px; margin: 0 auto;
+            display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+        }
+        footer a { color: inherit; text-decoration: none; margin-right: 18px; }
+        footer a:hover { color: var(--ink); text-decoration: underline; }
+
+        @media (max-width: 720px) {
+            .duo-row { grid-template-columns: 1fr; }
+            .tile.hero h1 { font-size: 44px; }
+            .tile h1, .tile h2 { font-size: 36px; }
+            .tile .lead { font-size: 19px; }
+            .tile { min-height: clamp(560px, 88vh, 900px); padding: 48px 20px; }
+        }
+    </style>
+</head>
 <body>
     <header>
         <nav>
@@ -20,165 +214,95 @@
             <div class="nav-links">
                 <a href="#philosophy">Philosophy</a>
                 <a href="#features">Features</a>
-                <a href="#premium">Premium</a>
-                <a href="index_kr.html" class="btn-sm">한국어</a>
+                <a href="#support">Support</a>
+                <a href="faq.html">FAQ</a>
+                <a href="whats-new.html">What's New</a>
+                <a href="index_kr.html">한국어</a>
             </div>
         </nav>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1><span class="gradient-text">Consistency</span>, made visible.</h1>
-                <p>Walk Habit is not about pushing harder. It’s about showing up — and keeping a record, whether you
-                    move or rest. Because real progress begins one small record at a time.</p>
-                <div class="cta-buttons">
-                    <a href="https://apps.apple.com" class="btn-primary">Get Started</a>
-                    <a href="#philosophy" class="btn-secondary">Our Approach</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="hero-mockup-container">
-                    <img src="assets/app_mockup.png" alt="Walk Habit App Mockup" class="hero-mockup">
-                </div>
+        <!-- HERO TILE — brand-name h1 + Walk Clip tagline. -->
+        <section class="tile hero bg-gray">
+            <h1>Walk Habit</h1>
+            <p class="lead">Don't track your walks. Keep the moments.</p>
+            <div class="tile-image phone">
+                <div class="device"><img src="assets/app_mockup.png" alt="Walk Habit app"></div>
             </div>
         </section>
 
-        <section id="philosophy" class="content-section">
-            <div class="section-container">
-                <h2><span class="gradient-text">Consistency</span> > Intensity.</h2>
-                <p class="section-subtitle">Real habits aren't built on perfection. They're built on showing up, even on
-                    rest days.</p>
-                <div class="philosophy-grid">
-                    <div class="philosophy-item">
-                        <h3>No Pressure</h3>
-                        <p>No competition, no pressure. Move at your own pace and celebrate the small wins.</p>
-                    </div>
-                    <div class="philosophy-item">
-                        <h3>Rest is part of the habit</h3>
-                        <p>You don't have to exercise every day. Recording a rest day is as important as recording a
-                            workout.</p>
-                    </div>
-                </div>
-            </div>
+        <!-- PHILOSOPHY TILE — text-only manifesto with brand mascot peek.
+             "Consistency" carries Walk Habit's brand purple as a single
+             accent on an otherwise neutral page. -->
+        <section class="tile bg-white" id="philosophy">
+            <img src="assets/dino.png" alt="" class="dino" aria-hidden="true">
+            <h2><span class="brand-purple">Consistency</span> &gt; Intensity.</h2>
+            <p class="lead">Real habits aren't built on perfection. They're built on showing up — even on rest days.</p>
+            <p class="sub">No pressure. No competition.<br>Recording a rest day matters as much as recording a workout.</p>
         </section>
 
-        <section id="features" class="features">
-            <h2>Everything you need for <span class="gradient-text">your journey.</span></h2>
-
-            <div class="features-layout">
-                <div class="feature-list">
-                    <div class="feature-item active" data-feature="track">
-                        <div class="icon">📝</div>
-                        <h3>Record-first Tracking</h3>
-                        <p>Track with a timer, add records manually, or log rest days without guilt. Because consistency
-                            is built one record at a time.</p>
-                    </div>
-                    <div class="feature-item" data-feature="goal">
-                        <div class="icon">📅</div>
-                        <h3>Flexible Weekly Goals</h3>
-                        <p>Set different goals by day and adjust them freely based on how you feel. Your habits should
-                            adapt to your life.</p>
-                    </div>
-                    <div class="feature-item" data-feature="stats">
-                        <div class="icon">📊</div>
-                        <h3>Meaningful Stats</h3>
-                        <p>Focus on streaks based on recording, not exercise intensity. See progress by week or month
-                            and celebrate consistency.</p>
-                    </div>
-                    <div class="feature-item" data-feature="archive">
-                        <div class="icon">🖼</div>
-                        <h3>Personal Record Archive</h3>
-                        <p>Save photos of your journey and look back at your progress anytime. Watch yourself grow over
-                            time.</p>
-                    </div>
+        <!-- DUO ROW — Record-first tracking + Flexible weekly goals.
+             First tile carries id="features" for the nav anchor. -->
+        <div class="duo-row">
+            <section class="tile bg-gray" id="features">
+                <h2>Record-first<br>tracking.</h2>
+                <p class="lead">Timer, manual, or rest — all of them count.</p>
+                <div class="tile-image">
+                    <div class="device"><img src="assets/feature-track.png" alt="Record-first tracking"></div>
                 </div>
-
-                <div class="feature-mockup-wrapper">
-                    <div class="feature-mockup-container" id="feature-mockup">
-                        <img src="assets/feature-track.png" alt="Tracking Feature" class="mockup-screen active"
-                            id="screen-track">
-                        <img src="assets/feature-goal.png" alt="Goals Feature" class="mockup-screen" id="screen-goal">
-                        <img src="assets/feature-stats.png" alt="Stats Feature" class="mockup-screen" id="screen-stats">
-                        <img src="assets/feature-archive.png" alt="Archive Feature" class="mockup-screen"
-                            id="screen-archive">
-                    </div>
+            </section>
+            <section class="tile bg-white">
+                <h2>Flexible<br>weekly goals.</h2>
+                <p class="lead">Different by day. Adjusted by life.</p>
+                <div class="tile-image">
+                    <div class="device"><img src="assets/feature-goal.png" alt="Flexible weekly goals"></div>
                 </div>
+            </section>
+        </div>
+
+        <!-- DUO ROW — Meaningful Stats + Personal Record Archive.
+             Backgrounds swapped vs the previous row so the page reads as
+             a checkerboard rhythm. -->
+        <div class="duo-row">
+            <section class="tile bg-white">
+                <h2>Meaningful<br>stats.</h2>
+                <p class="lead">Streaks built on showing up.</p>
+                <div class="tile-image">
+                    <div class="device"><img src="assets/feature-stats.png" alt="Meaningful stats"></div>
+                </div>
+            </section>
+            <section class="tile bg-gray">
+                <h2>Personal<br>record archive.</h2>
+                <p class="lead">Look back, anytime.</p>
+                <div class="tile-image">
+                    <div class="device"><img src="assets/feature-archive.png" alt="Personal record archive"></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SUPPORT TILE — voluntary IAP + feedback invite. -->
+        <section class="tile bg-white" id="support">
+            <h2>Like Walk Habit?</h2>
+            <p class="lead">Buy us a coffee. ☕</p>
+            <p class="sub">Every template, every GIF, every feature is free.<br>The in-app purchase is a voluntary way to support the solo developer.<br>And your feedback matters even more.</p>
+            <div class="cta-row">
+                <a href="https://apps.apple.com/us/app/walk-habit/id6758262802" class="pill">Send support on the App Store</a>
+                <a href="mailto:ahyoung.app@gmail.com?subject=Walk%20Habit%20feedback" class="pill ghost">Share any feedback</a>
             </div>
-        </section>
-
-        <section id="premium" class="premium-section">
-            <div class="glass-container">
-                <h2>Go Premium. <span class="gradient-text">Own it forever.</span></h2>
-                <p>Not a subscription. Pay once, use it for life.</p>
-                <div class="premium-features">
-                    <ul>
-                        <li>✨ No advertisements</li>
-                        <li>🎞️ Create exercise record GIFs</li>
-                        <li>🎨 Access to additional templates</li>
-                        <li>⭐ Support independent development</li>
-                    </ul>
-                </div>
-                <a href="https://apps.apple.com" class="btn-primary">Unlock Full Experience</a>
-            </div>
+            <div style="height: 64px;"></div>
         </section>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-top">
-                <div class="footer-info">
-                    <div class="footer-logo">Walk Habit</div>
-                    <p>Consistency, made visible.</p>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contact Support</h4>
-                    <p><a href="mailto:ahyoung.app@gmail.com">ahyoung.app@gmail.com</a></p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Walk Habit. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
-                    <a href="app-ads.txt">app-ads.txt</a>
-                </div>
-            </div>
+        <div class="footer-inner">
+            <span>© 2026 Walk Habit. All rights reserved.</span>
+            <span>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="app-ads.txt">app-ads.txt</a>
+            </span>
         </div>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const featureItems = document.querySelectorAll('.feature-item');
-            const mockupScreens = document.querySelectorAll('.mockup-screen');
-            const mockupContainer = document.getElementById('feature-mockup');
-
-            featureItems.forEach(item => {
-                item.addEventListener('mouseenter', () => {
-                    // Remove active class from all items and screens
-                    featureItems.forEach(fi => fi.classList.remove('active'));
-                    mockupScreens.forEach(ms => ms.classList.remove('active'));
-
-                    // Add active class to current item
-                    item.classList.add('active');
-
-                    // Add active class to corresponding screen
-                    const targetFeatureId = item.getAttribute('data-feature');
-                    const targetScreen = document.getElementById('screen-' + targetFeatureId);
-
-                    if (targetScreen) {
-                        targetScreen.classList.add('active');
-
-                        // Trigger shine animation
-                        mockupContainer.classList.remove('animating-shine');
-                        // Force reflow to restart animation
-                        void mockupContainer.offsetWidth;
-                        mockupContainer.classList.add('animating-shine');
-                    }
-                });
-            });
-        });
-    </script>
 </body>
-
 </html>
