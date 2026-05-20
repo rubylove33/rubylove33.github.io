@@ -1,18 +1,197 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Walk Habit - 꾸준함을 눈으로 확인하세요.</title>
+    <title>Walk Habit — 두 순간이 만드는 하나의 습관.</title>
     <meta name="description"
-        content="Walk Habit은 더 강하게 밀어붙이는 것이 아니라, 기록하는 것에 집중합니다. 나만의 보조에 맞춰 운동과 휴식을 기록하고 건강한 습관을 만드세요.">
-    <link rel="stylesheet" href="style.css">
+        content="Walk Habit 은 운동 시작과 끝의 2초를 자동으로 합쳐 사진첩에 짧은 영상으로 저장합니다. 매일의 걷기가 한 편의 클립이 되고, 두 순간이 쌓여 습관이 됩니다.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --tile-gray: #F5F5F7;
+            --tile-white: #FFFFFF;
+            --tile-dark: #1D1D1F;
+            --ink: #1D1D1F;
+            --ink-soft: #6E6E73;
+            --accent: #7E30E0;
+            --accent-hover: #6320BA;
+            --brand-purple: #7E30E0;
+        }
+        .brand-purple { color: var(--brand-purple); }
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background: var(--tile-gray);
+            color: var(--ink);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.5;
+            letter-spacing: -0.01em;
+        }
+        header {
+            background: rgba(255,255,255,0.72);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            position: sticky; top: 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            z-index: 50;
+        }
+        .brand-switcher {
+            display: flex; justify-content: center; gap: 0;
+            padding: 10px 24px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .brand-tab {
+            padding: 4px 22px 8px;
+            font-size: 10px; font-weight: 600;
+            letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--ink-soft); text-decoration: none;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+            transition: color 0.15s, border-color 0.15s;
+        }
+        .brand-tab.active {
+            color: var(--ink);
+            border-bottom-color: var(--accent);
+        }
+        .brand-tab:hover:not(.active) { color: var(--ink); }
+        header nav {
+            max-width: 1024px; margin: 0 auto;
+            padding: 0 24px;
+            height: 44px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo { font-weight: 600; font-size: 17px; letter-spacing: -0.02em; }
+        .nav-links a {
+            color: var(--ink); text-decoration: none;
+            font-size: 12px; font-weight: 400;
+            opacity: 0.9; margin-left: 28px;
+            transition: opacity 0.2s;
+        }
+        .nav-links a:hover { opacity: 1; }
+        .tile {
+            text-align: center;
+            padding: 56px 24px;
+            min-height: clamp(640px, 92vh, 1080px);
+            box-sizing: border-box;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+        .tile + .tile { margin-top: 0; }
+        .tile.bg-white { background: var(--tile-white); }
+        .tile.bg-gray { background: var(--tile-gray); }
+        .tile.bg-dark { background: var(--tile-dark); color: white; }
+        .tile h1, .tile h2 {
+            font-size: clamp(40px, 5.5vw, 72px);
+            font-weight: 600;
+            line-height: 1.05;
+            letter-spacing: -0.035em;
+            margin: 0 0 8px;
+        }
+        .tile .lead {
+            font-size: clamp(20px, 2vw, 28px);
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.015em;
+            margin: 0 0 24px;
+            color: var(--ink);
+        }
+        .tile .sub {
+            font-size: 17px;
+            color: var(--ink-soft);
+            max-width: 620px;
+            margin: 0 auto 28px;
+        }
+        .cta-row {
+            display: inline-flex; gap: 24px; flex-wrap: wrap; justify-content: center;
+        }
+        .pill {
+            display: inline-flex; align-items: center; gap: 4px;
+            background: var(--accent); color: white;
+            padding: 8px 18px; text-decoration: none;
+            font-size: 15px; font-weight: 400;
+            border-radius: 100px;
+            transition: background 0.15s;
+        }
+        .pill:hover { background: var(--accent-hover); }
+        .pill.ghost {
+            background: transparent; color: var(--accent);
+            padding: 8px 4px;
+        }
+        .pill.ghost:hover { color: var(--accent-hover); background: transparent; }
+        .pill.ghost::after { content: '›'; margin-left: 4px; }
+        .tile-image {
+            margin-top: 32px;
+            display: flex; justify-content: center; align-items: center;
+            flex: 1 1 auto;
+            min-height: 0;
+            width: 100%;
+        }
+        .device {
+            background: #1C1C1E;
+            padding: 7px;
+            border-radius: 42px;
+            width: clamp(180px, 22vw, 220px);
+            flex-shrink: 0;
+            line-height: 0;
+            box-sizing: border-box;
+            box-shadow:
+                0 40px 70px rgba(0,0,0,0.15),
+                0 14px 28px rgba(0,0,0,0.08),
+                inset 0 0 0 1px rgba(255,255,255,0.05);
+        }
+        .device img {
+            width: 100%;
+            aspect-ratio: 207 / 448;
+            object-fit: cover;
+            display: block;
+            border-radius: 35px;
+            background: #FFFFFF;
+        }
+        .tile.hero .device { width: clamp(200px, 24vw, 244px); }
+        .dino {
+            width: clamp(96px, 12vw, 144px);
+            height: auto;
+            display: block;
+            margin: 0 auto 20px;
+        }
+        .tile.hero { padding-top: 72px; padding-bottom: 48px; }
+        .tile.hero h1 { font-size: clamp(48px, 7vw, 88px); }
+        .duo-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        .tile + .duo-row { margin-top: 0; }
+        .duo-row + .tile { margin-top: 0; }
+        .duo-row .tile h2 { font-size: clamp(32px, 3.5vw, 48px); }
+        .duo-row .tile .lead { font-size: 18px; }
+        .duo-row .device { width: clamp(220px, 24vw, 280px); }
+        footer {
+            background: var(--tile-gray);
+            border-top: 1px solid rgba(0,0,0,0.08);
+            padding: 32px 24px 16px;
+            font-size: 12px; color: var(--ink-soft);
+        }
+        .footer-inner {
+            max-width: 1024px; margin: 0 auto;
+            display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+        }
+        footer a { color: inherit; text-decoration: none; margin-right: 18px; }
+        footer a:hover { color: var(--ink); text-decoration: underline; }
+        @media (max-width: 720px) {
+            .duo-row { grid-template-columns: 1fr; }
+            .tile.hero h1 { font-size: 44px; }
+            .tile h1, .tile h2 { font-size: 36px; }
+            .tile .lead { font-size: 19px; }
+            .tile { min-height: clamp(560px, 88vh, 900px); padding: 48px 20px; }
+        }
+    </style>
 </head>
-
 <body>
     <header>
         <div class="brand-switcher">
@@ -21,243 +200,88 @@
         </div>
         <nav>
             <div class="logo">Walk Habit</div>
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation"
-                aria-label="네비게이션 메뉴 열기">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <div class="nav-links" id="primary-navigation">
+            <div class="nav-links">
                 <a href="#philosophy">철학</a>
                 <a href="#features">주요 기능</a>
-                <a href="#premium">프리미엄</a>
-                <a href="index.html" class="btn-sm">English</a>
+                <a href="#support">후원</a>
+                <a href="faq_kr.html">자주 묻는 질문</a>
+                <a href="whats-new_kr.html">새 소식</a>
+                <a href="index.html">English</a>
             </div>
         </nav>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1><span class="gradient-text">꾸준함을</span> 눈으로 확인하세요.</h1>
-                <p>Walk Habit은 무조건 열심히 하는 앱이 아닙니다. 매일의 움직임과 휴식을 '기록'하는 것에 집중하여, 작은 습관이 쌓여가는 즐거움을 선사합니다.</p>
-                <div class="cta-buttons">
-                    <a href="https://apps.apple.com/us/app/walk-habit/id6758262802" class="btn-primary">시작하기</a>
-                    <a href="#philosophy" class="btn-secondary">우리의 접근 방식</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="hero-mockup-container">
-                    <img src="assets/app_mockup.png" alt="Walk Habit App Mockup" class="hero-mockup">
-                </div>
+        <section class="tile hero bg-gray">
+            <h1>Walk Habit</h1>
+            <p class="lead">걷기를 기록하지 마세요. 두 순간을 남기세요.</p>
+            <div class="tile-image phone">
+                <div class="device"><img src="assets/app_mockup-ko.png" alt="Walk Habit 앱"></div>
             </div>
         </section>
 
-        <section id="philosophy" class="content-section">
-            <div class="section-container">
-                <h2>강도보다 <span class="gradient-text">꾸준함.</span></h2>
-                <p class="section-subtitle">완벽한 운동보다 중요한 것은 매일의 기록입니다. 휴식일도 당신의 소중한 습관입니다.</p>
-                <div class="philosophy-grid">
-                    <div class="philosophy-item">
-                        <h3>어떠한 압박도 없이</h3>
-                        <p>경쟁이나 압박은 없습니다. 나만의 속도에 맞춰 움직이고 작은 성취를 축하하세요.</p>
-                    </div>
-                    <div class="philosophy-item">
-                        <h3>휴식도 습관의 일부입니다</h3>
-                        <p>매일 운동할 필요는 없습니다. 휴식을 기록하는 것도 운동을 기록하는 것만큼 중요하게 다룹니다.</p>
-                    </div>
-                </div>
-            </div>
+        <section class="tile bg-white" id="philosophy">
+            <img src="assets/dino.png" alt="" class="dino" aria-hidden="true">
+            <h2><span class="brand-purple">꾸준함</span> &gt; 강도.</h2>
+            <p class="lead">진짜 습관은 완벽함이 아니라 매일 보여주는 것에서 시작됩니다 — 휴식일도 포함해서.</p>
+            <p class="sub">압박도, 경쟁도 없습니다.<br>휴식일 기록도 운동 기록만큼 중요합니다.</p>
         </section>
 
-        <section id="features" class="features">
-            <h2>당신의 습관을 위한 <span class="gradient-text">모든 것.</span></h2>
-
-            <div class="features-layout">
-                <div class="feature-list">
-                    <div class="feature-item active" data-feature="track">
-                        <div class="icon">📝</div>
-                        <h3>기록 중심의 트래킹</h3>
-                        <p>타이머 기능을 사용하거나 직접 기록을 추가하세요. 죄책감 없이 휴식일도 기록할 수 있습니다. 작은 기록 하나하나가 모여 꾸준함이 됩니다.</p>
-                    </div>
-                    <div class="feature-item" data-feature="goal">
-                        <div class="icon">📅</div>
-                        <h3>유연한 주간 목표</h3>
-                        <p>요일별로 목표를 설정하고, 컨디션에 따라 자유롭게 조정하세요. 당신의 삶에 맞춰 유연하게 변화하는 습관을 만들어보세요.</p>
-                    </div>
-                    <div class="feature-item" data-feature="stats">
-                        <div class="icon">📊</div>
-                        <h3>의미 있는 통계</h3>
-                        <p>운동 강도보다는 '기록 횟수'에 집중한 스트릭을 통해 성취감을 느껴보세요. 주간 및 월간 진행 상황을 한눈에 확인할 수 있습니다.</p>
-                    </div>
-                    <div class="feature-item" data-feature="archive">
-                        <div class="icon">🖼</div>
-                        <h3>나만의 기록 아카이브</h3>
-                        <p>운동 인증 사진을 저장하고 언제든 지난 성장의 기록을 돌아보세요. 시간이 지날수록 쌓여가는 당신의 노력을 확인하세요.</p>
-                    </div>
+        <div class="duo-row">
+            <section class="tile bg-gray" id="features">
+                <h2>기록 중심의<br>트래킹.</h2>
+                <p class="lead">타이머·수동·휴식 — 모두 하나의 기록입니다.</p>
+                <div class="tile-image">
+                    <div class="device"><img src="assets/feature-track-ko.png" alt="기록 중심의 트래킹"></div>
                 </div>
-
-                <div class="feature-mockup-wrapper">
-                    <div class="feature-mockup-container" id="feature-mockup">
-                        <img src="assets/feature-track.png" alt="트래킹 기능" class="mockup-screen active" id="screen-track">
-                        <img src="assets/feature-goal.png" alt="목표 기능" class="mockup-screen" id="screen-goal">
-                        <img src="assets/feature-stats.png" alt="통계 기능" class="mockup-screen" id="screen-stats">
-                        <img src="assets/feature-archive.png" alt="아카이브 기능" class="mockup-screen" id="screen-archive">
-                    </div>
+            </section>
+            <section class="tile bg-white">
+                <h2>유연한<br>주간 목표.</h2>
+                <p class="lead">요일별로 다르게. 컨디션에 맞게.</p>
+                <div class="tile-image">
+                    <div class="device"><img src="assets/feature-goal-ko.png" alt="유연한 주간 목표"></div>
                 </div>
+            </section>
+        </div>
+
+        <div class="duo-row">
+            <section class="tile bg-white">
+                <h2>의미 있는<br>통계.</h2>
+                <p class="lead">기록하는 만큼 쌓이는 스트릭.</p>
+                <div class="tile-image">
+                    <div class="device"><img src="assets/feature-stats-ko.png" alt="의미 있는 통계"></div>
+                </div>
+            </section>
+            <section class="tile bg-gray">
+                <h2>나만의<br>기록 아카이브.</h2>
+                <p class="lead">언제든 돌아보기.</p>
+                <div class="tile-image">
+                    <div class="device"><img src="assets/feature-archive-ko.png" alt="나만의 기록 아카이브"></div>
+                </div>
+            </section>
+        </div>
+
+        <section class="tile bg-white" id="support">
+            <h2>Walk Habit이 마음에 드신다면?</h2>
+            <p class="lead">커피 한 잔의 응원. ☕</p>
+            <p class="sub">모든 템플릿·GIF·기능을 무료로 쓸 수 있습니다.<br>인앱 구매는 솔로 개발자에게 보내는 자발적 응원입니다.<br>어떤 피드백이든 더 큰 힘이 됩니다.</p>
+            <div class="cta-row">
+                <a href="https://apps.apple.com/us/app/walk-habit/id6758262802" class="pill">앱스토어에서 응원 보내기</a>
+                <a href="mailto:ahyoung.app@gmail.com?subject=Walk%20Habit%20%ED%94%BC%EB%93%9C%EB%B0%B1" class="pill ghost">의견 보내기</a>
             </div>
-        </section>
-
-        <section id="premium" class="premium-section">
-            <div class="glass-container">
-                <h2>프리미엄으로 <span class="gradient-text">평생 소장하세요.</span></h2>
-                <p>구독형이 아닙니다. 단 한 번의 결제로 모든 기능을 영구적으로 사용하세요.</p>
-                <div class="premium-features">
-                    <ul>
-                        <li>✨ 모든 광고 제거</li>
-                        <li>🎞️ 운동 기록 GIF 제작</li>
-                        <li>🎨 추가 템플릿 사용 가능</li>
-                        <li>⭐ 1인 개발자 후원하기</li>
-                    </ul>
-                </div>
-                <a href="https://apps.apple.com/us/app/walk-habit/id6758262802" class="btn-primary">모든 기능 잠금 해제</a>
-            </div>
+            <div style="height: 64px;"></div>
         </section>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-top">
-                <div class="footer-info">
-                    <div class="footer-logo">Walk Habit</div>
-                    <p>꾸준함을 눈으로 확인하세요.</p>
-                </div>
-                <div class="footer-contact">
-                    <h4>고객 지원</h4>
-                    <p><a href="mailto:ahyoung.app@gmail.com">ahyoung.app@gmail.com</a></p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Walk Habit. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="privacy_kr.html">개인정보 처리 방침</a>
-                    <a href="terms_kr.html">이용약관</a>
-                    <a href="app-ads.txt">app-ads.txt</a>
-                </div>
-            </div>
+        <div class="footer-inner">
+            <span>© 2026 Walk Habit. All rights reserved.</span>
+            <span>
+                <a href="privacy_kr.html">개인정보 처리방침</a>
+                <a href="terms_kr.html">이용약관</a>
+                <a href="app-ads.txt">app-ads.txt</a>
+            </span>
         </div>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const navToggle = document.querySelector('.nav-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            const featureItems = document.querySelectorAll('.feature-item');
-            const mockupScreens = document.querySelectorAll('.mockup-screen');
-            const mockupContainer = document.getElementById('feature-mockup');
-            const featureList = document.querySelector('.feature-list');
-
-            if (navToggle && navLinks) {
-                const closeNav = () => {
-                    navLinks.classList.remove('open');
-                    navToggle.classList.remove('active');
-                    navToggle.setAttribute('aria-expanded', 'false');
-                };
-
-                navToggle.addEventListener('click', () => {
-                    const isOpen = navLinks.classList.toggle('open');
-                    navToggle.classList.toggle('active', isOpen);
-                    navToggle.setAttribute('aria-expanded', String(isOpen));
-                });
-
-                navLinks.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', closeNav);
-                });
-
-                document.addEventListener('click', (event) => {
-                    if (window.innerWidth > 860) return;
-                    if (!navLinks.contains(event.target) && !navToggle.contains(event.target)) {
-                        closeNav();
-                    }
-                });
-
-                window.addEventListener('resize', () => {
-                    if (window.innerWidth > 860) {
-                        closeNav();
-                    }
-                });
-            }
-
-            const switchToItem = (item) => {
-                featureItems.forEach(fi => fi.classList.remove('active'));
-                mockupScreens.forEach(ms => ms.classList.remove('active'));
-                item.classList.add('active');
-
-                const targetFeatureId = item.getAttribute('data-feature');
-                const targetScreen = document.getElementById('screen-' + targetFeatureId);
-
-                if (targetScreen) {
-                    targetScreen.classList.add('active');
-                    mockupContainer.classList.remove('animating-shine');
-                    void mockupContainer.offsetWidth;
-                    mockupContainer.classList.add('animating-shine');
-                }
-            };
-
-            if (window.innerWidth <= 1024 && featureList) {
-                const dotsContainer = document.createElement('div');
-                dotsContainer.className = 'feature-dots';
-                featureList.after(dotsContainer);
-
-                featureItems.forEach((_, i) => {
-                    const dot = document.createElement('span');
-                    dot.className = 'feature-dot' + (i === 0 ? ' active' : '');
-                    dotsContainer.appendChild(dot);
-                });
-
-                const dots = dotsContainer.querySelectorAll('.feature-dot');
-
-                const updateActive = () => {
-                    const center = featureList.scrollLeft + featureList.offsetWidth / 2;
-                    let closest = null;
-                    let closestDist = Infinity;
-
-                    featureItems.forEach(item => {
-                        const dist = Math.abs((item.offsetLeft + item.offsetWidth / 2) - center);
-                        if (dist < closestDist) {
-                            closestDist = dist;
-                            closest = item;
-                        }
-                    });
-
-                    if (closest) {
-                        const idx = Array.from(featureItems).indexOf(closest);
-                        dots.forEach(dot => dot.classList.remove('active'));
-                        dots[idx]?.classList.add('active');
-                        switchToItem(closest);
-                    }
-                };
-
-                featureList.addEventListener('scroll', updateActive, { passive: true });
-
-                dots.forEach((dot, i) => {
-                    dot.addEventListener('click', () => {
-                        featureItems[i]?.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'nearest',
-                            inline: 'center'
-                        });
-                    });
-                });
-            } else {
-                featureItems.forEach(item => {
-                    item.addEventListener('mouseenter', () => {
-                        switchToItem(item);
-                    });
-                });
-            }
-        });
-    </script>
 </body>
-
 </html>

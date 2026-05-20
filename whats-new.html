@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walk Habit — What's New</title>
+    <meta name="description" content="What's new in each Walk Habit release.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --tile-gray: #F5F5F7;
+    --tile-white: #FFFFFF;
+    --tile-dark: #1D1D1F;
+    --ink: #1D1D1F;
+    --ink-soft: #6E6E73;
+    --ink-line: #E8E8E8;
+    --accent: #7E30E0;
+    --accent-hover: #6320BA;
+    --brand-purple: #7E30E0;
+}
+.brand-purple { color: var(--brand-purple); }
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    margin: 0;
+    background: var(--tile-white);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+}
+header {
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    position: sticky; top: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    z-index: 50;
+}
+
+.brand-switcher {
+    display: flex; justify-content: center; gap: 0;
+    padding: 10px 24px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.brand-tab {
+    padding: 4px 22px 8px;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-soft); text-decoration: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.15s, border-color 0.15s;
+}
+.brand-tab.active {
+    color: var(--ink);
+    border-bottom-color: var(--accent);
+}
+.brand-tab:hover:not(.active) { color: var(--ink); }
+
+header nav {
+    max-width: 1024px; margin: 0 auto;
+    padding: 0 24px;
+    height: 44px;
+    display: flex; align-items: center; justify-content: space-between;
+}
+.logo { font-weight: 600; font-size: 17px; letter-spacing: -0.02em; text-decoration: none; color: var(--ink); }
+.nav-links a {
+    color: var(--ink); text-decoration: none;
+    font-size: 12px; font-weight: 400;
+    opacity: 0.9; margin-left: 28px;
+    transition: opacity 0.2s;
+}
+.nav-links a:hover { opacity: 1; }
+
+.page {
+    max-width: 820px; margin: 0 auto;
+    padding: 96px 24px 120px;
+}
+.page-hero { text-align: center; margin-bottom: 64px; }
+.page-hero h1 {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 600;
+    line-height: 1.05; letter-spacing: -0.035em;
+    margin: 0 0 12px;
+}
+.page-hero p {
+    font-size: 18px; color: var(--ink-soft);
+    margin: 0 auto; max-width: 560px;
+}
+
+/* FAQ */
+.faq-list { display: flex; flex-direction: column; }
+.faq-item {
+    border-top: 1px solid var(--ink-line);
+    padding: 0;
+}
+.faq-list .faq-item:last-child { border-bottom: 1px solid var(--ink-line); }
+.faq-item > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 20px 0;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px;
+    font-size: 17px; font-weight: 500;
+    color: var(--ink);
+    user-select: none;
+}
+.faq-item > summary::-webkit-details-marker { display: none; }
+.faq-item > summary::after {
+    content: '+';
+    font-size: 22px; font-weight: 300;
+    color: var(--accent);
+    flex-shrink: 0;
+    transition: transform 0.2s;
+}
+.faq-item[open] > summary::after { content: '−'; }
+.faq-item > .faq-a {
+    padding: 0 0 24px;
+    color: var(--ink-soft);
+    font-size: 16px; line-height: 1.6;
+    white-space: pre-wrap;
+}
+.faq-item > .faq-a strong { color: var(--ink); font-weight: 500; }
+
+/* What's New */
+.wn-list { display: flex; flex-direction: column; gap: 56px; }
+.wn-entry {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 32px;
+    align-items: start;
+    padding: 32px 0;
+    border-top: 1px solid var(--ink-line);
+}
+.wn-meta {
+    font-size: 13px;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+}
+.wn-version {
+    display: block;
+    font-size: 28px; font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+}
+.wn-version .latest {
+    display: inline-block;
+    background: var(--accent); color: white;
+    font-size: 10px; font-weight: 600;
+    padding: 2px 8px; border-radius: 100px;
+    margin-left: 8px; vertical-align: middle;
+    letter-spacing: 0.08em; text-transform: uppercase;
+}
+.wn-title { font-size: 22px; font-weight: 600; margin: 0 0 16px; letter-spacing: -0.02em; line-height: 1.2; }
+.wn-bullets { list-style: none; padding: 0; margin: 0; }
+.wn-bullets li {
+    position: relative; padding: 8px 0 8px 22px;
+    color: var(--ink-soft); font-size: 15px; line-height: 1.6;
+    border-top: 1px solid var(--ink-line);
+}
+.wn-bullets li:first-child { border-top: none; }
+.wn-bullets li::before {
+    content: ''; position: absolute;
+    left: 0; top: 18px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+/* CTA back to home */
+.page-cta { margin-top: 64px; text-align: center; }
+.pill {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: transparent; color: var(--accent);
+    padding: 8px 4px; text-decoration: none;
+    font-size: 15px; font-weight: 400;
+    border-radius: 100px;
+    transition: color 0.15s;
+}
+.pill:hover { color: var(--accent-hover); }
+.pill::after { content: '›'; margin-left: 4px; }
+
+footer {
+    background: var(--tile-gray);
+    border-top: 1px solid rgba(0,0,0,0.08);
+    padding: 32px 24px 16px;
+    font-size: 12px; color: var(--ink-soft);
+}
+.footer-inner {
+    max-width: 1024px; margin: 0 auto;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+footer a { color: inherit; text-decoration: none; margin-right: 18px; }
+footer a:hover { color: var(--ink); text-decoration: underline; }
+
+@media (max-width: 720px) {
+    .wn-entry { grid-template-columns: 1fr; gap: 16px; padding: 24px 0; }
+    .page { padding: 64px 20px 80px; }
+    .page-hero h1 { font-size: 36px; }
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="brand-switcher"><a href="/" class="brand-tab active">Walk Habit</a><a href="/futureseed/" class="brand-tab">Futureseed</a></div>
+        <nav>
+            <a href="index.html" class="logo">Walk Habit</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="faq.html">FAQ</a>
+                <a href="whats-new.html">What's New</a>
+                <a href="whats-new_kr.html">한국어</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page">
+        <div class="page-hero">
+            <h1>What's new.</h1>
+            <p>A short note for every Walk Habit release, newest first.</p>
+        </div>
+        <div class="wn-list"><article class="wn-entry"><div class="wn-meta"><span class="wn-version">1.1.3 <span class="latest">Latest</span></span><span>May 17, 2026</span></div><div class="wn-body"><h2 class="wn-title">Highlights of this update</h2><ul class="wn-bullets"><li>A short Walk Clip video — 2 seconds at the start and finish stitched into one — saves to Photos so you can share that day&#x27;s walk with friends or on social media. (iPhone &amp; Android)</li><li>Active walk progress appears on the Lock Screen and notifications: iPhone Dynamic Island (iOS 16.1+) and Android notification (with a status bar progress chip on Android 16+). Pause, resume, or end your walk straight from the notification.</li><li>Switch freely between selfie (front) and back camera when taking photos — capture scenery, objects, or yourself however the moment fits.</li><li>Every template and unlimited GIF creation is free, regardless of support. The in-app purchase is reframed as a voluntary way to support the solo developer.</li><li>Reporting a problem is one tap — Settings &gt; Report a Problem, or any recent error entry, auto-attaches diagnostic info. If no mail app is available, the app shows a fallback message instead of erroring.</li><li>A recovery prompt lets you save an interrupted timer session or a pending Walk Clip start cut. iCloud backup keeps only the latest copy and restore is more reliable.</li><li>A weekly date selector and expandable Recent Sessions on Home make reviewing/editing past records natural, and you can set a start time for manual records. Album photo deletion and other flow details were polished as well.</li><li>Refreshed copy tone and overall design feel. Broad Android stability across Photos saving, email reporting, ad display, alarm permissions, and data migration.</li></ul></div></article><article class="wn-entry"><div class="wn-meta"><span class="wn-version">1.1.1</span><span>April 15, 2026</span></div><div class="wn-body"><h2 class="wn-title">Recovery stability and record flow updates</h2><ul class="wn-bullets"><li>Added a recovery prompt so you can save an in-progress timer session after the app closes unexpectedly.</li><li>Fixed the session cleanup flow so the recovery prompt does not reappear after a timer has already been finished.</li><li>Added a Report a Problem action in Settings and improved the fallback flow so it no longer errors when no mail app is available.</li><li>Fixed streak calculations so rest days and manual records are counted correctly on the home screen.</li><li>Removed the Pacemaker every minute setting to match the current record flow.</li></ul></div></article><article class="wn-entry"><div class="wn-meta"><span class="wn-version">1.1.0</span><span>March 28, 2026</span></div><div class="wn-body"><h2 class="wn-title">Better record management and stability</h2><ul class="wn-bullets"><li>Added a weekly date selector on the home screen to view and edit past sessions.</li><li>You can now set a start time when adding a manual record.</li><li>Fixed a bug where editing a session date did not actually change the date.</li><li>Added a delete button for selected photos in the album.</li><li>Cloud backup now keeps only the latest copy, with a clear restore hint.</li><li>Fixed iCloud backup restore always failing on real devices.</li><li>Backup/restore status messages now appear inside the sheet instead of behind it.</li><li>Fixed template icons not being visible after adding a photo.</li><li>Refined the record flow, guide copy, and overall color palette.</li></ul></div></article><article class="wn-entry"><div class="wn-meta"><span class="wn-version">1.0.16 (7)</span><span>March 17, 2026</span></div><div class="wn-body"><h2 class="wn-title">Improved data retention and update guidance</h2><ul class="wn-bullets"><li>Improved data retention for goals, records, and reminders across app updates.</li><li>Strengthened migration and recovery handling for older app data.</li><li>Added an in-app update prompt when a newer version is available.</li><li>Improved dark mode text visibility in the weekly routine summary.</li><li>Includes performance improvements and minor bug fixes.</li></ul></div></article><article class="wn-entry"><div class="wn-meta"><span class="wn-version">1.0.13 (0)</span><span>March 01, 2026</span></div><div class="wn-body"><h2 class="wn-title">Timer reliability and sharing flow improvements</h2><ul class="wn-bullets"><li>Improved timer reliability so active sessions resume with more accurate elapsed time.</li><li>Refined the result-screen sharing flow so users add a photo before sharing.</li><li>Updated privacy policy wording for ad consent and advertising identifiers.</li></ul></div></article></div>
+        <div class="page-cta">
+            <a href="index.html" class="pill">Back to home</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <span>© 2026 Walk Habit. All rights reserved.</span>
+            <span>
+                <a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="app-ads.txt">app-ads.txt</a>
+            </span>
+        </div>
+    </footer>
+</body>
+</html>
