@@ -39,6 +39,25 @@
             border-bottom: 1px solid rgba(0,0,0,0.06);
             z-index: 50;
         }
+        .brand-switcher {
+            display: flex; justify-content: center; gap: 0;
+            padding: 10px 24px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .brand-tab {
+            padding: 4px 22px 8px;
+            font-size: 10px; font-weight: 600;
+            letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--ink-soft); text-decoration: none;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+            transition: color 0.15s, border-color 0.15s;
+        }
+        .brand-tab.active {
+            color: var(--ink);
+            border-bottom-color: var(--accent);
+        }
+        .brand-tab:hover:not(.active) { color: var(--ink); }
         header nav {
             max-width: 1024px; margin: 0 auto;
             padding: 0 24px;
@@ -175,6 +194,10 @@
 </head>
 <body>
     <header>
+        <div class="brand-switcher">
+            <a href="/" class="brand-tab active">Walk Habit</a>
+            <a href="/futureseed/" class="brand-tab">Futureseed</a>
+        </div>
         <nav>
             <div class="logo">Walk Habit</div>
             <div class="nav-links">
