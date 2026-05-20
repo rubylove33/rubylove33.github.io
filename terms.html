@@ -1,142 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service - Walk Habit</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Terms of Service — Walk Habit</title>
+    <meta name="description" content="Walk Habit Terms of Service.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .policy-content {
-            padding: 120px 10% 80px;
-            max-width: 900px;
-            margin: 0 auto;
+        :root {
+            --tile-gray: #F5F5F7;
+            --tile-white: #FFFFFF;
+            --ink: #1D1D1F;
+            --ink-soft: #6E6E73;
+            --ink-line: #E8E8E8;
+            --accent: #7E30E0;
+            --accent-hover: #6320BA;
         }
-
-        .policy-content h1 {
-            font-size: 3rem;
-            margin-bottom: 2rem;
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background: var(--tile-white);
+            color: var(--ink);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.5;
+            letter-spacing: -0.01em;
         }
+        header {
+            background: rgba(255,255,255,0.72);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            position: sticky; top: 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            z-index: 50;
+        }
+        .brand-switcher {
+            display: flex; justify-content: center; gap: 0;
+            padding: 10px 24px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .brand-tab {
+            padding: 4px 22px 8px;
+            font-size: 10px; font-weight: 600;
+            letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--ink-soft); text-decoration: none;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+            transition: color 0.15s, border-color 0.15s;
+        }
+        .brand-tab.active { color: var(--ink); border-bottom-color: var(--accent); }
+        .brand-tab:hover:not(.active) { color: var(--ink); }
+        header nav {
+            max-width: 1024px; margin: 0 auto;
+            padding: 0 24px; height: 44px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-weight: 600; font-size: 17px; letter-spacing: -0.02em;
+            text-decoration: none; color: var(--ink);
+        }
+        .nav-links a {
+            color: var(--ink); text-decoration: none;
+            font-size: 12px; font-weight: 400;
+            opacity: 0.9; margin-left: 28px;
+            transition: opacity 0.2s;
+        }
+        .nav-links a:hover { opacity: 1; }
 
+        /* POLICY PAGE */
+        .page {
+            max-width: 720px; margin: 0 auto;
+            padding: 96px 24px 120px;
+        }
+        .page-title {
+            font-size: clamp(40px, 5vw, 60px);
+            font-weight: 600;
+            letter-spacing: -0.035em;
+            line-height: 1.05;
+            margin: 0 0 8px;
+        }
+        .page-subtitle {
+            font-size: 13px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin: 0 0 56px;
+        }
         .policy-content h2 {
-            font-size: 1.75rem;
-            margin-top: 3rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: -0.015em;
+            line-height: 1.3;
+            margin: 48px 0 14px;
+            color: var(--ink);
         }
-
+        .policy-content h1 {
+            /* if the original content includes its own h1, hide it (we render
+               our own .page-title above). */
+            display: none;
+        }
         .policy-content p,
         .policy-content li {
-            font-size: 1.1rem;
-            color: var(--text-dim);
-            margin-bottom: 1rem;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--ink);
+            margin: 0 0 12px;
         }
-
-        .policy-content ul,
-        .policy-content ol {
-            padding-left: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
+        .policy-content li { color: var(--ink-soft); }
+        .policy-content li strong, .policy-content li p strong { color: var(--ink); }
         .policy-content strong {
-            color: var(--text-light);
-            font-weight: 700;
+            color: var(--ink);
+            font-weight: 600;
         }
-
-        .policy-content li {
-            font-weight: 400 !important;
+        .policy-content ul, .policy-content ol {
+            padding-left: 22px;
+            margin: 0 0 20px;
         }
-
+        .policy-content li > ul, .policy-content li > ol {
+            margin-top: 8px; margin-bottom: 8px;
+        }
+        .policy-content a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .policy-content a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
         .policy-content hr {
             border: 0;
-            border-top: 1px solid var(--glass-border);
-            margin: 3rem 0;
+            border-top: 1px solid var(--ink-line);
+            margin: 56px 0 24px;
+        }
+        .policy-content code {
+            font-family: 'SF Mono', Menlo, Monaco, monospace;
+            font-size: 14px;
+            background: var(--tile-gray);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--ink);
+        }
+
+        /* CTA back to home */
+        .page-cta { margin-top: 64px; text-align: center; }
+        .pill {
+            display: inline-flex; align-items: center; gap: 4px;
+            background: transparent; color: var(--accent);
+            padding: 8px 4px; text-decoration: none;
+            font-size: 15px; font-weight: 400;
+        }
+        .pill::after { content: '›'; margin-left: 4px; }
+        .pill:hover { color: var(--accent-hover); }
+
+        footer {
+            background: var(--tile-gray);
+            border-top: 1px solid rgba(0,0,0,0.08);
+            padding: 32px 24px 16px;
+            font-size: 12px; color: var(--ink-soft);
+        }
+        .footer-inner {
+            max-width: 1024px; margin: 0 auto;
+            display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+        }
+        footer a { color: inherit; text-decoration: none; margin-right: 18px; }
+        footer a:hover { color: var(--ink); text-decoration: underline; }
+
+        @media (max-width: 720px) {
+            .page { padding: 64px 20px 80px; }
+            .page-title { font-size: 34px; }
+            .policy-content h2 { font-size: 20px; }
         }
     </style>
 </head>
-
 <body>
     <header>
+        <div class="brand-switcher">
+            <a href="/" class="brand-tab active">Walk Habit</a>
+            <a href="/futureseed/" class="brand-tab">Futureseed</a>
+        </div>
         <nav>
-            <div class="logo"><a href="index.html">Walk Habit</a></div>
+            <a href="index.html" class="logo">Walk Habit</a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="terms_kr.html" class="btn-sm">한국어</a>
+                <a href="faq.html">FAQ</a>
+                <a href="whats-new.html">What's New</a>
+                <a href="terms_kr.html">한국어</a>
             </div>
         </nav>
     </header>
 
-    <main class="policy-content">
-        <h1>Terms of Service</h1>
-
-        <h2>Article 1 (Purpose)</h2>
-        <p>These Terms of Service aim to regulate the conditions and procedures of use, as well as the rights, obligations, and responsibilities of the user and the developer concerning the services provided by "Walk Habit" (hereinafter referred to as "App").</p>
-
-        <h2>Article 2 (Provision and Change of Services)</h2>
-        <ol>
-            <li>The App provides recording, statistics, notifications, photo/album management, templates, GIF creation, and an iOS Live Activity (Dynamic Island / Lock Screen indicator) to help users build walking habits. <strong>All features are provided free of charge.</strong></li>
-            <li>The developer may change the content of the services provided to improve service quality or reflect changes in technical specifications.</li>
-            <li>The App is fundamentally a "Local-Based" service where data is processed <strong>within the user's device</strong>. However, in-app purchase information is managed through the respective app stores (Apple App Store or Google Play Store).</li>
-        </ol>
-
-        <h2>Article 3 (Voluntary Developer Support Purchase)</h2>
-        <ol>
-            <li>Users may voluntarily support the developer through an In-App Purchase. This support purchase <strong>does not unlock any additional features</strong>; it is a voluntary contribution intended to back the continued development and maintenance of the App by a solo developer.</li>
-            <li>All features of the App (templates, GIF creation, photo/album management, statistics, etc.) are available free of charge regardless of whether a user chooses to support the developer.</li>
-            <li>The support purchase is a one-time payment, and the price is subject to the policies of the respective app stores.</li>
-            <li><strong>Refund Policy:</strong>
-                <ul>
-                    <li>Refunds for in-app purchases must be processed according to the refund policies and procedures of the app store (Apple/Google) used by the user.</li>
-                    <li>The developer does not hold direct payment information and may not be able to process refunds directly.</li>
-                </ul>
-            </li>
-            <li>If a user changes devices but uses the same store account, they can keep their support purchase record through the "Restore Purchase" feature.</li>
-        </ol>
-
-        <h2>Article 4 (User Obligations and Data Management)</h2>
-        <ol>
-            <li>Users shall not use the App for illegal purposes or for infringing upon the rights of others.</li>
-            <li>Users are responsible for managing their own device and the data within the App.</li>
-            <li><strong>Data Loss Warning:</strong> Data loss caused by device change, App deletion, or user action (data reset) cannot be recovered. Users should manage important records separately.</li>
-        </ol>
-
-        <h2>Article 5 (Copyright Ownership)</h2>
-        <ol>
-            <li>Copyright for all content provided by the App, including services, designs, characters (e.g., Dino), text, and graphics, belongs to the developer ("Walk Habit Team").</li>
-            <li>Users shall not copy, distribute, or use information obtained through the service for commercial purposes without prior consent from the developer.</li>
-        </ol>
-
-        <h2>Article 6 (Disclaimer)</h2>
-        <ol>
-            <li>This App is an auxiliary tool to help form healthy habits and does not substitute for professional medical diagnosis or advice. The developer is not responsible for any physical injury resulting from excessive exercise.</li>
-            <li>The developer is exempted from responsibility if the service cannot be provided temporarily due to force majeure, such as natural disasters, server maintenance (related to payments), or communication failures.</li>
-            <li>The developer is not responsible for damages caused by user negligence (e.g., loss of device, exposure of password).</li>
-        </ol>
-
-        <h2>Article 7 (Termination of Service)</h2>
-        <p>The developer may terminate the service for business or technical reasons, in which case users will be notified via notices within the App.</p>
-
-        <h2>Article 8 (Governing Law and Jurisdiction)</h2>
-        <p>These Terms shall be governed by and construed in accordance with the laws of the <strong>State of Texas, United States</strong>. Any legal action or proceeding arising under these Terms will be brought exclusively in the courts located in <strong>Texas, United States</strong>.</p>
-
-        <hr>
-        <p><strong>Effective Date:</strong> May 11, 2026</p>
-        <p><strong>Contact:</strong> ahyoung.app@gmail.com</p>
+    <main class="page">
+        <h1 class="page-title">Terms of Service</h1>
+        <p class="page-subtitle">Walk Habit</p>
+        <div class="policy-content">
+            
+                    <h1>Terms of Service</h1>
+            
+                    <h2>Article 1 (Purpose)</h2>
+                    <p>These Terms of Service aim to regulate the conditions and procedures of use, as well as the rights, obligations, and responsibilities of the user and the developer concerning the services provided by "Walk Habit" (hereinafter referred to as "App").</p>
+            
+                    <h2>Article 2 (Provision and Change of Services)</h2>
+                    <ol>
+                        <li>The App provides recording, statistics, notifications, photo/album management, templates, GIF creation, and an iOS Live Activity (Dynamic Island / Lock Screen indicator) to help users build walking habits. <strong>All features are provided free of charge.</strong></li>
+                        <li>The developer may change the content of the services provided to improve service quality or reflect changes in technical specifications.</li>
+                        <li>The App is fundamentally a "Local-Based" service where data is processed <strong>within the user's device</strong>. However, in-app purchase information is managed through the respective app stores (Apple App Store or Google Play Store).</li>
+                    </ol>
+            
+                    <h2>Article 3 (Voluntary Developer Support Purchase)</h2>
+                    <ol>
+                        <li>Users may voluntarily support the developer through an In-App Purchase. This support purchase <strong>does not unlock any additional features</strong>; it is a voluntary contribution intended to back the continued development and maintenance of the App by a solo developer.</li>
+                        <li>All features of the App (templates, GIF creation, photo/album management, statistics, etc.) are available free of charge regardless of whether a user chooses to support the developer.</li>
+                        <li>The support purchase is a one-time payment, and the price is subject to the policies of the respective app stores.</li>
+                        <li><strong>Refund Policy:</strong>
+                            <ul>
+                                <li>Refunds for in-app purchases must be processed according to the refund policies and procedures of the app store (Apple/Google) used by the user.</li>
+                                <li>The developer does not hold direct payment information and may not be able to process refunds directly.</li>
+                            </ul>
+                        </li>
+                        <li>If a user changes devices but uses the same store account, they can keep their support purchase record through the "Restore Purchase" feature.</li>
+                    </ol>
+            
+                    <h2>Article 4 (User Obligations and Data Management)</h2>
+                    <ol>
+                        <li>Users shall not use the App for illegal purposes or for infringing upon the rights of others.</li>
+                        <li>Users are responsible for managing their own device and the data within the App.</li>
+                        <li><strong>Data Loss Warning:</strong> Data loss caused by device change, App deletion, or user action (data reset) cannot be recovered. Users should manage important records separately.</li>
+                    </ol>
+            
+                    <h2>Article 5 (Copyright Ownership)</h2>
+                    <ol>
+                        <li>Copyright for all content provided by the App, including services, designs, characters (e.g., Dino), text, and graphics, belongs to the developer ("Walk Habit Team").</li>
+                        <li>Users shall not copy, distribute, or use information obtained through the service for commercial purposes without prior consent from the developer.</li>
+                    </ol>
+            
+                    <h2>Article 6 (Disclaimer)</h2>
+                    <ol>
+                        <li>This App is an auxiliary tool to help form healthy habits and does not substitute for professional medical diagnosis or advice. The developer is not responsible for any physical injury resulting from excessive exercise.</li>
+                        <li>The developer is exempted from responsibility if the service cannot be provided temporarily due to force majeure, such as natural disasters, server maintenance (related to payments), or communication failures.</li>
+                        <li>The developer is not responsible for damages caused by user negligence (e.g., loss of device, exposure of password).</li>
+                    </ol>
+            
+                    <h2>Article 7 (Termination of Service)</h2>
+                    <p>The developer may terminate the service for business or technical reasons, in which case users will be notified via notices within the App.</p>
+            
+                    <h2>Article 8 (Governing Law and Jurisdiction)</h2>
+                    <p>These Terms shall be governed by and construed in accordance with the laws of the <strong>State of Texas, United States</strong>. Any legal action or proceeding arising under these Terms will be brought exclusively in the courts located in <strong>Texas, United States</strong>.</p>
+            
+                    <hr>
+                    <p><strong>Effective Date:</strong> May 11, 2026</p>
+                    <p><strong>Contact:</strong> ahyoung.app@gmail.com</p>
+        </div>
+        <div class="page-cta">
+            <a href="index.html" class="pill">Back to home</a>
+        </div>
     </main>
 
     <footer>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Walk Habit. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="index.html">Home</a>
+        <div class="footer-inner">
+            <span>© 2026 Walk Habit. All rights reserved.</span>
+            <span>
                 <a href="privacy.html">Privacy Policy</a>
-                <span style="opacity: 0.3; margin-left: 10px;">v1.0.14</span>
-            </div>
+                <a href="terms.html">Terms of Service</a>
+                <a href="app-ads.txt">app-ads.txt</a>
+            </span>
         </div>
     </footer>
 </body>
-
 </html>

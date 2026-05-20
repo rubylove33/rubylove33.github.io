@@ -1,142 +1,272 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이용약관 - Walk Habit</title>
-    <link rel="stylesheet" href="style.css">
+    <title>이용약관 — Walk Habit</title>
+    <meta name="description" content="Walk Habit 이용약관.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .policy-content {
-            padding: 120px 10% 80px;
-            max-width: 900px;
-            margin: 0 auto;
+        :root {
+            --tile-gray: #F5F5F7;
+            --tile-white: #FFFFFF;
+            --ink: #1D1D1F;
+            --ink-soft: #6E6E73;
+            --ink-line: #E8E8E8;
+            --accent: #7E30E0;
+            --accent-hover: #6320BA;
         }
-
-        .policy-content h1 {
-            font-size: 3rem;
-            margin-bottom: 2rem;
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background: var(--tile-white);
+            color: var(--ink);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.5;
+            letter-spacing: -0.01em;
         }
+        header {
+            background: rgba(255,255,255,0.72);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            position: sticky; top: 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            z-index: 50;
+        }
+        .brand-switcher {
+            display: flex; justify-content: center; gap: 0;
+            padding: 10px 24px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .brand-tab {
+            padding: 4px 22px 8px;
+            font-size: 10px; font-weight: 600;
+            letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--ink-soft); text-decoration: none;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+            transition: color 0.15s, border-color 0.15s;
+        }
+        .brand-tab.active { color: var(--ink); border-bottom-color: var(--accent); }
+        .brand-tab:hover:not(.active) { color: var(--ink); }
+        header nav {
+            max-width: 1024px; margin: 0 auto;
+            padding: 0 24px; height: 44px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-weight: 600; font-size: 17px; letter-spacing: -0.02em;
+            text-decoration: none; color: var(--ink);
+        }
+        .nav-links a {
+            color: var(--ink); text-decoration: none;
+            font-size: 12px; font-weight: 400;
+            opacity: 0.9; margin-left: 28px;
+            transition: opacity 0.2s;
+        }
+        .nav-links a:hover { opacity: 1; }
 
+        /* POLICY PAGE */
+        .page {
+            max-width: 720px; margin: 0 auto;
+            padding: 96px 24px 120px;
+        }
+        .page-title {
+            font-size: clamp(40px, 5vw, 60px);
+            font-weight: 600;
+            letter-spacing: -0.035em;
+            line-height: 1.05;
+            margin: 0 0 8px;
+        }
+        .page-subtitle {
+            font-size: 13px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin: 0 0 56px;
+        }
         .policy-content h2 {
-            font-size: 1.75rem;
-            margin-top: 3rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: -0.015em;
+            line-height: 1.3;
+            margin: 48px 0 14px;
+            color: var(--ink);
         }
-
+        .policy-content h1 {
+            /* if the original content includes its own h1, hide it (we render
+               our own .page-title above). */
+            display: none;
+        }
         .policy-content p,
         .policy-content li {
-            font-size: 1.1rem;
-            color: var(--text-dim);
-            margin-bottom: 1rem;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--ink);
+            margin: 0 0 12px;
         }
-
-        .policy-content ul,
-        .policy-content ol {
-            padding-left: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
+        .policy-content li { color: var(--ink-soft); }
+        .policy-content li strong, .policy-content li p strong { color: var(--ink); }
         .policy-content strong {
-            color: var(--text-light);
-            font-weight: 700;
+            color: var(--ink);
+            font-weight: 600;
         }
-
-        .policy-content li {
-            font-weight: 400 !important;
+        .policy-content ul, .policy-content ol {
+            padding-left: 22px;
+            margin: 0 0 20px;
         }
-
+        .policy-content li > ul, .policy-content li > ol {
+            margin-top: 8px; margin-bottom: 8px;
+        }
+        .policy-content a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .policy-content a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
         .policy-content hr {
             border: 0;
-            border-top: 1px solid var(--glass-border);
-            margin: 3rem 0;
+            border-top: 1px solid var(--ink-line);
+            margin: 56px 0 24px;
+        }
+        .policy-content code {
+            font-family: 'SF Mono', Menlo, Monaco, monospace;
+            font-size: 14px;
+            background: var(--tile-gray);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--ink);
+        }
+
+        /* CTA back to home */
+        .page-cta { margin-top: 64px; text-align: center; }
+        .pill {
+            display: inline-flex; align-items: center; gap: 4px;
+            background: transparent; color: var(--accent);
+            padding: 8px 4px; text-decoration: none;
+            font-size: 15px; font-weight: 400;
+        }
+        .pill::after { content: '›'; margin-left: 4px; }
+        .pill:hover { color: var(--accent-hover); }
+
+        footer {
+            background: var(--tile-gray);
+            border-top: 1px solid rgba(0,0,0,0.08);
+            padding: 32px 24px 16px;
+            font-size: 12px; color: var(--ink-soft);
+        }
+        .footer-inner {
+            max-width: 1024px; margin: 0 auto;
+            display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+        }
+        footer a { color: inherit; text-decoration: none; margin-right: 18px; }
+        footer a:hover { color: var(--ink); text-decoration: underline; }
+
+        @media (max-width: 720px) {
+            .page { padding: 64px 20px 80px; }
+            .page-title { font-size: 34px; }
+            .policy-content h2 { font-size: 20px; }
         }
     </style>
 </head>
-
 <body>
     <header>
+        <div class="brand-switcher">
+            <a href="/" class="brand-tab active">Walk Habit</a>
+            <a href="/futureseed/" class="brand-tab">Futureseed</a>
+        </div>
         <nav>
-            <div class="logo"><a href="index_kr.html">Walk Habit</a></div>
+            <a href="index_kr.html" class="logo">Walk Habit</a>
             <div class="nav-links">
                 <a href="index_kr.html">홈</a>
-                <a href="terms.html" class="btn-sm">English</a>
+                <a href="faq_kr.html">자주 묻는 질문</a>
+                <a href="whats-new_kr.html">새 소식</a>
+                <a href="terms.html">English</a>
             </div>
         </nav>
     </header>
 
-    <main class="policy-content">
-        <h1>이용약관 (Terms of Service)</h1>
-
-        <h2>제1조 (목적)</h2>
-        <p>본 약관은 "Walk Habit" (이하 "앱")이 제공하는 서비스의 이용조건 및 절차, 사용자와 개발사의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.</p>
-
-        <h2>제2조 (서비스의 제공 및 변경)</h2>
-        <ol>
-            <li>본 앱은 사용자의 걷기 습관 형성을 돕기 위한 기록, 통계, 알림, 사진/앨범 관리, 템플릿, GIF 생성, iOS Live Activity(다이나믹 아일랜드 / 잠금 화면) 표시 등의 기능을 제공합니다. <strong>모든 기능은 무료로 제공됩니다.</strong></li>
-            <li>개발사는 기술적 사양의 변경이나 서비스 품질 향상을 위해 제공하는 서비스의 내용을 변경할 수 있습니다.</li>
-            <li>본 앱은 기본적으로 <strong>사용자의 기기 내</strong>에서 데이터가 처리되는 "로컬 기반" 서비스입니다. 단, 앱 내 결제 정보 등은 해당 스토어(Apple App Store 또는 Google Play Store)를 통해 관리됩니다.</li>
-        </ol>
-
-        <h2>제3조 (개발자 후원 결제)</h2>
-        <ol>
-            <li>사용자는 앱 내 구매(In-App Purchase)를 통해 개발자에게 자발적으로 후원할 수 있습니다. 본 후원 결제는 <strong>추가 기능 잠금 해제를 제공하지 않으며</strong>, 솔로 개발자의 지속적인 개발과 운영을 응원하는 목적의 자발적 결제입니다.</li>
-            <li>앱의 모든 기능(템플릿, GIF 생성, 사진/앨범 관리, 통계 등)은 후원 여부와 관계없이 무료로 이용할 수 있습니다.</li>
-            <li>후원 결제는 일회성이며, 결제 금액은 해당 앱 스토어의 정책에 따릅니다.</li>
-            <li><strong>환불 규정:</strong>
-                <ul>
-                    <li>앱 내 결제에 대한 환불은 사용자가 이용 중인 앱 스토어(Apple/Google)의 환불 정책 및 절차에 따라 진행되어야 합니다.</li>
-                    <li>개발사는 직접적인 결제 정보를 보유하지 않으므로 직접 환불 처리가 불가능할 수 있습니다.</li>
-                </ul>
-            </li>
-            <li>기기 변경 시 동일한 스토어 계정을 사용하는 경우 "구매 복원" 기능을 통해 후원 결제 내역을 유지할 수 있습니다.</li>
-        </ol>
-
-        <h2>제4조 (사용자의 의무 및 데이터 관리)</h2>
-        <ol>
-            <li>사용자는 본 앱을 불법적인 목적이나 타인의 권리를 침해하는 용도로 사용해서는 안 됩니다.</li>
-            <li>사용자는 자신의 기기와 앱 내 데이터를 스스로 관리할 책임이 있습니다.</li>
-            <li><strong>데이터 유실 주의:</strong> 기기 변경, 앱 삭제, 또는 사용자의 조작(데이터 초기화)으로 인한 데이터 유실은 복구가 불가능하므로, 중요한 기록은 사용자가 별도로 관리해야 합니다.</li>
-        </ol>
-
-        <h2>제5조 (저작권의 귀속)</h2>
-        <ol>
-            <li>앱이 제공하는 서비스, 디자인, 캐릭터(디노 등), 텍스트, 그래픽에 대한 저작권은 개발사("Walk Habit Team")에 귀속됩니다.</li>
-            <li>사용자는 서비스를 이용하며 얻은 정보를 개발사의 사전 승낙 없이 무단으로 복제, 배포하거나 영리 목적으로 이용할 수 없습니다.</li>
-        </ol>
-
-        <h2>제6조 (면책조항)</h2>
-        <ol>
-            <li>본 앱은 건강한 습관 형성을 돕는 보조 도구이며, 어떠한 경우에도 전문적인 의료 진단이나 조언을 대신할 수 없습니다. 사용자의 무리한 운동으로 인한 신체적 손상에 대해 개발사는 책임을 지지 않습니다.</li>
-            <li>개발사는 천재지변, 서버 점검(결제 관련), 통신 장애 등 불가항력적인 사유로 서비스를 일시적으로 제공할 수 없는 경우 이에 대한 책임을 면제받습니다.</li>
-            <li>사용자의 관리 부주의(기기 분실, 비밀번호 노출 등)로 인한 손해에 대하여 개발사는 책임을 지지 않습니다.</li>
-        </ol>
-
-        <h2>제7조 (서비스의 종료)</h2>
-        <p>개발사는 경영상 또는 기술상의 이유로 서비스를 종료할 수 있으며, 이 경우 앱 내 공지를 통해 사용자에게 알립니다.</p>
-
-        <h2>제8조 (준거법 및 재판관할)</h2>
-        <p>본 약관의 해석 및 적용은 <strong>미국 텍사스 주(State of Texas) 법</strong>을 따르며, 서비스 이용과 관련하여 분쟁이 발생할 경우 <strong>미국 텍사스 주 법원</strong>을 관할 법원으로 합니다.</p>
-
-        <hr>
-        <p><strong>시행일:</strong> 2026년 5월 11일</p>
-        <p><strong>문의처:</strong> ahyoung.app@gmail.com</p>
+    <main class="page">
+        <h1 class="page-title">이용약관</h1>
+        <p class="page-subtitle">Walk Habit</p>
+        <div class="policy-content">
+            
+                    <h1>이용약관 (Terms of Service)</h1>
+            
+                    <h2>제1조 (목적)</h2>
+                    <p>본 약관은 "Walk Habit" (이하 "앱")이 제공하는 서비스의 이용조건 및 절차, 사용자와 개발사의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.</p>
+            
+                    <h2>제2조 (서비스의 제공 및 변경)</h2>
+                    <ol>
+                        <li>본 앱은 사용자의 걷기 습관 형성을 돕기 위한 기록, 통계, 알림, 사진/앨범 관리, 템플릿, GIF 생성, iOS Live Activity(다이나믹 아일랜드 / 잠금 화면) 표시 등의 기능을 제공합니다. <strong>모든 기능은 무료로 제공됩니다.</strong></li>
+                        <li>개발사는 기술적 사양의 변경이나 서비스 품질 향상을 위해 제공하는 서비스의 내용을 변경할 수 있습니다.</li>
+                        <li>본 앱은 기본적으로 <strong>사용자의 기기 내</strong>에서 데이터가 처리되는 "로컬 기반" 서비스입니다. 단, 앱 내 결제 정보 등은 해당 스토어(Apple App Store 또는 Google Play Store)를 통해 관리됩니다.</li>
+                    </ol>
+            
+                    <h2>제3조 (개발자 후원 결제)</h2>
+                    <ol>
+                        <li>사용자는 앱 내 구매(In-App Purchase)를 통해 개발자에게 자발적으로 후원할 수 있습니다. 본 후원 결제는 <strong>추가 기능 잠금 해제를 제공하지 않으며</strong>, 솔로 개발자의 지속적인 개발과 운영을 응원하는 목적의 자발적 결제입니다.</li>
+                        <li>앱의 모든 기능(템플릿, GIF 생성, 사진/앨범 관리, 통계 등)은 후원 여부와 관계없이 무료로 이용할 수 있습니다.</li>
+                        <li>후원 결제는 일회성이며, 결제 금액은 해당 앱 스토어의 정책에 따릅니다.</li>
+                        <li><strong>환불 규정:</strong>
+                            <ul>
+                                <li>앱 내 결제에 대한 환불은 사용자가 이용 중인 앱 스토어(Apple/Google)의 환불 정책 및 절차에 따라 진행되어야 합니다.</li>
+                                <li>개발사는 직접적인 결제 정보를 보유하지 않으므로 직접 환불 처리가 불가능할 수 있습니다.</li>
+                            </ul>
+                        </li>
+                        <li>기기 변경 시 동일한 스토어 계정을 사용하는 경우 "구매 복원" 기능을 통해 후원 결제 내역을 유지할 수 있습니다.</li>
+                    </ol>
+            
+                    <h2>제4조 (사용자의 의무 및 데이터 관리)</h2>
+                    <ol>
+                        <li>사용자는 본 앱을 불법적인 목적이나 타인의 권리를 침해하는 용도로 사용해서는 안 됩니다.</li>
+                        <li>사용자는 자신의 기기와 앱 내 데이터를 스스로 관리할 책임이 있습니다.</li>
+                        <li><strong>데이터 유실 주의:</strong> 기기 변경, 앱 삭제, 또는 사용자의 조작(데이터 초기화)으로 인한 데이터 유실은 복구가 불가능하므로, 중요한 기록은 사용자가 별도로 관리해야 합니다.</li>
+                    </ol>
+            
+                    <h2>제5조 (저작권의 귀속)</h2>
+                    <ol>
+                        <li>앱이 제공하는 서비스, 디자인, 캐릭터(디노 등), 텍스트, 그래픽에 대한 저작권은 개발사("Walk Habit Team")에 귀속됩니다.</li>
+                        <li>사용자는 서비스를 이용하며 얻은 정보를 개발사의 사전 승낙 없이 무단으로 복제, 배포하거나 영리 목적으로 이용할 수 없습니다.</li>
+                    </ol>
+            
+                    <h2>제6조 (면책조항)</h2>
+                    <ol>
+                        <li>본 앱은 건강한 습관 형성을 돕는 보조 도구이며, 어떠한 경우에도 전문적인 의료 진단이나 조언을 대신할 수 없습니다. 사용자의 무리한 운동으로 인한 신체적 손상에 대해 개발사는 책임을 지지 않습니다.</li>
+                        <li>개발사는 천재지변, 서버 점검(결제 관련), 통신 장애 등 불가항력적인 사유로 서비스를 일시적으로 제공할 수 없는 경우 이에 대한 책임을 면제받습니다.</li>
+                        <li>사용자의 관리 부주의(기기 분실, 비밀번호 노출 등)로 인한 손해에 대하여 개발사는 책임을 지지 않습니다.</li>
+                    </ol>
+            
+                    <h2>제7조 (서비스의 종료)</h2>
+                    <p>개발사는 경영상 또는 기술상의 이유로 서비스를 종료할 수 있으며, 이 경우 앱 내 공지를 통해 사용자에게 알립니다.</p>
+            
+                    <h2>제8조 (준거법 및 재판관할)</h2>
+                    <p>본 약관의 해석 및 적용은 <strong>미국 텍사스 주(State of Texas) 법</strong>을 따르며, 서비스 이용과 관련하여 분쟁이 발생할 경우 <strong>미국 텍사스 주 법원</strong>을 관할 법원으로 합니다.</p>
+            
+                    <hr>
+                    <p><strong>시행일:</strong> 2026년 5월 11일</p>
+                    <p><strong>문의처:</strong> ahyoung.app@gmail.com</p>
+        </div>
+        <div class="page-cta">
+            <a href="index_kr.html" class="pill">홈으로</a>
+        </div>
     </main>
 
     <footer>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Walk Habit. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="index_kr.html">홈</a>
-                <a href="privacy_kr.html">개인정보 처리 방침</a>
-                <span style="opacity: 0.3; margin-left: 10px;">v1.0.14</span>
-            </div>
+        <div class="footer-inner">
+            <span>© 2026 Walk Habit. All rights reserved.</span>
+            <span>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="app-ads.txt">app-ads.txt</a>
+            </span>
         </div>
     </footer>
 </body>
-
 </html>
