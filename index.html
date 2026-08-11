@@ -212,7 +212,7 @@
         }
         .device img {
             width: 100%;
-            aspect-ratio: 207 / 448;
+            aspect-ratio: 201 / 437;
             object-fit: cover;
             display: block;
             border-radius: 35px;
@@ -237,17 +237,66 @@
             font-size: clamp(48px, 7vw, 88px);
         }
 
-        /* DUO ROW — gap=0 so the four feature tiles form a 2x2 mosaic. */
-        .duo-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
+        /* FEATURE RAIL — horizontal scroll-snap shelf. Card width is capped
+           below the 1024px container so the next card always peeks, which is
+           what tells people there is more to the right. Arrows are hidden on
+           touch devices, where swiping is the obvious gesture. */
+        .tile.features { padding-left: 0; padding-right: 0; }
+        .tile.features h2 { margin-bottom: 40px; }
+        .rail-wrap {
+            position: relative;
+            width: 100%; max-width: 1024px;
+            margin: 0 auto;
         }
-        .tile + .duo-row { margin-top: 0; }
-        .duo-row + .tile { margin-top: 0; }
-        .duo-row .tile h2 { font-size: clamp(32px, 3.5vw, 48px); }
-        .duo-row .tile .lead { font-size: 18px; }
-        .duo-row .device { width: clamp(220px, 24vw, 280px); }
+        .rail {
+            display: flex; gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            scroll-padding-inline: 24px;
+            padding: 8px 24px 24px;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+        .rail::-webkit-scrollbar { display: none; }
+        .rail-card {
+            flex: 0 0 clamp(260px, 72vw, 320px);
+            scroll-snap-align: center;
+            background: var(--tile-white);
+            border-radius: 28px;
+            padding: 32px 24px 28px;
+            display: flex; flex-direction: column; align-items: center;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .rail-card h3 {
+            font-size: 26px; font-weight: 600;
+            line-height: 1.12; letter-spacing: -0.025em;
+            margin: 0 0 10px; color: var(--ink);
+        }
+        .rail-lead {
+            font-size: 15px; line-height: 1.5;
+            color: var(--ink-soft);
+            margin: 0 0 24px;
+        }
+        .rail-card .device { width: 200px; margin-top: auto; }
+        .rail-nav {
+            position: absolute; top: 50%;
+            transform: translateY(-50%);
+            width: 40px; height: 40px;
+            border: none; border-radius: 50%;
+            background: rgba(255,255,255,0.94);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.14);
+            color: var(--ink);
+            font-size: 22px; line-height: 1;
+            cursor: pointer; z-index: 2;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.15s;
+        }
+        .rail-nav:hover { background: #fff; }
+        .rail-nav.prev { left: 2px; }
+        .rail-nav.next { right: 2px; }
+        @media (hover: none) { .rail-nav { display: none; } }
 
         /* FOOTER */
         footer {
@@ -264,7 +313,8 @@
         footer a:hover { color: var(--ink); text-decoration: underline; }
 
         @media (max-width: 720px) {
-            .duo-row { grid-template-columns: 1fr; }
+            .rail-card h3 { font-size: 24px; }
+            .tile.features h2 { margin-bottom: 28px; }
             .tile.hero h1 { font-size: 44px; }
             .tile h1, .tile h2 { font-size: 36px; }
             .tile .lead { font-size: 19px; }
@@ -311,44 +361,53 @@
             <p class="sub">No pressure. No competition.<br>Recording a rest day matters as much as recording a workout.</p>
         </section>
 
-        <!-- DUO ROW — Record-first tracking + Flexible weekly goals.
-             First tile carries id="features" for the nav anchor. -->
-        <div class="duo-row">
-            <section class="tile bg-gray" id="features">
-                <h2>Record-first<br>tracking.</h2>
-                <p class="lead">Timer, manual, or rest — all of them count.</p>
-                <div class="tile-image">
-                    <div class="device"><img src="assets/feature-track.png" alt="Record-first tracking"></div>
+        <!-- FEATURE RAIL — carries id="features" for the nav anchor.
+             Adding a feature means adding one <article>; there is no row
+             parity to keep, which is why this replaced the 2x2 duo-rows. -->
+        <section class="tile features bg-gray" id="features">
+            <h2>Features.</h2>
+            <div class="rail-wrap">
+                <button class="rail-nav prev" type="button" aria-label="Previous feature">&lsaquo;</button>
+                <div class="rail" id="featureRail" tabindex="0">
+                    <article class="rail-card">
+                        <h3>A timer that shows<br>the finish line.</h3>
+                        <p class="rail-lead">Time left, the moment you hit your goal, and how far past it you walked.</p>
+                        <div class="device"><img src="assets/feature-timer.png" alt="Timer screen showing time remaining toward the daily goal"></div>
+                    </article>
+                    <article class="rail-card">
+                        <h3>Forgot to<br>start it?</h3>
+                        <p class="rail-lead">Add the walk by hand — start time included.</p>
+                        <div class="device"><img src="assets/feature-manual.png" alt="Manual record dialog with date and start time fields"></div>
+                    </article>
+                    <article class="rail-card">
+                        <h3>Flexible<br>weekly goals.</h3>
+                        <p class="rail-lead">A different target each day — with the week's total goal time and active days at a glance.</p>
+                        <div class="device"><img src="assets/feature-goal.png" alt="Goal setup screen with per-day targets and a weekly total"></div>
+                    </article>
+                    <article class="rail-card">
+                        <h3>Rest just<br>for today.</h3>
+                        <p class="rail-lead">Mark one date as a rest day without touching your repeating schedule — stats follow along.</p>
+                        <div class="device"><img src="assets/feature-restday.png" alt="Marking a single date as a rest day"></div>
+                    </article>
+                    <article class="rail-card">
+                        <h3>This week,<br>last week.</h3>
+                        <p class="rail-lead">Step back through the arrows and the bars you actually recorded are still there.</p>
+                        <div class="device"><img src="assets/feature-stats.png" alt="Weekly stats graph with per-day achieved minutes"></div>
+                    </article>
+                    <article class="rail-card">
+                        <h3>A month<br>at a glance.</h3>
+                        <p class="rail-lead">Achieved, missed, and rest days in one view — rest days shown as part of the plan.</p>
+                        <div class="device"><img src="assets/feature-month.png" alt="Monthly calendar marking achieved, missed, and rest days"></div>
+                    </article>
+                    <article class="rail-card">
+                        <h3>Your own<br>archive.</h3>
+                        <p class="rail-lead">Every template and GIF is free. Keep the day as a picture.</p>
+                        <div class="device"><img src="assets/feature-archive.png" alt="Workout photo with a template applied"></div>
+                    </article>
                 </div>
-            </section>
-            <section class="tile bg-white">
-                <h2>Flexible<br>weekly goals.</h2>
-                <p class="lead">Different by day. Adjusted by life.</p>
-                <div class="tile-image">
-                    <div class="device"><img src="assets/feature-goal.png" alt="Flexible weekly goals"></div>
-                </div>
-            </section>
-        </div>
-
-        <!-- DUO ROW — Meaningful Stats + Personal Record Archive.
-             Backgrounds swapped vs the previous row so the page reads as
-             a checkerboard rhythm. -->
-        <div class="duo-row">
-            <section class="tile bg-white">
-                <h2>Meaningful<br>stats.</h2>
-                <p class="lead">Streaks built on showing up.</p>
-                <div class="tile-image">
-                    <div class="device"><img src="assets/feature-stats.png" alt="Meaningful stats"></div>
-                </div>
-            </section>
-            <section class="tile bg-gray">
-                <h2>Personal<br>record archive.</h2>
-                <p class="lead">Look back, anytime.</p>
-                <div class="tile-image">
-                    <div class="device"><img src="assets/feature-archive.png" alt="Personal record archive"></div>
-                </div>
-            </section>
-        </div>
+                <button class="rail-nav next" type="button" aria-label="Next feature">&rsaquo;</button>
+            </div>
+        </section>
 
         <!-- SUPPORT TILE — voluntary IAP + feedback invite. -->
         <section class="tile bg-white" id="support">
@@ -398,5 +457,23 @@
             </span>
         </div>
     </footer>
+    <!-- Arrow buttons for pointer devices. Without JS the rail is still fully
+         reachable by swipe, trackpad, and keyboard, so this is enhancement only. -->
+    <script>
+    (function () {
+        var rail = document.getElementById('featureRail');
+        if (!rail) return;
+        var card = rail.querySelector('.rail-card');
+        if (!card) return;
+        var step = function () { return card.offsetWidth + 20; };
+        var go = function (dir) {
+            return function () { rail.scrollBy({ left: dir * step(), behavior: 'smooth' }); };
+        };
+        var prev = document.querySelector('.rail-nav.prev');
+        var next = document.querySelector('.rail-nav.next');
+        if (prev) prev.addEventListener('click', go(-1));
+        if (next) next.addEventListener('click', go(1));
+    })();
+    </script>
 </body>
 </html>

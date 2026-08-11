@@ -21,8 +21,14 @@
 
 ## 범위 밖
 
-- **Walk Clip(영상 공유) 카드** — 사용자 판단으로 이번 회차에서 제외. 레일 구조상
-  나중에 `<article>` 하나만 추가하면 되므로 후속 작업 부담이 없다.
+- **Walk Clip(영상 공유) 카드** — 사용자 판단으로 이번 회차에서 제외. "운동 시작 전
+  촬영 여부" 캡처(`KO/2_*`, `EN/2_*`)는 소셜미디어 홍보용으로만 쓰기로 했으므로
+  사이트에는 넣지 않고 원본만 보관한다. 레일 구조상 나중에 `<article>` 하나만
+  추가하면 되므로 후속 작업 부담이 없다.
+
+문구 ③·⑥ 은 실제 캡처 화면과 어긋나 2026-08-11 에 수정했다. ③ 은 목표 화면이
+"실제 걸은 시간"이 아니라 `총 목표 시간`·`운동 요일` 을 보여주기 때문이고, ⑥ 은
+월간 화면의 쉬는 날이 `목표 달성` 과 구분된 별도 범례로 표시되기 때문이다.
 - 철학·후원 섹션, 헤더/푸터, 새 소식·FAQ·약관 페이지는 건드리지 않는다.
 - `docs/brand-guidelines.html` 은 대상이 아니다.
 
@@ -180,10 +186,10 @@ nav 의 `<a href="#features">` 앵커는 레일 섹션이 이어받는다.
 |---|---|---|
 | ① | **남은 시간이<br>보이는 타이머.**<br>목표까지 얼마 남았는지, 달성한 순간, 목표를 넘겨 걸은 시간까지 한눈에. | **A timer that shows<br>the finish line.**<br>Time left, the moment you hit your goal, and how far past it you walked. |
 | ② | **깜빡했어도<br>괜찮아요.**<br>타이머를 못 켰다면 시작 시간까지 직접 입력해 남기면 됩니다. | **Forgot to<br>start it?**<br>Add the walk by hand — start time included. |
-| ③ | **유연한<br>주간 목표.**<br>요일별로 다르게. 이번 주 총 목표와 실제 걸은 시간을 한 화면에서 확인합니다. | **Flexible<br>weekly goals.**<br>A different target each day — with this week's goal and actual time in one place. |
+| ③ | **유연한<br>주간 목표.**<br>요일별로 다르게. 이번 주 총 목표 시간과 운동 요일을 한눈에 확인합니다. | **Flexible<br>weekly goals.**<br>A different target each day — with the week's total goal time and active days at a glance. |
 | ④ | **오늘만<br>쉬어도 돼요.**<br>반복 목표는 그대로 두고 특정 날짜만 쉬는 날로. 통계와 달성 계산에도 반영됩니다. | **Rest just<br>for today.**<br>Mark one date as a rest day without touching your repeating schedule — stats follow along. |
 | ⑤ | **이번 주,<br>지난 주.**<br>화살표로 거슬러 올라가도 그때 기록한 막대가 그대로 남아 있습니다. | **This week,<br>last week.**<br>Step back through the arrows and the bars you actually recorded are still there. |
-| ⑥ | **한 달을<br>한 장으로.**<br>쉬는 날도 달성으로 셉니다 — 계획의 일부니까요. | **A month<br>at a glance.**<br>Rest days count as achieved too — they're part of the plan. |
+| ⑥ | **한 달을<br>한 장으로.**<br>목표 달성·미달성·쉬는 날이 한 화면에. 쉬는 날도 계획의 일부로 표시됩니다. | **A month<br>at a glance.**<br>Achieved, missed, and rest days in one view — rest days shown as part of the plan. |
 | ⑦ | **나만의<br>기록 아카이브.**<br>템플릿과 GIF 전부 무료. 그날의 기록을 사진으로 남겨보세요. | **Your own<br>archive.**<br>Every template and GIF is free. Keep the day as a picture. |
 
 신규 기능이 드러나는 지점: ③ 의 "이번 주 총 목표와 실제 걸은 시간"(1.1.6 목표 화면
