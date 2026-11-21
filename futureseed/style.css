@@ -673,27 +673,3 @@ body.kr h2 {
         padding-top: 3.2rem;
     }
 }
-
-/* 서비스 종료 안내 띠 */
-.shutdown-banner {
-    margin: 1.5rem 0 0;
-    padding: 1.4rem 1.6rem;
-    border-radius: 24px;
-    background: #fff4e5;
-    border: 1px solid #ebc9a0;
-    color: #5a3a12;
-}
-
-.shutdown-banner-title {
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    line-height: 1.45;
-    margin-bottom: 0.5rem;
-}
-
-.shutdown-banner-body {
-    font-size: 0.97rem;
-    line-height: 1.7;
-    color: #6b4a22;
-}

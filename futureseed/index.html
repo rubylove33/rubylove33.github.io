@@ -40,22 +40,6 @@
     </header>
 
     <main>
-        <!-- 서비스 종료 안내: 2026-12-20(방문자 현지 시각)부터 종료 문구로 바뀐다 -->
-        <section class="shutdown-banner" role="status" aria-label="Service shutdown notice" data-shutdown-banner
-            data-ended-title="Futureseed has shut down"
-            data-ended-body="Futureseed shut down on December 20, 2026. Thank you for being part of Futureseed. Contact: ahyoung.app@gmail.com">
-            <h2 class="shutdown-banner-title">Futureseed will shut down on December 20, 2026</h2>
-            <p class="shutdown-banner-body">From that date, none of the app&#39;s features will be available, including viewing and writing records, file export, and cloud backup and restore. If you use the app, save your records with Settings &gt; Backup &amp; Restore &gt; Export to file by December 19. Thank you for being part of Futureseed.</p>
-        </section>
-        <script>
-            (function () {
-                var banner = document.querySelector('[data-shutdown-banner]');
-                if (!banner || new Date() < new Date(2026, 11, 20)) return;
-                banner.querySelector('.shutdown-banner-title').textContent = banner.dataset.endedTitle;
-                banner.querySelector('.shutdown-banner-body').textContent = banner.dataset.endedBody;
-            })();
-        </script>
-
         <section class="hero">
             <div class="hero-copy">
                 <p class="eyebrow">Long-term goals, kept gently in motion</p>
